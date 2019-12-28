@@ -3,12 +3,4 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
-
-.idea
-*.iml
-
 Gemfile.lock
-src/tools/build/
-src/tools/Release/
-.DS_Store
-*.code-workspace
