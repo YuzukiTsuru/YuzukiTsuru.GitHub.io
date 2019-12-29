@@ -1,14 +1,26 @@
+# 网站基础设置
 title: Syter
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
+subtitle: 犬みたいに舐めても ハウスが無いよ！
+description: >- 
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# 网站仓库
+repository: QingShanAspie/QingShanAspie.Github.io
+
+# 社交媒体
 twitter_username: jekyllrb
 github_username: jekyll
+zhihu_link: 
+email: your-email@example.com
 
+# MarkDown解析器
+markdown: kramdown
+
+# 不包括的文件
 exclude:
   - .sass-cache/
   - .jekyll-cache/
@@ -16,3 +28,19 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules/
+
+# Sass
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# 压缩网页
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  ignore:
+    envs: [local]
+  blanklines: false
+  profile: false
+  startings: [html, head, body]
