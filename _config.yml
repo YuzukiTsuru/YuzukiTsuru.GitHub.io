@@ -8,6 +8,10 @@ description: >-
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
+# 作者
+auther: GloomyGhost
+copyright: 2015 - 2019
+
 # 网站仓库
 repository: QingShanAspie/QingShanAspie.Github.io
 
@@ -32,7 +36,7 @@ exclude:
 # Sass
 sass:
   sass_dir: _sass
-  style: compressed
+  style: normal
 
 # 压缩网页
 compress_html:
