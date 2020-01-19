@@ -5,9 +5,11 @@ layout: home
 {% include header.html %}
 
 <div class="g-banner home-banner {{ site.theme-color | prepend: 'banner-theme-' }}" data-theme="{{ site.theme-color }}"
-    style="{% if page.header-img %} background: url({{ page.header-img | relative_url }}) no-repeat center center; background-size: cover;{% endif %}">
-    <h2>{{ site.home-title }}</h2>
-    <h3>{{ site.description }}</h3>
+    style="background: url(http://qiu.gloomyghost.com/image/BqChPrjlxocZfLO.jpg-bannar) no-repeat center center; background-size: cover;">
+    <div class="banner-text">
+        <h2>{{ site.home-title }}</h2>
+        <h3>{{ site.description }}</h3>
+    </div>
 </div>
 
 <main class="g-container home-content">
