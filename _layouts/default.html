@@ -1,10 +1,13 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-
-<body class="is-preload"></body>
 {% include head.html %}
-{{ content }}
-{% include script.html %}
-</body>
 
+<body>
+    <div id="contentleft">
+        <input id="nm-switch" type="hidden" value="{{ site.nightMode }}">
+        {{ content }}
+        {% include footer.html %}
+    </div>
+    {% include script.html %}
+</body>
 </html>

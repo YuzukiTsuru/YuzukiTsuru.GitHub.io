@@ -1,9 +1,13 @@
-<section id="header">
-    <header>
-        <h1>{{ site.title }}</h1>
-        <p>{{ site.subtitle }}</p>
-    </header>
-    <footer>
-        <a href="#banner" class="button style2 scrolly-middle">Proceed as anticipated</a>
-    </footer>
-</section>
+<header class="g-header">
+    <div class="g-logo">
+        <a href="{{ '/' | relative_url }}"></a>
+    </div>
+    <i id="menu-toggle" class="iconfont icon-menu"></i>
+    <nav class="g-nav">
+        <ul>
+            {% for i in site.nav %}
+            <li><a href="{{ i[1] | relative_url}}">{{ i[0] }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>

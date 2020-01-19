@@ -1,7 +1,18 @@
+<script>
+    $(document).pjax('a[target!=_blank]', '#contentleft', {
+        fragment: '#contentleft',
+        timeout: 8000
+    });
+    $(document)
+        .on('pjax:start', function () {
+            $('#contentleft').css('display', 'none')
+        })
+        .on('pjax:end', function () {
+            $('#contentleft').fadeIn(300);
+        })
+</script>
+
+<script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/jquery.poptrox/2.5.1/jquery.poptrox.min.js"></script>
-<script src="{{ 'assets/js/jquery.scrolly.min.js' | relative_url }}"></script>
-<script src="{{ 'assets/js/browser.min.js' | relative_url }}"></script>
-<script src="{{ 'assets/js/breakpoints.min.js' | relative_url }}"></script>
-<script src="{{ 'assets/js/util.js' | relative_url }}"></script>
-<script src="{{ 'assets/js/main.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/prism.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/index.min.js' | relative_url }}"></script>

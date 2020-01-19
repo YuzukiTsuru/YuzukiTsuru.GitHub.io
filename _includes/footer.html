@@ -1,18 +1,12 @@
-<section id="footer">
-    <ul class="icons">
-        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-        <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-        <li><a href="#" class="icon brands fa-google-plus-g"><span class="label">Google+</span></a></li>
-        <li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
-        <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-        <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-    </ul>
-    <div class="copyright">
-        <ul class="menu">
-            <small>
-                <li>{{ site.copyright }}&copy; {{ site.auther }} All rights reserved.</li>
-                <li>Syter Theme</a></li>
-            </small>
-        </ul>
-    </div>
-</section>
+<footer class="g-footer">
+  <section>{{ site.title }} ©
+    {% assign current = "now" | date: "%Y" | plus: 0%}
+    {% unless site.footer.since and site.footer.since == current %}
+    {{ site.footer.since }}
+    -
+    {% endunless %}
+    {{ current }}
+  </section>
+  <section>Powered by <a href="//jekyllrb.com">Jekyll</a> | <a href="https://github.com/kaeyleo/jekyll-theme-H2O">Theme
+      H2O</a></section>
+</footer>
