@@ -371,12 +371,13 @@
       background-color: #eef0f4;
     }
   }
+
   .active {
     color: #8f98aa;
     background-color: #eef0f4;
   }
   #page-link-container {
-    display: inline-block;
+    float: left;
   }
 }
 
@@ -556,7 +557,7 @@
   padding: 0 0 32px;
   .highlight {
     margin: 0 0 16px;
-    /** overflow: scroll;  修复代码高亮 显示两个 scroll的问题 **/
+    scrollbar-width: thin;
   }
   img {
     transition: 0.3s;
