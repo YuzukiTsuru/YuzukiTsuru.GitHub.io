@@ -1,16 +1,17 @@
 # Site settings 配置站点
-title: 'グルーミーゴーストのブログ - GloomyGhost Blog'
+title: "グルーミーゴーストのブログ - GloomyGhost Blog"
 home-title: グルーミーゴーストのブログ
 description: 犬みたいに舐めても ハウスが無いよ！
-keyword: 'GloomyGhost, C++, CPP, JavaScript, Web, WWW, Blog'
-url: ''
-baseurl: ''
+keyword: "GloomyGhost, C++, CPP, JavaScript, Web, WWW, Blog"
+url: ""
+baseurl: ""
 
+defaultcover: https://i.loli.net/2020/01/20/cNmWL5aeQuRksKg.png
 
 # Navigation links
 nav:
-  home: '/'
-  tags: '/tags.html'
+  home: "/"
+  tags: "/tags.html"
 
 # Footer
 footer:
@@ -20,7 +21,7 @@ footer:
 author: GloomyGhost
 nickname: 蚊香豹
 bio: Singing Synthesis, Operating System, Web Develop, IOT, Psychology, 中文/English/日本語OK, Chinese <br> (｀・∀・´)
-avatar: '/assets/img/profile.png'
+avatar: "/assets/img/profile.png"
 
 # Search
 search: true
@@ -37,17 +38,20 @@ sass:
   style: compressed
 
 # theme color 主题皮肤
-theme-color: 'default'  # pink or default
+theme-color: "default" # default
 
 # Post header background patterns (when the post no cover): circuitBoard, overlappingCircles, food, glamorous, ticTacToe, seaOfClouds
-postPatterns: 'circuitBoard'
+postPatterns: "circuitBoard"
 
 # SNS settings 配置社交网站
 # url: email, weibo, zhihu, twitter, instagram, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
 sns:
-  email: 'mailto:gloomyghost@gloomyghost.com'
-  zhihu: 'https://www.zhihu.com/people/gloomyghost'
-  github: 'https://github.com/GloomyGhost-MosquitoSeal'
+  email: "mailto:gloomyghost@gloomyghost.com"
+  zhihu: "https://www.zhihu.com/people/gloomyghost"
+  github: "https://github.com/GloomyGhost-MosquitoSeal"
+  qq: "http://wpa.qq.com/msgrd?v=3&uin=2427346650&site=qq&menu=yes"
+  twitter: "https://twitter.com/GLGH_"
+  bilibili: "https://space.bilibili.com/24622028"
 
 # Tags 设置标签
 recommend-tags: true # whether or not display recommend-tags on the sidebar
@@ -55,8 +59,8 @@ recommend-condition-size: 12 # a tag will be recommended if the size of it is mo
 
 # Build settings
 paginate: 10
-paginate_path: 'page:num'
-exclude: [.gitignore', 'README.md']
+paginate_path: "page:num"
+exclude: [.gitignore', "README.md"]
 
 # Markdown
 markdown: kramdown

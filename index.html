@@ -4,8 +4,7 @@ layout: home
 
 {% include header.html %}
 
-<div class="g-banner home-banner {{ site.theme-color | prepend: 'banner-theme-' }}" data-theme="{{ site.theme-color }}"
-    style="background: url(http://qiu.gloomyghost.com/image/BqChPrjlxocZfLO.jpg-bannar) no-repeat center center; background-size: cover;">
+<div class="g-banner banner-img home-banner" data-theme="{{ site.theme-color }}">
     <div class="banner-text">
         <h2>{{ site.home-title }}</h2>
         <h3>{{ site.description }}</h3>
@@ -62,7 +61,7 @@ layout: home
                 <div>
                     <small>{{ site.nickname }}</small>
                 </div>
-                <br/>
+                <br />
                 <div class="bio">
                     <p>{{ site.bio }}</p>
                 </div>
@@ -98,5 +97,17 @@ layout: home
             <div class="search_result"></div>
         </div>
         {% endif %}
+
+        <div class="g-sidebar-ad">
+            <div class="g-sidebar">
+                <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5266662380239421"
+                    data-ad-slot="9430046549" data-ad-format="auto" data-full-width-responsive="true">
+                </ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
     </aside>
 </main>
