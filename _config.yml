@@ -11,11 +11,13 @@ defaultcover: https://i.loli.net/2020/01/20/cNmWL5aeQuRksKg.png
 # Navigation links
 nav:
   home: "/"
-  tags: "/tags.html"
+  tags: "/page/tags"
+  about: "/page/about"
+  links: "/page/links"
 
 # Footer
 footer:
-  since: 2016
+  since: 2014
 
 # Author 配置博主信息
 author: GloomyGhost

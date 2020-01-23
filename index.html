@@ -35,7 +35,7 @@ layout: home
                 <div class="post-tags">
                     {% if post.tags.size > 0 %}
                     {% for tag in post.tags  %}
-                    <a href="{{ 'tags.html#' | append: tag | relative_url }}" class="post-tag">{{ tag }}</a>
+                    <a href="{{ '/page/tags.html#' | append: tag | relative_url }}" class="post-tag">{{ tag }}</a>
                     {% endfor %}
                     {% endif %}
                 </div>
@@ -84,7 +84,7 @@ layout: home
                 {% if forloop.index > site.recommend-condition-size %}
                 {% break %}
                 {% endif %}
-                <a href="{{ 'tags.html#' | append: tag[0] | relative_url }}" class="tag">{{ tag[0]}}</a>
+                <a href="{{ '/page/tags.html#' | append: tag[0] | relative_url }}" class="tag">{{ tag[0]}}</a>
                 {% endfor %}
             </section>
             {% endif %}

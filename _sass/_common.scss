@@ -4,6 +4,12 @@
   width: $g-container-w;
 }
 
+#IfOld {
+  padding-bottom: 20px;
+  font-size: 12px;
+  color: wheat;
+}
+
 .g-header {
   position: fixed;
   top: 0;
@@ -436,7 +442,6 @@
     }
   }
   .post-meta {
-    margin-top: 32px;
     .post-meta-item {
       display: inline-block;
       font-size: 16px;
