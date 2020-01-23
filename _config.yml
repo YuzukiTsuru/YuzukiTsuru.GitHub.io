@@ -8,6 +8,8 @@ baseurl: ""
 
 defaultcover: https://i.loli.net/2020/01/20/cNmWL5aeQuRksKg.png
 
+version: 0.1
+
 # Navigation links
 nav:
   home: "/"
