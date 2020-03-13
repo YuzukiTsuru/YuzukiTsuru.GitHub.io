@@ -9,6 +9,15 @@
 			displayMath: [ ["$$", "$$"] ],
 			skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
 		}
-      });
+	  });
+	  
+	  MathJax = {
+		tex: {
+			inlineMath: [['$', '$'],
+		displayMath: [ ["$$", "$$"] ],
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+	},
+		svg: {fontCache: 'global'}
+	  };
     </script>
 {% endif %}
