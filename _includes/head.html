@@ -20,19 +20,10 @@
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <!-- Head JavaScript -->
     <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ '/assets/js/eventGray.js' | relative_url }}"></script>
     {% if site.mathjax %}
     {% if page.mathjax %}
     {% include mathjax.html %}
     {% endif %}
     {% endif %}
-    <style>
-        html {
-            -webkit-filter: grayscale(100%);
-            -moz-filter: grayscale(100%);
-            -ms-filter: grayscale(100%);
-            -o-filter: grayscale(100%);
-            filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
-            _filter: none;
-        }
-    </style>
 </head>
