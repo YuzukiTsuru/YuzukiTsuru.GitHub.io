@@ -16,15 +16,16 @@
   left: 0;
   width: 100%;
   height: $g-header-h;
-  padding: 16px 0;
+  padding: 0;
   background-color: #fff;
   transition: all 0.6s;
   z-index: 1000;
   .g-logo {
+    margin-top: 16px;
     float: left;
     margin-left: 2%;
-    width: $g-header-h;
-    height: $g-header-h;
+    width: $g-header-logo-h;
+    height: $g-header-logo-h;
     background: url("../icons/logo.svg") no-repeat center;
     background-size: 100% 100%;
     opacity: 0.8;
@@ -42,7 +43,7 @@
   .icon-menu {
     display: none;
     position: absolute;
-    top: 22px;
+    top: 8px;
     right: 0;
     padding: 8px;
     font-size: 28px;
@@ -159,7 +160,10 @@
 }
 
 .home-content {
-  margin: 40px auto 60px;
+  margin-top: 40px;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
   @include clearfix;
 }
 
