@@ -704,3 +704,31 @@
 .tree span:nth-child(4) {
     left: -107px;
 }
+
+.slow-wind .windmill-pole-ellipses-wrapper{
+    -webkit-animation-play-state: running;
+    -moz-animation-play-state: running;
+    animation-play-state: running;
+}
+.slow-wind .windmill-pole-ellipses-wrap{
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    animation-play-state: paused;
+}
+.slow-wind .clouds-wind-wrapper{
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    animation-play-state: paused; 
+}
+.slow-wind .clouds-wind-wrap{
+    -webkit-animation-play-state: running;
+    -moz-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.slow-wind .tree-wrap{
+	transform: skewX(-10deg); 
+}
+.slow-wind .tree{
+	animation-duration: 1.8s;
+}
