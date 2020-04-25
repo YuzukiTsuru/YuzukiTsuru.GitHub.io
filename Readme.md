@@ -4,3 +4,13 @@
 Based on [jekyll-theme-H2O](https://github.com/kaeyleo/jekyll-theme-H2O) Theme.
 
 Clean code and add new features
+
+## How to USE
+
+Clone the repo and run
+
+```bash
+python init.py
+```
+
+and Open `_config.yml` edit
