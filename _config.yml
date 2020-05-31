@@ -37,6 +37,9 @@ nightMode: false
 # MathJax
 mathjax: true
 
+# Plot
+plot: true
+
 # Sass
 sass:
   sass_dir: _sass
