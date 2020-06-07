@@ -37,8 +37,11 @@ nightMode: false
 # MathJax
 mathjax: true
 
-# Plot
+# Math Plot
 plot: true
+
+# Chem Plot 
+cmplot: true
 
 # Sass
 sass:

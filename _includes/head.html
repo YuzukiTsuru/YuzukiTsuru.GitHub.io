@@ -26,9 +26,16 @@
     {% include mathjax.html %}
     {% endif %}
     {% endif %}
+
     {% if site.plot %}
     {% if page.plot %}
     {% include plot.html %}
+    {% endif %}
+    {% endif %}
+
+    {% if site.cmplot %}
+    {% if page.cmplot %}
+    {% include chemplot.html %}
     {% endif %}
     {% endif %}
 </head>
