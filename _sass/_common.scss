@@ -124,8 +124,8 @@
 }
 
 @font-face {
-  font-family: FalconFont;
-  src: url("FalconFontB.ttf");
+  font-family: CustomFont;
+  src: url("font.ttf");
 }
 
 .home-banner {
@@ -141,14 +141,14 @@
   h2 {
     line-height: 38px;
     font-size: 42px;
-    font-family: FalconFont;
+    font-family: CustomFont;
     font-weight: bold;
     letter-spacing: 2px;
     line-height: 52px;
   }
   h3 {
     font-size: 20px;
-    font-family: FalconFont;
+    font-family: CustomFont;
     font-weight: normal;
     letter-spacing: 10px;
     margin-top: 8px;
