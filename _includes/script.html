@@ -1,3 +1,4 @@
+{% if site.funny_title %}
 <script>
     let titles = new Array();
     titles[0] = "你找不到我(^ω^) - ";
@@ -13,7 +14,11 @@
         };
     document.addEventListener(visibilityChangeEvent, onVisibilityChange);
 </script>
-<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+{% endif %}
+
+{% if site.hitokoto %}
+<script src="{{ site.hitokoto }}" defer></script>
+{% endif %}
 <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
 <script src="{{ '/assets/js/windyBack.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/prism.min.js' | relative_url }}"></script>

@@ -55,6 +55,7 @@ layout: default
     {{ content }}
   </article>
 
+  {% if site.ad %}
   <section class="markdown-body">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- 自动展示 -->
@@ -64,6 +65,7 @@ layout: default
       (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </section>
+  {% endif %}
 
   {% if site.social-share %}
   <div class="social-share-wrapper">
@@ -94,7 +96,9 @@ layout: default
     {% endif %}
   </section>
 
+  {% if site.zanshang %}
   {% include zanshang.html %}
+  {% endif %}
 
   <section class="post-footer-item read-next">
     {% if page.next.url %}

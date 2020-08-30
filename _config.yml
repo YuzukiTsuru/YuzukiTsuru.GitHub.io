@@ -8,9 +8,9 @@ baseurl: ""
 
 defaultcover: https://i.loli.net/2020/01/20/cNmWL5aeQuRksKg.png
 
-version: 0.2
+version: 0.3.1
 
-# Navigation links
+# Navigation links 导航链接
 nav:
   home: "/"
   tags: "/page/tags"
@@ -18,9 +18,18 @@ nav:
   links: "/page/links"
   tenebrous: "https://www.gloomyghost.com/Tenebrous/"
 
-# Footer
+# Footer 创立日前
 footer:
   since: 2014
+
+# Funny Title
+funny_title: true
+
+# beian 备案号
+beian: 滇ICP备19005195号
+
+# hitokoto url 一言地址
+hitokoto: https://v1.hitokoto.cn/?encode=js&select=%23hitokoto
 
 # Author 配置博主信息
 author: 柚木鉉
@@ -30,6 +39,12 @@ avatar: "/assets/img/profile.png"
 
 # Search
 search: true
+
+# 赞赏
+zanshang: true
+
+# advertisement 广告
+ad: true
 
 # Night mode
 nightMode: false
