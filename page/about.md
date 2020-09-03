@@ -4,9 +4,7 @@ layout: page
 mathjax: true
 ---
 
-$$
-\frac{\left(-\sqrt{\frac{50}{\pi}} \int_{-\infty}^{+\infty} e^{i \pi-\frac{x^{2}}{2}} d x\right)^{3}}{10 ^ 3} + 7 + \frac{\left(-\sqrt{\frac{50}{\pi}} \int_{-\infty}^{+\infty} e^{i \pi-\frac{x^{2}}{2}} d x\right)^{2}}{10}
-$$
+$$\frac{\left(-\sqrt{\frac{50}{\pi}} \int_{-\infty}^{+\infty} e^{i \pi-\frac{x^{2}}{2}} d x\right)^{3}}{10 ^ 3} + 7 + \frac{\left(-\sqrt{\frac{50}{\pi}} \int_{-\infty}^{+\infty} e^{i \pi-\frac{x^{2}}{2}} d x\right)^{2}}{10}$$
 
 歳，学生です
 
