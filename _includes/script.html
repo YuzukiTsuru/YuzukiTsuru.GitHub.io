@@ -10,7 +10,9 @@
         visibilityChangeEvent = hiddenProperty.replace(/hidden/i, "visibilitychange"),
         onVisibilityChange = function () {
             let list = Math.round(Math.random() * 3);
-            document[hiddenProperty] ? document.title = titles[list] + title : document.title = title;
+            setTimeout(function () {
+                document[hiddenProperty] ? document.title = titles[list] + title : document.title = title;
+            }, 300)
         };
     document.addEventListener(visibilityChangeEvent, onVisibilityChange);
 </script>

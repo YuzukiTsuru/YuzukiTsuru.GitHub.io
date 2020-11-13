@@ -1,0 +1,30 @@
+---
+title: Aliyun Promotion
+layout: default
+---
+
+{% include header.html %}
+
+<div class="g-banner tags-banner {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }}"
+    data-theme="{{ site.theme-color }}">
+    <h2>Aliyun Promotion</h2>
+</div>
+
+<main class="tags-content">
+    <ul class="tags-list">
+        {% for pro in site.data.promotion.prom %}
+        <li>
+            <span class="tag-name" id="{{ tag[0] }}">「{{ pro.name }}」</span>
+            <div class="promotion-img" onclick="promotionClick({{ pro.link }})">
+                <img src="/assets/img/prom/{{ pro.img }}">
+            </div>
+        </li>
+        {% endfor%}
+    </ul>
+</main>
+
+<script>
+    function promotionClick(url){
+        window.open(url);
+    }
+</script>

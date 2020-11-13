@@ -5,7 +5,8 @@ layout: default
 
 {% include header.html %}
 
-<div class="g-banner tags-banner {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }}" data-theme="{{ site.theme-color }}">
+<div class="g-banner tags-banner {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }}"
+    data-theme="{{ site.theme-color }}">
     <h2>TAGS</h2>
 </div>
 
@@ -13,13 +14,13 @@ layout: default
 
     <ul class="tags-list">
         <li>
-        {% if site.recommend-tags and site.tags.size>0 %}
+            {% if site.recommend-tags and site.tags.size>0 %}
             {% for tag in site.tags %}
             <a href="#{{ tag[0] }}" class="tag">{{ tag[0]}}</a>
             {% endfor %}
-        {% endif %}
+            {% endif %}
         </li>
-        
+
         {% for tag in site.tags %}
         <li>
             <span class="tag-name" id="{{ tag[0] }}">「{{ tag[0] }}」</span>

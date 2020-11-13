@@ -1,4 +1,8 @@
+{% if page.nonWindy %}
+{% else %}
 {% include windyBack.html %}
+{% endif %}
+
 <footer class="g-footer">
   {% if site.beian %}
   <section><small>{{ site.beian }}</small></section>

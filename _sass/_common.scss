@@ -923,3 +923,21 @@
 .plot {
   float: right;
 }
+
+.promotion-img {
+  width: 70%;
+  height: auto;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.promotion-img img{
+  width: 100%;
+}
+
+.promotion-tag {
+  box-shadow: 0 0 0.3px #bfc2c6;
+  float: right;
+  margin-bottom: 20px;
+}
