@@ -16,7 +16,7 @@ layout: default
         <li>
             <span class="tag-name" id="{{ tag[0] }}">「{{ pro.name }}」</span>
             <div class="promotion-img">
-                <img onclick="promotionClick({{ pro.link }})" src="/assets/img/prom/{{ pro.img }}">
+                <img onclick="promotionClick('{{ pro.link }}')" src="/assets/img/prom/{{ pro.img }}">
             </div>
         </li>
         {% endfor%}
