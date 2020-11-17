@@ -54,11 +54,12 @@ a {
   cursor: pointer;
   transition: 0.2s;
 }
+
 ::selection {
   background-color: rgba(0, 147, 254, 0.2);
 }
 ::-moz-selection {
-  background-color: rgba(0, 147, 254, 0.2);
+  background-color: rgba(5, 129, 218, 0.2);
 }
 ::-webkit-selection {
   background-color: rgba(0, 147, 254, 0.2);
