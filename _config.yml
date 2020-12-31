@@ -27,7 +27,7 @@ footer:
 funny_title: true
 
 # beian 备案号
-beian: 滇ICP备19005195号
+beian: <a href="https://beian.miit.gov.cn/">滇ICP备19005195号-1</a>
 
 # hitokoto url 一言地址
 hitokoto: https://v1.hitokoto.cn/?encode=js&select=%23hitokoto
