@@ -21,6 +21,11 @@ layout: default
             <div class="promotion-img">
                 <img onclick="promotionClick('{{ pro.link }}')" src="/assets/img/prom/{{ pro.img }}">
             </div>
+            {% if pro.desc %}
+            <div>
+                {{ pro.desc }}
+            </div>
+            {% endif %}
         </li>
         {% endfor%}
     </ul>
