@@ -8,7 +8,7 @@ layout: default
   <div class="post-wrapper">
     <div class="post-tags">
       {% if page.tags.size > 0 %}
-      {% for tag in page.tags  %}
+      {% for tag in page.tags %}
       <a href="{{ '/page/tags.html#' | append: tag | relative_url }}" class="post-tag">{{ tag }}</a>
       {% endfor %}
       {% endif %}
@@ -26,10 +26,10 @@ layout: default
           已经有一段时间了，可能出现图片缺失等情况，请注意内容在现在的环境中是否还适用！内容仅供参考！
         </p>
       </div>
-      <span class="post-meta-item"><i
-          class="iconfont icon-author"></i>{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</span>
-      <time class="post-meta-item" datetime="{{ page.date | date:'%y-%m-%d' }}"><i
-          class="iconfont icon-date"></i>{{ page.date | date_to_string }}</time>
+      <span class="post-meta-item"><i class="iconfont icon-author"></i>{% if page.author %}{{ page.author }}{% else %}{{
+        site.author }}{% endif %}</span>
+      <time class="post-meta-item" datetime="{{ page.date | date:'%y-%m-%d' }}"><i class="iconfont icon-date"></i>{{
+        page.date | date_to_string }}</time>
     </div>
   </div>
   {% if page.cover %}
