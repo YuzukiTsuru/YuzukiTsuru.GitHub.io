@@ -1,0 +1,51 @@
+.g-banner {
+    height: $g-banner-h;
+    background-color: #2f3139;
+    color: #fff;
+    padding: 0 60px;
+}
+
+.banner-img {
+    background: url(https://i.loli.net/2020/01/23/K3OoEYLrZPQHmwi.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.banner-text {
+    background: #5353537d;
+    margin-top: 170px;
+    border-radius: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+@font-face {
+    font-family: CustomFont;
+    src: url("font.ttf");
+}
+
+.home-banner {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 0.5px 3px rgba(0, 38, 55, 0.16);
+    h2,
+    h3 {
+        position: relative;
+        z-index: 1;
+    }
+    h2 {
+        line-height: 38px;
+        font-size: 42px;
+        font-family: CustomFont;
+        font-weight: bold;
+        letter-spacing: 2px;
+        line-height: 52px;
+    }
+    h3 {
+        font-size: 20px;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-top: 8px;
+    }
+}

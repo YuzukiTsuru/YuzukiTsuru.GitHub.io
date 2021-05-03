@@ -1,0 +1,17 @@
+.g-footer {
+    min-height: $g-footer-h;
+    padding: 20px 0;
+    border-top: 1px solid #e7eaf1;
+    text-align: center;
+    section {
+        font-size: 14px;
+        line-height: 20px;
+        color: #a6abb2;
+        a {
+            color: #a6abb2;
+            &:hover {
+                color: #83888f;
+            }
+        }
+    }
+}
