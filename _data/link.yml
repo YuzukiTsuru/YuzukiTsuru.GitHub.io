@@ -13,14 +13,14 @@ links:
 
   - name: Eldath
     link: https://ray-eldath.github.io
-    status: false
+    status: true
 
   - name: Spinmry实验室
     link: http://blog.spinmry.ml
     status: false
 
   - name: Glavo
-    link: http://glavo.org
+    link: https://glavo.site
     status: true
 
   - name: Ice1000
