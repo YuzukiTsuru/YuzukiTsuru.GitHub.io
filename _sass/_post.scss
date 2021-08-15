@@ -90,6 +90,11 @@
     }
 }
 
+.markdown-body-ad {
+    @extend .markdown-body;
+    width: $post-content-w;
+}
+
 .social-share-wrapper {
     float: left;
     position: relative;
