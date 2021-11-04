@@ -111,8 +111,6 @@ layout: default
       {% if page.next.cover %}
       <div class="filter"></div>
       <img src="{{ page.next.cover | relative_url }}" alt="">
-      {% else %}
-      <img src="{{ site.defaultcover | relative_url }}" alt="">
       {% endif %}
     </div>
     {% endif %}
@@ -127,8 +125,6 @@ layout: default
       {% if page.previous.cover %}
       <div class="filter"></div>
       <img src="{{ page.previous.cover | relative_url }}" alt="">
-      {% else %}
-      <img src="{{ site.defaultcover | relative_url }}" alt="">
       {% endif %}
     </div>
     {% endif %}
