@@ -23,3 +23,4 @@ jobs:
         server: ${{ secrets.FTP_SERVER_IP }}
         username: ${{ secrets.FTP_SERVER_USERNAME }}
         password: ${{ secrets.FTP_SERVER_PASSWD }}
+        local-dir: ${{ github.workspace }}/_site/
