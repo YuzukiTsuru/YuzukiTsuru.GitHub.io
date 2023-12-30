@@ -17,10 +17,11 @@ jobs:
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
 
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+    - name: 📂 Sync Files
+      uses: SamKirkland/web-deploy@v1
       with:
-        server: ${{ secrets.FTP_SERVER_IP }}
-        username: ${{ secrets.FTP_SERVER_USERNAME }}
-        password: ${{ secrets.FTP_SERVER_PASSWD }}
-        local-dir: ${{ github.workspace }}/_site/
+        target-server: ${{ secrets.FTP_SERVER_IP }}
+        remote-user: ${{ secrets.FTP_SERVER_USERNAME }}
+        private-ssh-key: ${{ secrets.FTP_SERVER_PASSWD }}
+        destination-path: /www/wwwroot/gloomyghost.com
+        source-path: ${{ github.workspace }}/_site/
