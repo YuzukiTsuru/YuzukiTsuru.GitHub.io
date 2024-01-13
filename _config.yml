@@ -15,7 +15,7 @@ nav:
   about: "/page/about"
   links: "/page/links"
   promotion: "/page/promotion"
-  tenebrous: "https://github.gloomyghost.com/Tenebrous/"
+  tenebrous: "http://github.gloomyghost.com/Tenebrous/"
 
 # Footer 创立日前
 footer:
