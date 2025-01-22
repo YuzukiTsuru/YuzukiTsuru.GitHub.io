@@ -29,7 +29,7 @@ links:
 
   - name: ArcLL
     link: http://arcll.cn
-    status: true
+    status: false
 
   - name: tea9
     link: https://tea9.github.io
@@ -41,11 +41,11 @@ links:
 
   - name: SunbossRS
     link: https://sunbossrs.github.io
-    status: true
+    status: false
 
   - name: 童年是个风筝的博客
     link: https://www.zhangqirun.cn
-    status: true
+    status: false
 
   - name: 青鸟 Blog
     link: http://blue-bird1.github.io
