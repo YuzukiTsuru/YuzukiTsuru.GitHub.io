@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  var userAgent = navigator.userAgent.toLowerCase();
-  var os = '';
+  let userAgent = navigator.userAgent.toLowerCase();
+  let os = '';
   if (userAgent.indexOf("windows") !== -1) {
     os = 'Windows';
   } else if (userAgent.indexOf("linux") !== -1) {
@@ -14,6 +14,18 @@ $(document).ready(function () {
   } else {
     os = 'Unknown OS';
   }
-  var watermark = $('<div class="watermark"><span class="line1">激活 ' + os + '</span><span class="line2">前往设置页面激活 ' + os + '</span></div>');
+
+  let language = navigator.language || navigator.languages[0];
+  let languageText_a = 'Activate';
+  let languageText_b = '';
+  if (language.startsWith('zh')) {
+    languageText_a = '激活 ';
+    languageText_b = '转到"设置"以激活 '
+  } else {
+    languageText_a = 'Activate ';
+    languageText_b = 'Go to Settings to active ';
+  }
+
+  var watermark = $('<div class="watermark"><span class="line1">' + languageText_a + os + '</span><span class="line2">前往设置页面激活 ' + os + '</span></div>');
   $('body').append(watermark);
 });
