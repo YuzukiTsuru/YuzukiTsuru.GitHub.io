@@ -44,7 +44,7 @@ search: true
 zanshang: true
 
 # advertisement 广告
-ad: true
+ad: false
 
 # Night mode
 nightMode: false
