@@ -26,6 +26,6 @@ $(document).ready(function () {
     languageText_b = 'Go to Settings to active ';
   }
 
-  var watermark = $('<div class="watermark"><span class="line1">' + languageText_a + os + '</span><span class="line2">前往设置页面激活 ' + os + '</span></div>');
+  var watermark = $('<div class="watermark"><span class="line1">' + languageText_a + os + '</span><span class="line2">' + languageText_b + os + '</span></div>');
   $('body').append(watermark);
 });
