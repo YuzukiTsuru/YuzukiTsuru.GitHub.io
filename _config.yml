@@ -58,6 +58,9 @@ plot: true
 # Chem Plot 
 cmplot: true
 
+# Activated OS
+activated_os: true
+
 # Sass
 sass:
   sass_dir: _sass
