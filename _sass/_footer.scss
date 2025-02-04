@@ -3,15 +3,37 @@
     padding: 20px 0;
     border-top: 1px solid #e7eaf1;
     text-align: center;
+
     section {
         font-size: 14px;
         line-height: 20px;
         color: #a6abb2;
+
         a {
             color: #a6abb2;
+
             &:hover {
                 color: #83888f;
             }
         }
     }
+}
+
+.watermark {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 9999;
+    pointer-events: none;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.watermark .line1 {
+    font-size: 24px;
+    display: block;
+}
+
+.watermark .line2 {
+    font-size: 18px;
+    display: block;
 }
