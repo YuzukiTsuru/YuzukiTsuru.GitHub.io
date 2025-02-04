@@ -19,10 +19,12 @@
     }
 }
 
+/* Set default display none, when screen >= 960px display */
 .watermark {
+    display: none;
     position: fixed;
-    right: 10px;
-    bottom: 10px;
+    right: 60px;
+    bottom: 60px;
     z-index: 9999;
     pointer-events: none;
     color: rgba(0, 0, 0, 0.3);
@@ -34,6 +36,6 @@
 }
 
 .watermark .line2 {
-    font-size: 18px;
+    font-size: 14px;
     display: block;
 }

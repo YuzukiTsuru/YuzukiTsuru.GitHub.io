@@ -28,11 +28,13 @@
     text-align: center;
     overflow: hidden;
     box-shadow: 0 0.5px 3px rgba(0, 38, 55, 0.16);
+
     h2,
     h3 {
         position: relative;
         z-index: 1;
     }
+
     h2 {
         line-height: 38px;
         font-size: 42px;
@@ -41,6 +43,7 @@
         letter-spacing: 2px;
         line-height: 52px;
     }
+
     h3 {
         font-size: 20px;
         font-family: "Courier New", Courier, monospace;

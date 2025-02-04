@@ -1,13 +1,16 @@
 .article-list {
     float: left;
     width: 695px;
+
     .article-item {
         width: 100%;
         margin-bottom: 16px;
         @include cardStyle;
+
         &:last-child {
             margin-bottom: 0;
         }
+
         .post-link {
             position: absolute;
             top: 0;
@@ -15,25 +18,30 @@
             width: 100%;
             height: 100%;
         }
+
         .post-cover {
             position: relative;
             width: 100%;
             max-height: 300px;
             margin-bottom: 14px;
             overflow: hidden;
+
             img {
                 width: 100%;
                 vertical-align: middle;
             }
         }
+
         .post-preview {
             position: relative;
+
             .post-title {
                 font-family: $allfonts;
                 color: $color-f-primary;
                 font-size: 24px;
                 line-height: 32px;
             }
+
             .post-subtitle {
                 margin-top: 3px;
                 font-size: 18px;
@@ -41,6 +49,7 @@
                 color: $color-brand;
                 line-height: 26px;
             }
+
             .post-excerpt {
                 margin-top: 8px;
                 font-size: 16px;
@@ -49,12 +58,15 @@
                 word-break: break-all;
             }
         }
+
         .post-meta {
             height: 22px;
             margin-top: 16px;
+
             .post-tags {
                 display: inline-block;
             }
+
             .post-date {
                 float: right;
                 color: #a9b0bc;

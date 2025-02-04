@@ -29,6 +29,7 @@
 .social-share-wrapper {
   margin: 0 auto;
 }
+
 .post-wrapper {
   width: $post-content-w;
 }
@@ -41,25 +42,30 @@
   overflow: hidden;
   background-color: #4285f4;
   z-index: 0;
+
   h1 {
     font-size: 32px;
     line-height: 42px;
     margin-bottom: 12px;
   }
+
   .post-tags {
     margin: 150px 0 16px;
+
     .post-tag {
       @include tagStyle;
       color: #fff;
       background-color: rgba(255, 255, 255, 0.26);
       box-shadow: none;
       margin-bottom: 8px;
+
       &:hover {
         color: #fff;
         background-color: rgba(255, 255, 255, 0.4);
       }
     }
   }
+
   .post-meta {
     .post-meta-item {
       display: inline-block;
@@ -67,13 +73,16 @@
       color: #fff;
       margin-right: 4px;
       opacity: 0.8;
+
       &:last-child {
         margin-right: 0;
       }
+
       .iconfont {
         font-size: 18px;
         margin-right: 4px;
       }
+
       a {
         color: #fff;
       }
@@ -105,6 +114,7 @@
 .bgcolor-default {
   background-color: $color-theme-default;
 }
+
 .bgcolor-pink {
   background-color: $color-theme-pink;
 }
@@ -112,28 +122,35 @@
 .tags-banner {
   height: 300px;
   text-align: center;
+
   h2 {
     font-size: 36px;
     line-height: 300px;
   }
 }
+
 .tags-content {
   width: 695px;
   margin: -100px auto 0;
 }
+
 .tags-list {
   padding: 40px 0;
+
   li {
     @include cardStyle;
     margin-bottom: 12px;
+
     &:first-child {
       margin-bottom: 24px;
       cursor: default;
     }
+
     .tag {
       box-shadow: 0 0 0.3px #bfc2c6;
       margin-bottom: 12px;
     }
+
     .tag-name {
       display: block;
       font-size: 20px;
@@ -141,12 +158,14 @@
       text-align: center;
       margin-bottom: 20px;
     }
+
     .tag-post {
       display: block;
       font-size: 16px;
       color: #666;
       text-align: center;
       margin: 16px auto;
+
       &:hover {
         color: #000;
       }
