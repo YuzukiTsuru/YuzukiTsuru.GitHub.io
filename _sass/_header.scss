@@ -51,11 +51,16 @@
         float: right;
         margin-right: 2%;
 
+        &>ul {
+            list-style-type: none;
+        }
+
         &>ul>li {
             float: left;
             height: $g-header-h;
             line-height: $g-header-h;
             text-transform: uppercase;
+            list-style-type: none;
             margin-right: 18px;
 
             &:last-child {
