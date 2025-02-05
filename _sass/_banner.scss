@@ -5,9 +5,18 @@
     padding: 0 60px;
 }
 
-.banner-img {
-    background: url(/assets/img/banner.jpg) no-repeat top center;
-    background-size: cover;
+@media screen and (min-width: $g-container-w) {
+    .banner-img {
+        background: url(/assets/img/banner.jpg) no-repeat top center;
+        background-size: cover;
+    }
+}
+
+@media screen and (max-width: $g-container-w) {
+    .banner-img {
+        background: url(/assets/img/banner_small.jpg) no-repeat top center;
+        background-size: cover;
+    }
 }
 
 .banner-text {
