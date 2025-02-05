@@ -19,6 +19,13 @@
     }
 }
 
+@media screen and (max-width: 695px) {
+    .banner-img {
+        background: url(/assets/img/banner_small_thin.jpg) no-repeat top center;
+        background-size: cover;
+    }
+}
+
 .banner-text {
     background: #0000007d;
     margin-top: 170px;
