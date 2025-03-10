@@ -19,11 +19,11 @@ jobs:
 
     - name: 📂 Sync Files
       uses: SamKirkland/web-deploy@v1
+      continue-on-error: true
       with:
         target-server: ${{ secrets.FTP_SERVER_IP }}
         remote-user: ${{ secrets.FTP_SERVER_USERNAME }}
         private-ssh-key: ${{ secrets.FTP_SERVER_PASSWD }}
         destination-path: /www/wwwroot/gloomyghost.com
         source-path: ${{ github.workspace }}/_site/
-        rsync-options: --archive --compress --human-readable --progress --delete-after --exclude=.git* --exclude=. --exclude=.git/ --exclude=.well-known/ --exclude=.user.ini --exclude=.gitignore --no-times
-        continue-on-error: true
+        rsync-options: --archive --compress --delete-after --exclude=.git* --exclude=. --exclude=.git/ --exclude=.well-known/ --exclude=.user.ini --exclude=.gitignore --no-times
