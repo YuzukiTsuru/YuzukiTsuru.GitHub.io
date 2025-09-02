@@ -6,13 +6,14 @@
     <meta name="keywords" content="{{ site.keyword }}">
     {% seo %}
     <link rel="icon" type="image/png" href="{{ '/assets/img/logo.png' | relative_url }}">
-    <link href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/normalize/8.0.1/normalize.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ '/assets/css/normalize.min.css' | relative_url }}">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_1620146_k6v6grhjh3q.css">
-    <link href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/github-markdown-css/3.0.1/github-markdown.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ '/assets/css/github-markdown.min.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/prism.min.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <!-- Head JavaScript -->
-    <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.4.1/jquery.min.js" type="application/javascript"></script>
+
+    <script src="{{ '/assets/js/jquery.min.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/eventGray.js' | relative_url }}"></script>
     {% if site.mathjax %}
     {% if page.mathjax %}
