@@ -1,7 +1,16 @@
 {% if site.mathjax %}
 <script>
 	MathJax = {
+		loader: {
+			paths: {
+				mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5'
+			},
+			load: ['[tex]/mhchem']
+		},
 		tex: {
+			packages: {
+				'[+]': ['mhchem']
+			},
 			inlineMath: [['$', '$']],
 			displayMath: [['\\[', '\\]']],
 			processEnvironments: true,
