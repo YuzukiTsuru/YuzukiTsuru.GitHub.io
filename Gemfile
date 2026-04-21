@@ -2,3 +2,9 @@
 source "https://rubygems.org"
 gem "jekyll"
 gem 'github-pages', group: :jekyll_plugins
+gem "csv", "~> 3.3"
+gem "base64", "~> 0.3.0"
+gem "webrick", "~> 1.9"
+gem "bigdecimal", "~> 4.1"
+gem "zlib", "~> 3.2"
+gem "openssl", "~> 4.0"
