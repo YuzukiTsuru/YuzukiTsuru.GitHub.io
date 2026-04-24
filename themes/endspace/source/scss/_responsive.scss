@@ -10,7 +10,7 @@
 }
 
 // Mobile adjustments
-@media (max-width: 767px) {
+@media (width <= 767px) {
   #theme-endspace::before {
     background-size: 30px 30px;
   }

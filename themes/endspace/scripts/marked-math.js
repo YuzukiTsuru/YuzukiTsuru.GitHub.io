@@ -12,12 +12,12 @@ hexo.extend.filter.register('marked:extensions', function (extensions) {
     },
     tokenizer(src) {
       // $$...$$ display math
-      var match = src.match(/^\$\$([\s\S]+?)\$\$/);
+      let match = src.match(/^\$\$([\s\S]+?)\$\$/);
       if (match) {
         return { type: 'math', raw: match[0], text: match[0], display: true };
       }
       // $...$ inline math — no line breaks allowed inside
-      match = src.match(/^\$([^\$\n]+?)\$/);
+      match = src.match(/^\$([^\n]+?)\$/);
       if (match) {
         return { type: 'math', raw: match[0], text: match[0], display: false };
       }

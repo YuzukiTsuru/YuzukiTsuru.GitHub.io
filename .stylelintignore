@@ -1,0 +1,5 @@
+node_modules/
+public/
+themes/endspace/source/css/
+*.min.css
+tailwind-input.css

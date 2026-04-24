@@ -1,14 +1,19 @@
 // =============================================================
 
 // Marquee watermark
-@keyframes bgMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@keyframes bg-marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .bg-watermark-scroll {
   display: inline-block;
-  animation: bgMarquee 30s linear infinite;
+  animation: bg-marquee 30s linear infinite;
   white-space: nowrap;
   line-height: 1;
 }
@@ -17,7 +22,9 @@
 .fade-enter {
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 
   &.ready {
     opacity: 1;
@@ -62,10 +69,7 @@ html.is-popstate .transition-fade {
 // Swup loading spinner
 .swup-spinner {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 5rem;
-  right: 0;
+  inset: 0 0 0 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,7 +79,7 @@ html.is-popstate .transition-fade {
   transition: opacity 0.3s ease;
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .swup-spinner {
     left: 0;
   }
@@ -91,5 +95,7 @@ html.is-popstate .transition-fade {
 }
 
 @keyframes swup-spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }

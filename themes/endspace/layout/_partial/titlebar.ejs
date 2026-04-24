@@ -17,34 +17,58 @@
   <div class="absolute inset-0">
     <picture>
       <% if (banner.image_mobile) { %>
-        <source media="(max-width: 767px)" srcset="<%= banner.image_mobile %>">
+      <source media="(max-width: 767px)" srcset="<%= banner.image_mobile %>" />
+      <% } %> <% if (banner.image_tablet) { %>
+      <source media="(max-width: 1023px)" srcset="<%= banner.image_tablet %>" />
       <% } %>
-      <% if (banner.image_tablet) { %>
-        <source media="(max-width: 1023px)" srcset="<%= banner.image_tablet %>">
-      <% } %>
-      <img src="<%= banner.image || '/images/banner.jpg' %>" alt="Banner"
-           class="w-full h-full object-cover object-right">
+      <img
+        src="<%= banner.image || '/images/banner.jpg' %>"
+        alt="Banner"
+        class="w-full h-full object-cover object-right"
+      />
     </picture>
     <div class="absolute inset-0 bg-black/30 dark:bg-black/50"></div>
   </div>
 
   <!-- Grid Overlay -->
   <div class="absolute inset-0 opacity-10 pointer-events-none">
-    <div class="absolute inset-0"
-         style="background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, var(--endspace-text-muted) 2px, var(--endspace-text-muted) 4px), repeating-linear-gradient(90deg, transparent, transparent 2px, var(--endspace-text-muted) 2px, var(--endspace-text-muted) 4px); background-size: 100px 100px;"></div>
+    <div
+      class="absolute inset-0"
+      style="
+        background-image:
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            var(--endspace-text-muted) 2px,
+            var(--endspace-text-muted) 4px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            var(--endspace-text-muted) 2px,
+            var(--endspace-text-muted) 4px
+          );
+        background-size: 100px 100px;
+      "
+    ></div>
   </div>
 
   <!-- Content Overlay (centered, flex-grow) -->
   <div class="relative z-10 flex-grow flex flex-col items-center justify-center px-6">
     <% if (banner.show_title) { %>
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-wide mb-4 text-white">
-        <%= endspace.loading_site_name || config.title || theme.author || '' %>
-      </h1>
+    <h1
+      class="text-4xl md:text-6xl lg:text-7xl font-black tracking-wide mb-4 text-white"
+      style="font-family: 'CustomTitle', sans-serif"
+    >
+      <%= endspace.loading_site_name || config.title || theme.author || '' %>
+    </h1>
     <% } %>
     <% if (config.subtitle) { %>
-      <p class="text-sm md:text-base font-mono text-white/70 tracking-widest uppercase">
-        <%= config.subtitle %>
-      </p>
+    <p class="text-sm md:text-base font-mono text-white/70 tracking-widest uppercase">
+      <%= config.subtitle %>
+    </p>
     <% } %>
   </div>
 
@@ -54,28 +78,47 @@
     <div class="py-3 px-4 space-y-1.5">
       <div class="flex justify-center items-center gap-4 text-xs font-mono">
         <% if (footer.enable_rss && config.feed) { %>
-          <a href="<%- url_for('/atom.xml') %>" target="_blank" rel="noreferrer"
-             class="flex items-center gap-1 text-gray-500 hover:text-gray-300 transition-colors">
-            <i class="fas fa-rss text-[10px]"></i><span>RSS</span>
-          </a>
+        <a
+          href="<%- url_for('/atom.xml') %>"
+          target="_blank"
+          rel="noreferrer"
+          class="flex items-center gap-1 text-gray-500 hover:text-gray-300 transition-colors"
+        >
+          <i class="fas fa-rss text-[10px]"></i><span>RSS</span>
+        </a>
         <% } %>
-        <a href="<%- url_for('/sitemap.xml') %>" target="_blank" rel="noreferrer"
-           class="flex items-center gap-1 text-gray-500 hover:text-gray-300 transition-colors">
+        <a
+          href="<%- url_for('/sitemap.xml') %>"
+          target="_blank"
+          rel="noreferrer"
+          class="flex items-center gap-1 text-gray-500 hover:text-gray-300 transition-colors"
+        >
           <i class="fas fa-sitemap text-[10px]"></i><span>SITEMAP</span>
         </a>
       </div>
-      <div class="flex justify-center items-center text-[10px] font-mono text-gray-600 gap-2 flex-wrap">
-        <span>© <%= since && since !== y ? (since + '-' + y) : y %> <%= config.author || '' %></span>
+      <div
+        class="flex justify-center items-center text-[10px] font-mono text-gray-600 gap-2 flex-wrap"
+      >
+        <span
+          >©
+          <%= since && since !== y ? (since + '-' + y) : y %>
+          <%= config.author || '' %></span
+        >
         <span class="hidden sm:inline">·</span>
         <span class="hidden sm:inline"><%= __('powered_by_hexo') %></span>
         <% if (footer.bei_an) { %>
-          <span>·</span>
-          <% if (footer.bei_an_link) { %>
-            <a href="<%= footer.bei_an_link %>" target="_blank" rel="noreferrer"
-               class="hover:text-gray-400 transition-colors"><%= footer.bei_an %></a>
-          <% } else { %>
-            <span><%= footer.bei_an %></span>
-          <% } %>
+        <span>·</span>
+        <% if (footer.bei_an_link) { %>
+        <a
+          href="<%= footer.bei_an_link %>"
+          target="_blank"
+          rel="noreferrer"
+          class="hover:text-gray-400 transition-colors"
+          ><%= footer.bei_an %></a
+        >
+        <% } else { %>
+        <span><%= footer.bei_an %></span>
+        <% } %>
         <% } %>
         <span>·</span>
         <span><%= __('eu_disclaimer') %></span>
@@ -84,37 +127,63 @@
   </footer>
 </div>
 <% } else if (!post || cover) { %>
-<div class="relative py-20 md:py-28 border-b-2 border-[var(--endspace-border-base)] overflow-hidden bg-[var(--endspace-bg-base)]">
+<div
+  class="relative py-20 md:py-28 border-b-2 border-[var(--endspace-border-base)] overflow-hidden bg-[var(--endspace-bg-base)]"
+>
   <% if (post && cover) { %>
-    <div class="absolute inset-0">
-      <img src="<%= cover %>" alt="<%= post.title || 'Cover' %>"
-           class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-black/40"></div>
-    </div>
+  <div class="absolute inset-0">
+    <img src="<%= cover %>" alt="<%= post.title || 'Cover' %>" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black/40"></div>
+  </div>
   <% } %>
 
   <div class="absolute inset-0 opacity-10 pointer-events-none">
-    <div class="absolute inset-0"
-         style="background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, var(--endspace-text-muted) 2px, var(--endspace-text-muted) 4px), repeating-linear-gradient(90deg, transparent, transparent 2px, var(--endspace-text-muted) 2px, var(--endspace-text-muted) 4px); background-size: 100px 100px;"></div>
+    <div
+      class="absolute inset-0"
+      style="
+        background-image:
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            var(--endspace-text-muted) 2px,
+            var(--endspace-text-muted) 4px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            var(--endspace-text-muted) 2px,
+            var(--endspace-text-muted) 4px
+          );
+        background-size: 100px 100px;
+      "
+    ></div>
   </div>
 
   <% if (!post) { %>
-    <div class="absolute inset-0 flex items-center opacity-[0.15] pointer-events-none overflow-hidden">
-      <div class="bg-watermark-scroll">
-        <span class="text-[10rem] md:text-[14rem] font-black text-[var(--endspace-text-primary)] select-none">
-          <% for (let i = 0; i < 6; i++) { %>
-            <%= marquee %><span class="mx-[5vw] text-[var(--endspace-text-muted)]">&#x2022;</span>
-          <% } %>
-          <%= marquee %>
-        </span>
-      </div>
+  <div
+    class="absolute inset-0 flex items-center opacity-[0.15] pointer-events-none overflow-hidden"
+  >
+    <div class="bg-watermark-scroll">
+      <span
+        class="text-[10rem] md:text-[14rem] font-black text-[var(--endspace-text-primary)] select-none"
+      >
+        <% for (let i = 0; i < 6; i++) { %> <%= marquee %><span
+          class="mx-[5vw] text-[var(--endspace-text-muted)]"
+          >&#x2022;</span
+        >
+        <% } %>
+        <%= marquee %>
+      </span>
     </div>
+  </div>
   <% } %>
 
   <% if (post && post.title && !cover) { %>
-    <div class="relative z-10 max-w-4xl mx-auto px-6 text-[var(--endspace-text-primary)]">
-      <h1 class="text-3xl md:text-5xl font-black leading-tight"><%= post.title %></h1>
-    </div>
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-[var(--endspace-text-primary)]">
+    <h1 class="text-3xl md:text-5xl font-black leading-tight"><%= post.title %></h1>
+  </div>
   <% } %>
 </div>
 <% } %>

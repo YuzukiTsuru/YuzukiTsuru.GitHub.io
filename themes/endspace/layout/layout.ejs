@@ -9,13 +9,13 @@
     <%- partial('_partial/loading-cover') %>
   <% } %>
 
-  <%- partial('_partial/sidenav') %>
-  <%- partial('_partial/mobilenav') %>
-
   <%
   const isHomepage = page.path === 'index.html';
   const showBanner = isHomepage && theme.endspace && theme.endspace.homepage_banner && theme.endspace.homepage_banner.enable;
 %>
+
+  <%- partial('_partial/sidenav') %>
+  <%- partial('_partial/mobilenav', { isHomepage: showBanner }) %>
   <div id="swup-main" class="md:ml-[5rem] flex flex-col min-h-screen transition-fade"<% if (page.mathjax) { %> data-mathjax="true"<% } %><% if (page.plot) { %> data-plot="true" data-plot-d3="<%- url_for('/js/vendor/d3.min.js') %>" data-plot-fp="<%- url_for('/js/vendor/function-plot.js') %>"<% } %>>
     <% if (showBanner) { %>
       <%- partial('_partial/titlebar', { post: null, isHomepage: true }) %>

@@ -17,6 +17,8 @@ jobs:
 
     - run: npm ci
 
+    - run: npm run lint:check
+
     - run: npm run build
 
     - name: Sync Files

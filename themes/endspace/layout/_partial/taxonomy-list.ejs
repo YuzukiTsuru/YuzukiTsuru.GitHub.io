@@ -5,16 +5,20 @@
   const wrapperClass = (typeof aicWrapper !== 'undefined' && aicWrapper) ? aicWrapper : 'endspace-card';
 %>
 <div class="<%= wrapperClass %> p-8">
-  <h2 class="text-3xl font-black text-[var(--endspace-text-primary)] mb-8 uppercase tracking-wide"><%= heading %></h2>
+  <h2 class="text-3xl font-black text-[var(--endspace-text-primary)] mb-8 uppercase tracking-wide">
+    <%= heading %>
+  </h2>
   <div class="flex flex-wrap gap-3">
     <% items.forEach(function(it){ %>
-      <a href="<%- url_for(it.path) %>" class="ef-btn group">
-        <span class="ef-btn-indicator"></span>
-        <span class="ef-btn-text"><%= prefix %><%= it.name %> · <%= it.posts ? it.posts.length : it.length %></span>
-      </a>
+    <a href="<%- url_for(it.path) %>" class="ef-btn group">
+      <span class="ef-btn-indicator"></span>
+      <span class="ef-btn-text"
+        ><%= prefix %><%= it.name %> · <%= it.posts ? it.posts.length : it.length %></span
+      >
+    </a>
     <% }); %>
     <% if (!items.length) { %>
-      <div class="text-sm text-[var(--endspace-text-muted)]"><%= __('nothing_here') %></div>
+    <div class="text-sm text-[var(--endspace-text-muted)]"><%= __('nothing_here') %></div>
     <% } %>
   </div>
 </div>

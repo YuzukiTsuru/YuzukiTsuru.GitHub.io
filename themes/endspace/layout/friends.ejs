@@ -1,21 +1,26 @@
 <div class="endspace-frame p-8 md:p-12 mb-12">
   <% if (page.title) { %>
-    <h1 class="text-3xl md:text-5xl font-black text-[var(--endspace-text-primary)] mb-6 uppercase tracking-wide">
-      <%= page.title %>
-    </h1>
+  <h1
+    class="text-3xl md:text-5xl font-black text-[var(--endspace-text-primary)] mb-6 uppercase tracking-wide"
+  >
+    <%= page.title %>
+  </h1>
   <% } %>
   <div class="friends-grid">
-    <% var friends = site.data.friends && site.data.friends.links; %>
-    <% if (friends && friends.length) { %>
-      <% friends.forEach(function(friend) { %>
-        <a href="<%= friend.link %>" target="_blank" rel="noopener"
-           class="friend-card<%= friend.status === false ? ' friend-inactive' : '' %>">
-          <div class="friend-name"><%= friend.name %></div>
-          <% if (friend.status === false) { %>
-            <span class="friend-status"><%= __('inactive') %></span>
-          <% } %>
-        </a>
-      <% }) %>
+    <% var friends = site.data.friends && site.data.friends.links; %> <% if (friends &&
+    friends.length) { %> <% friends.forEach(function(friend) { %>
+    <a
+      href="<%= friend.link %>"
+      target="_blank"
+      rel="noopener"
+      class="friend-card<%= friend.status === false ? ' friend-inactive' : '' %>"
+    >
+      <div class="friend-name"><%= friend.name %></div>
+      <% if (friend.status === false) { %>
+      <span class="friend-status"><%= __('inactive') %></span>
+      <% } %>
+    </a>
+    <% }) %>
     <% } %>
   </div>
 </div>

@@ -1,25 +1,43 @@
 <div class="mb-8">
   <div id="search-input-wrap" class="endspace-frame p-6 transition-colors">
     <form id="search-form" class="space-y-4" onsubmit="return false;">
-      <div class="flex items-center gap-2 text-[var(--endspace-text-primary)] tech-text tracking-wider">
+      <div
+        class="flex items-center gap-2 text-[var(--endspace-text-primary)] tech-text tracking-wider"
+      >
         <%- icon('search', { size: 24 }) %>
         <span class="text-4xl md:text-5xl font-black"><%= __('search') %></span>
       </div>
 
       <div class="relative group">
-        <input id="search-input" type="text" autocomplete="off"
-               placeholder="<%= __('input_query') %>"
-               class="w-full px-4 py-3 bg-[var(--endspace-bg-secondary)] border border-[var(--endspace-border-base)] text-[var(--endspace-text-primary)] focus:bg-[var(--endspace-bg-tertiary)] focus:text-black dark:focus:bg-[var(--endspace-bg-secondary)] dark:focus:text-[#FBFB45] focus:border-[var(--endspace-accent-yellow)] focus:outline-none transition-colors pr-24 tech-text text-sm placeholder-[var(--endspace-text-muted)]">
-        <button id="search-clear" type="button"
-                class="absolute right-16 top-1/2 -translate-y-1/2 text-[var(--endspace-text-muted)] hover:text-red-500 transition-colors px-2 hidden">
+        <input
+          id="search-input"
+          type="text"
+          autocomplete="off"
+          placeholder="<%= __('input_query') %>"
+          class="w-full px-4 py-3 bg-[var(--endspace-bg-secondary)] border border-[var(--endspace-border-base)] text-[var(--endspace-text-primary)] focus:bg-[var(--endspace-bg-tertiary)] focus:text-black dark:focus:bg-[var(--endspace-bg-secondary)] dark:focus:text-[#FBFB45] focus:border-[var(--endspace-accent-yellow)] focus:outline-none transition-colors pr-24 tech-text text-sm placeholder-[var(--endspace-text-muted)]"
+        />
+        <button
+          id="search-clear"
+          type="button"
+          class="absolute right-16 top-1/2 -translate-y-1/2 text-[var(--endspace-text-muted)] hover:text-red-500 transition-colors px-2 hidden"
+        >
           <%- icon('x', { size: 14 }) %>
         </button>
-        <button id="search-submit" type="submit"
-                class="absolute right-1 top-1 bottom-1 px-3 bg-[var(--endspace-bg-tertiary)] text-black hover:bg-[#FBFB45] hover:text-black transition-colors font-bold text-xs border-l border-[var(--endspace-border-base)]"><%= __('go') %></button>
+        <button
+          id="search-submit"
+          type="submit"
+          class="absolute right-1 top-1 bottom-1 px-3 bg-[var(--endspace-bg-tertiary)] text-black hover:bg-[#FBFB45] hover:text-black transition-colors font-bold text-xs border-l border-[var(--endspace-border-base)]"
+        >
+          <%= __('go') %>
+        </button>
       </div>
 
-      <div class="flex items-center justify-between text-[10px] text-[var(--endspace-text-muted)] font-mono">
-        <div><%= __('system_status') %>: <span class="text-green-500"><%= __('online') %></span></div>
+      <div
+        class="flex items-center justify-between text-[10px] text-[var(--endspace-text-muted)] font-mono"
+      >
+        <div>
+          <%= __('system_status') %>: <span class="text-green-500"><%= __('online') %></span>
+        </div>
         <div>Index_v4.2.0</div>
       </div>
     </form>
@@ -28,7 +46,10 @@
 
 <div class="w-full">
   <div id="posts-wrapper"></div>
-  <div id="search-empty" class="hidden text-sm text-[var(--endspace-text-muted)] font-mono py-8 text-center">
+  <div
+    id="search-empty"
+    class="hidden text-sm text-[var(--endspace-text-muted)] font-mono py-8 text-center"
+  >
     // <%= __('no_results') %>
   </div>
 </div>

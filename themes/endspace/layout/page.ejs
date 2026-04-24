@@ -1,16 +1,19 @@
 <div class="endspace-frame p-8 md:p-12 mb-12">
   <% if (page.title) { %>
-    <div class="flex items-center gap-4 mb-6">
-      <% if (page.path === 'aboutme/index.html') { %>
-        <img src="<%- url_for('/images/avatar.jpg') %>" alt="Avatar"
-             class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover shadow-lg flex-shrink-0">
-      <% } %>
-      <h1 class="text-3xl md:text-5xl font-black text-[var(--endspace-text-primary)] uppercase tracking-wide">
-        <%= page.title %>
-      </h1>
-    </div>
-  <% } %>
-  <div id="notion-article">
-    <%- page.content %>
+  <div class="flex items-center gap-4 mb-6">
+    <% if (page.path === 'aboutme/index.html') { %>
+    <img
+      src="<%- url_for('/images/avatar.jpg') %>"
+      alt="Avatar"
+      class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover shadow-lg flex-shrink-0"
+    />
+    <% } %>
+    <h1
+      class="text-3xl md:text-5xl font-black text-[var(--endspace-text-primary)] uppercase tracking-wide"
+    >
+      <%= page.title %>
+    </h1>
   </div>
+  <% } %>
+  <div id="notion-article"><%- page.content %></div>
 </div>

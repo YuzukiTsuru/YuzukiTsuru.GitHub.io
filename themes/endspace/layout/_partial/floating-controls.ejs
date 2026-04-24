@@ -15,27 +15,35 @@
   <div class="fc-drawer-body">
     <nav id="fc-toc" class="space-y-1">
       <% tocList.forEach(function(t){ %>
-        <a href="#<%= t.id %>"
-           class="fc-toc-item"
-           data-toc-id="<%= t.id %>"
-           style="padding-left: <%= (t.indentLevel || 0) * 12 + 8 %>px;">
-          <%= t.text %>
-        </a>
+      <a
+        href="#<%= t.id %>"
+        class="fc-toc-item"
+        data-toc-id="<%= t.id %>"
+        style="padding-left: <%= (t.indentLevel || 0) * 12 + 8 %>px"
+      >
+        <%= t.text %>
+      </a>
       <% }); %>
       <% if (!tocList.length) { %>
-        <div class="text-xs text-gray-400 italic"><%= __('no_headings') %></div>
+      <div class="text-xs text-gray-400 italic"><%= __('no_headings') %></div>
       <% } %>
     </nav>
   </div>
 </div>
 
 <div class="fc-capsule pointer-events-auto">
-    <button type="button" class="fc-btn" data-fc-action="toc" title="<%= __('table_of_contents') %>" style="<%= tocList && tocList.length ? '' : 'display:none' %>">
-      <div class="fc-btn-inner">
-        <span class="fc-percent">0%</span>
-        <span class="fc-icon-hover"><%- icon('list_tree', { size: 20 }) %></span>
-      </div>
-    </button>
+  <button
+    type="button"
+    class="fc-btn"
+    data-fc-action="toc"
+    title="<%= __('table_of_contents') %>"
+    style="<%= tocList && tocList.length ? '' : 'display:none' %>"
+  >
+    <div class="fc-btn-inner">
+      <span class="fc-percent">0%</span>
+      <span class="fc-icon-hover"><%- icon('list_tree', { size: 20 }) %></span>
+    </div>
+  </button>
   <button type="button" class="fc-btn" data-fc-action="top" title="<%= __('scroll_to_top') %>">
     <div class="fc-btn-inner"><%- icon('arrow_up', { size: 20 }) %></div>
   </button>

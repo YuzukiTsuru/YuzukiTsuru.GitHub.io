@@ -9,29 +9,48 @@
   <div class="py-3 px-4 space-y-1.5">
     <div class="flex justify-center items-center gap-4 text-xs font-mono">
       <% if (footer.enable_rss && config.feed) { %>
-        <a href="<%- url_for('/atom.xml') %>" target="_blank" rel="noreferrer"
-           class="flex items-center gap-1 text-gray-500 hover:text-gray-300 transition-colors">
-          <i class="fas fa-rss text-[10px]"></i><span>RSS</span>
-        </a>
+      <a
+        href="<%- url_for('/atom.xml') %>"
+        target="_blank"
+        rel="noreferrer"
+        class="flex items-center gap-1 text-gray-500 hover:text-gray-300 transition-colors"
+      >
+        <i class="fas fa-rss text-[10px]"></i><span>RSS</span>
+      </a>
       <% } %>
-      <a href="<%- url_for('/sitemap.xml') %>" target="_blank" rel="noreferrer"
-         class="flex items-center gap-1 text-gray-500 hover:text-gray-300 transition-colors">
+      <a
+        href="<%- url_for('/sitemap.xml') %>"
+        target="_blank"
+        rel="noreferrer"
+        class="flex items-center gap-1 text-gray-500 hover:text-gray-300 transition-colors"
+      >
         <i class="fas fa-sitemap text-[10px]"></i><span>SITEMAP</span>
       </a>
     </div>
 
-    <div class="flex justify-center items-center text-[10px] font-mono text-gray-600 gap-2 flex-wrap">
-      <span>© <%= since && since !== y ? (since + '-' + y) : y %> <%= config.author || '' %></span>
+    <div
+      class="flex justify-center items-center text-[10px] font-mono text-gray-600 gap-2 flex-wrap"
+    >
+      <span
+        >©
+        <%= since && since !== y ? (since + '-' + y) : y %>
+        <%= config.author || '' %></span
+      >
       <span class="hidden sm:inline">·</span>
       <span class="hidden sm:inline"><%= __('powered_by_hexo') %></span>
       <% if (footer.bei_an) { %>
-        <span>·</span>
-        <% if (footer.bei_an_link) { %>
-          <a href="<%= footer.bei_an_link %>" target="_blank" rel="noreferrer"
-             class="hover:text-gray-400 transition-colors"><%= footer.bei_an %></a>
-        <% } else { %>
-          <span><%= footer.bei_an %></span>
-        <% } %>
+      <span>·</span>
+      <% if (footer.bei_an_link) { %>
+      <a
+        href="<%= footer.bei_an_link %>"
+        target="_blank"
+        rel="noreferrer"
+        class="hover:text-gray-400 transition-colors"
+        ><%= footer.bei_an %></a
+      >
+      <% } else { %>
+      <span><%= footer.bei_an %></span>
+      <% } %>
       <% } %>
       <span>·</span>
       <span><%= __('eu_disclaimer') %></span>

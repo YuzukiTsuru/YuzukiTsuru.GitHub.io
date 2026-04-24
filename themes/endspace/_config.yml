@@ -22,7 +22,7 @@ endspace:
   loading_text_complete: READY
   loading_text_sweeping: LAUNCHING
   loading_text_fadeout: WELCOME
-  loading_image: /svg/cloud.svg
+  loading_image: /images/logo.png
 
   banner_watermark_text: YUZUKITSURU_SPACE
   article_watermark_text: 柚木鉉

@@ -2,8 +2,13 @@
 
 // Spinner animation
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-radar {
@@ -41,7 +46,7 @@
     top: 0;
     width: 12px;
     height: 100%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgb(255, 255, 255, 0.1);
   }
 
   .progress-fill {
@@ -50,7 +55,7 @@
     left: 0;
     width: 100%;
     height: 0%;
-    background: #FBFB45;
+    background: #fbfb45;
     transition: height 0.1s linear;
   }
 
@@ -70,14 +75,13 @@
     max-width: 240px;
     max-height: 240px;
     opacity: 0.9;
-    filter: invert(1);
   }
 
   .site-name {
-    font-family: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+    font-family: "JetBrains Mono", Consolas, Monaco, monospace;
     font-size: clamp(0.75rem, 1.5vw, 1rem);
     font-weight: 600;
-    color: #ffffff;
+    color: #fff;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     user-select: none;
@@ -97,10 +101,10 @@
   }
 
   .progress-percent {
-    font-family: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+    font-family: "JetBrains Mono", Consolas, Monaco, monospace;
     font-size: clamp(32px, 5vw, 48px);
     font-weight: 700;
-    color: #FBFB45;
+    color: #fbfb45;
     letter-spacing: 2px;
     line-height: 1;
   }
@@ -114,16 +118,16 @@
   .status-dot {
     width: 6px;
     height: 6px;
-    background: #FBFB45;
+    background: #fbfb45;
     border-radius: 50%;
     animation: lc-blink 0.8s ease-in-out infinite;
   }
 
   .status-text {
-    font-family: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+    font-family: "JetBrains Mono", Consolas, Monaco, monospace;
     font-size: 11px;
     font-weight: 500;
-    color: rgba(251, 251, 70, 0.8);
+    color: rgb(251, 251, 70, 0.8);
     letter-spacing: 2px;
     text-transform: uppercase;
   }
@@ -131,7 +135,7 @@
   .sweep-overlay {
     position: absolute;
     inset: 0;
-    background: #FBFB45;
+    background: #fbfb45;
     transform: scaleX(0);
     transform-origin: left;
     pointer-events: none;
@@ -149,17 +153,30 @@
 
 // Loading cover animations
 @keyframes lc-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
 }
 
 @keyframes lc-sweep {
-  0% { transform: scaleX(0); transform-origin: left; }
-  100% { transform: scaleX(1); transform-origin: left; }
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
 }
 
 // Mobile loading cover adjustments
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .loading-cover .center-content {
     top: 50%;
     right: auto;

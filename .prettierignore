@@ -1,0 +1,9 @@
+node_modules/
+public/
+themes/endspace/source/css/
+themes/endspace/source/js/vendor/
+*.min.js
+*.min.css
+db.json
+package-lock.json
+themes/endspace/layout/

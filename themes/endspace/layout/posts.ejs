@@ -1,6 +1,5 @@
 <div id="posts-wrapper">
-  <% page.posts.forEach(function(post){ %>
-    <%- partial('_partial/blog-post-card', { post: post }) %>
+  <% page.posts.forEach(function(post){ %> <%- partial('_partial/blog-post-card', { post: post }) %>
   <% }); %>
 </div>
 <%- partial('_partial/pagination') %>

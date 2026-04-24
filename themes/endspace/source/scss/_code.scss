@@ -57,22 +57,62 @@
 }
 
 // hljs syntax highlighting - light mode (GitHub light)
-#notion-article .hljs-comment { color: #6e7781; }
-#notion-article .hljs-string { color: #0a3069; }
-#notion-article .hljs-keyword { color: #cf222e; }
-#notion-article .hljs-function { color: #8250df; }
-#notion-article .hljs-variable { color: #953800; }
-#notion-article .hljs-number { color: #0550ae; }
-#notion-article .hljs-built_in { color: #953800; }
+#notion-article .hljs-comment {
+  color: #6e7781;
+}
+
+#notion-article .hljs-string {
+  color: #0a3069;
+}
+
+#notion-article .hljs-keyword {
+  color: #cf222e;
+}
+
+#notion-article .hljs-function {
+  color: #8250df;
+}
+
+#notion-article .hljs-variable {
+  color: #953800;
+}
+
+#notion-article .hljs-number {
+  color: #0550ae;
+}
+
+#notion-article .hljs-built_in {
+  color: #953800;
+}
 
 // hljs syntax highlighting - dark mode (GitHub dark)
-.dark #notion-article .hljs-comment { color: #8b949e; }
-.dark #notion-article .hljs-string { color: #a5d6ff; }
-.dark #notion-article .hljs-keyword { color: #ff7b72; }
-.dark #notion-article .hljs-function { color: #d2a8ff; }
-.dark #notion-article .hljs-variable { color: #ffa657; }
-.dark #notion-article .hljs-number { color: #79c0ff; }
-.dark #notion-article .hljs-built_in { color: #ffa657; }
+.dark #notion-article .hljs-comment {
+  color: #8b949e;
+}
+
+.dark #notion-article .hljs-string {
+  color: #a5d6ff;
+}
+
+.dark #notion-article .hljs-keyword {
+  color: #ff7b72;
+}
+
+.dark #notion-article .hljs-function {
+  color: #d2a8ff;
+}
+
+.dark #notion-article .hljs-variable {
+  color: #ffa657;
+}
+
+.dark #notion-article .hljs-number {
+  color: #79c0ff;
+}
+
+.dark #notion-article .hljs-built_in {
+  color: #ffa657;
+}
 
 // Inline code
 #notion-article code {
@@ -80,7 +120,7 @@
   padding: 0.2em 0.4em;
   border-radius: 6px;
   font-size: 85%;
-  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   border: 1px solid #d0d7de;
 }
 
@@ -97,7 +137,7 @@
   overflow-x: auto;
   font-size: 14px;
   line-height: 1.6;
-  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 }
 
 .dark #notion-article pre {

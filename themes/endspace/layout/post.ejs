@@ -1,16 +1,11 @@
 <div class="relative">
-  <%- partial('_partial/post-meta', { post: page }) %>
-
-  <% if (page.date) { %>
-    <%
-      var postYear = page.date.year ? page.date.year() : new Date(page.date).getFullYear();
-      var yearsOld = new Date().getFullYear() - postYear;
-    %>
-    <% if (yearsOld > 2) { %>
-      <div class="old-post-warning">
-        <span><%= __('old_post_warning', postYear, yearsOld) %></span>
-      </div>
-    <% } %>
+  <%- partial('_partial/post-meta', { post: page }) %> <% if (page.date) { %> <% var postYear =
+  page.date.year ? page.date.year() : new Date(page.date).getFullYear(); var yearsOld = new
+  Date().getFullYear() - postYear; %> <% if (yearsOld > 2) { %>
+  <div class="old-post-warning">
+    <span><%= __('old_post_warning', postYear, yearsOld) %></span>
+  </div>
+  <% } %>
   <% } %>
 
   <div id="article-wrapper" class="relative mb-12">
@@ -20,7 +15,7 @@
   </div>
 
   <% if (theme.donation && theme.donation.enable) { %>
-    <%- partial('_partial/donation') %>
+  <%- partial('_partial/donation') %>
   <% } %>
 
   <%- partial('_partial/article-adjacent', { post: page }) %>
