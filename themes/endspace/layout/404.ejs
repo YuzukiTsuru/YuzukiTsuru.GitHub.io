@@ -6,7 +6,7 @@
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-[#FBFB45] opacity-90 pointer-events-none"
           style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%)"
         ></div>
-        <div class="relative text-8xl font-black text-black z-10">404</div>
+        <div class="relative text-8xl font-black text-black dark:text-white z-10">404</div>
       </div>
       <div class="text-2xl font-bold text-[var(--endspace-text-primary)] mb-2">
         <%= __('page_not_found') %>
@@ -16,8 +16,8 @@
       </div>
     </div>
 
-    <div class="flex items-center justify-center gap-1 text-[#FBFB45] mb-8">
-      <span class="animate-spin"><%- icon('loader', { size: 16 }) %></span>
+    <div class="flex items-center justify-center gap-1 text-black dark:text-[#FBFB45] mb-8">
+      <span class="animate-spin text-black dark:text-[#FBFB45]"><%- icon('loader', { size: 16 }) %></span>
       <span class="tech-text text-sm"><%= __('redirecting_home') %></span>
     </div>
 
