@@ -12,7 +12,7 @@
   <%- partial('_partial/sidenav') %>
   <%- partial('_partial/mobilenav') %>
 
-  <div id="swup-main" class="md:ml-[5rem] flex flex-col min-h-screen transition-fade">
+  <div id="swup-main" class="md:ml-[5rem] flex flex-col min-h-screen transition-fade"<% if (page.mathjax) { %> data-mathjax="true"<% } %><% if (page.plot) { %> data-plot="true" data-plot-d3="<%- url_for('/js/vendor/d3.min.js') %>" data-plot-fp="<%- url_for('/js/vendor/function-plot.js') %>"<% } %>>
     <% if (!page.fullWidth) { %>
       <%- partial('_partial/titlebar', { post: page.layout === 'post' ? page : null }) %>
     <% } %>
@@ -34,6 +34,15 @@
 
   <%- partial('_partial/floating-controls', { aicToc: Array.isArray(page.__toc) ? page.__toc : [] }) %>
 
+  <script>window.__aicI18n = {
+    no_headings: <%- JSON.stringify(__('no_headings')) %>,
+    access: <%- JSON.stringify(__('access')) %>,
+    funny_1: <%- JSON.stringify(__('funny_1')) %>,
+    funny_2: <%- JSON.stringify(__('funny_2')) %>,
+    funny_3: <%- JSON.stringify(__('funny_3')) %>,
+    funny_4: <%- JSON.stringify(__('funny_4')) %>,
+    funny_5: <%- JSON.stringify(__('funny_5')) %>
+  };</script>
   <script src="<%- url_for('/js/swup.min.js') %>" defer></script>
   <script src="<%- url_for('/js/theme.js') %>" defer></script>
   <script src="<%- url_for('/js/search.js') %>" defer></script>

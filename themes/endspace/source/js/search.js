@@ -98,7 +98,7 @@
                 '<p class="text-[var(--endspace-text-secondary)] text-sm leading-relaxed line-clamp-3 mb-6 font-medium group-hover:text-black/70">' + highlight(summary, term) + '</p>' +
                 '<div class="mt-auto flex items-center justify-between">' +
                   '<div class="flex gap-2">' + tagsHtml + '</div>' +
-                  '<div class="flex items-center gap-2 text-[var(--endspace-text-primary)] text-xs font-bold uppercase tracking-wider group-hover:text-black"><span>Access</span></div>' +
+                  '<div class="flex items-center gap-2 text-[var(--endspace-text-primary)] text-xs font-bold uppercase tracking-wider group-hover:text-black"><span>' + (window.__aicI18n && window.__aicI18n.access || 'Access') + '</span></div>' +
                 '</div>' +
               '</div>' +
             '</div>' +

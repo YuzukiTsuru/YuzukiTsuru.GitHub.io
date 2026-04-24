@@ -2,11 +2,11 @@
   const e = theme.endspace || {};
 %>
 <div id="loading-cover" class="loading-cover"
-     data-text-init="<%= e.loading_text_init || 'INITIALIZING' %>"
-     data-text-loading="<%= e.loading_text_loading || 'LOADING' %>"
-     data-text-complete="<%= e.loading_text_complete || 'READY' %>"
-     data-text-sweeping="<%= e.loading_text_sweeping || 'LAUNCHING' %>"
-     data-text-fadeout="<%= e.loading_text_fadeout || 'WELCOME' %>">
+     data-text-init="<%= e.loading_text_init || __('loading.init') %>"
+     data-text-loading="<%= e.loading_text_loading || __('loading.loading') %>"
+     data-text-complete="<%= e.loading_text_complete || __('loading.ready') %>"
+     data-text-sweeping="<%= e.loading_text_sweeping || __('launching') %>"
+     data-text-fadeout="<%= e.loading_text_fadeout || __('welcome') %>">
 
   <div class="progress-container">
     <div class="progress-fill"></div>
@@ -23,7 +23,7 @@
     <div class="progress-percent">0%</div>
     <div class="status-line">
       <span class="status-dot"></span>
-      <span class="status-text"><%= e.loading_text_init || 'INITIALIZING' %></span>
+      <span class="status-text"><%= e.loading_text_init || __('loading.init') %></span>
     </div>
   </div>
 

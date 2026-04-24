@@ -1,6 +1,61 @@
-<%- partial('_partial/taxonomy-list', {
-  aicItems: site.tags,
-  aicHeading: 'ALL_TAGS',
-  aicPrefix: '#',
-  aicWrapper: 'endspace-frame'
-}) %>
+<%
+  const allTags = site.tags.toArray ? site.tags.toArray() : [];
+  const hot = allTags.filter(t => (t.posts ? t.posts.length : t.length) >= 4);
+  const normal = allTags.filter(t => { const n = t.posts ? t.posts.length : t.length; return n >= 2 && n < 4; });
+  const rare = allTags.filter(t => (t.posts ? t.posts.length : t.length) < 2);
+  const byCount = (a, b) => (b.posts ? b.posts.length : b.length) - (a.posts ? a.posts.length : a.length);
+  hot.sort(byCount);
+  normal.sort(byCount);
+  rare.sort(byCount);
+%>
+<div class="endspace-frame p-8 md:p-12 mb-12">
+  <h2 class="text-3xl md:text-5xl font-black text-[var(--endspace-text-primary)] mb-8 uppercase tracking-wide"><%= __('all_tags') %></h2>
+
+  <% if (hot.length) { %>
+  <div class="mb-6">
+    <div class="text-xs font-mono text-[var(--endspace-text-muted)] mb-3 uppercase tracking-widest"><%= __('frequent') %></div>
+    <div class="flex flex-wrap gap-2.5">
+      <% hot.forEach(function(tag) { const n = tag.posts ? tag.posts.length : tag.length; %>
+      <a href="<%- url_for(tag.path) %>"
+         class="tag-pill tag-pill-hot group">
+        <span>#<%= tag.name %></span>
+        <span class="tag-count"><%= n %></span>
+      </a>
+      <% }); %>
+    </div>
+  </div>
+  <% } %>
+
+  <% if (normal.length) { %>
+  <div class="mb-6">
+    <div class="text-xs font-mono text-[var(--endspace-text-muted)] mb-3 uppercase tracking-widest"><%= __('normal') %></div>
+    <div class="flex flex-wrap gap-2">
+      <% normal.forEach(function(tag) { const n = tag.posts ? tag.posts.length : tag.length; %>
+      <a href="<%- url_for(tag.path) %>"
+         class="tag-pill tag-pill-normal group">
+        <span>#<%= tag.name %></span>
+        <span class="tag-count"><%= n %></span>
+      </a>
+      <% }); %>
+    </div>
+  </div>
+  <% } %>
+
+  <% if (rare.length) { %>
+  <div>
+    <div class="text-xs font-mono text-[var(--endspace-text-muted)] mb-3 uppercase tracking-widest"><%= __('rare') %></div>
+    <div class="flex flex-wrap gap-1.5">
+      <% rare.forEach(function(tag) { %>
+      <a href="<%- url_for(tag.path) %>"
+         class="tag-pill tag-pill-rare group">
+        <span>#<%= tag.name %></span>
+      </a>
+      <% }); %>
+    </div>
+  </div>
+  <% } %>
+
+  <% if (!allTags.length) { %>
+    <div class="text-sm text-[var(--endspace-text-muted)]"><%= __('nothing_here') %></div>
+  <% } %>
+</div>

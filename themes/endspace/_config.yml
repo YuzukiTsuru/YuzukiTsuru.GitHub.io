@@ -1,13 +1,12 @@
 # Endspace theme configuration
 
-favicon: /favicon.ico
+favicon: /images/logo.png
 avatar: /images/avatar.jpg
 author: 柚木 鉉
 bio: Singing Voice Synthesis | Operating System | Web Develop | IoT
 
 menu:
   Home: /
-  Category: /categories/
   Tag: /tags/
   Archive: /archives/
   About: /aboutme/
@@ -30,6 +29,7 @@ endspace:
   menu_category: true
   menu_tag: true
   menu_archive: true
+  menu_promotion: true
   menu_search: true
 
   post_list_cover: true

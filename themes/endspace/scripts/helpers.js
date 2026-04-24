@@ -10,6 +10,7 @@ const SVG_ICONS = {
   archive: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 4h18v4H3zM4 10h16l-1.5 10a2 2 0 0 1-2 2H7.5a2 2 0 0 1-2-2L4 10Zm5 3v2h6v-2H9Z"/></svg>',
   search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
   friends: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 4c2 0 4 1.5 4 4s-2 4-4 4-4-1.5-4-4 2-4 4-4Z"/></svg>',
+  promotion: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7Z"/></svg>',
   portfolio: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4Z"/></svg>',
   menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>',
   close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5 5 19"/></svg>',
@@ -67,13 +68,12 @@ hexo.extend.helper.register('postCover', function (post) {
 hexo.extend.helper.register('themeMenu', function () {
   const e = (this.theme.endspace) || {}
   return [
-    { name: 'Home',      path: '/',            show: true },
-    { name: 'Category',  path: '/categories/', show: e.menu_category !== false },
-    { name: 'Tag',       path: '/tags/',       show: e.menu_tag !== false },
-    { name: 'Archive',   path: '/archives/',   show: e.menu_archive !== false },
-    { name: 'Portfolio', path: '/portfolio/',  show: true },
-    { name: 'Friends',   path: '/friends/',    show: true },
-    { name: 'Search',    path: '/search/',     show: e.menu_search !== false }
+    { name: this.__('menu.home'),      path: '/',            show: true },
+    { name: this.__('menu.tag'),       path: '/tags/',       show: e.menu_tag !== false },
+    { name: this.__('menu.archive'),   path: '/archives/',   show: e.menu_archive !== false },
+    { name: this.__('menu.friends'),   path: '/friends/',    show: true },
+    { name: this.__('menu.promotion'), path: '/promotion/',  show: e.menu_promotion !== false },
+    { name: this.__('menu.search'),    path: '/search/',     show: e.menu_search !== false }
   ].filter(i => i.show)
 })
 
@@ -148,7 +148,7 @@ hexo.extend.generator.register('aic_categories_index', function (locals) {
   return {
     path: 'categories/index.html',
     layout: ['categories'],
-    data: { title: 'Categories', categories: locals.categories }
+    data: { title: 'title_categories', categories: locals.categories }
   }
 })
 
@@ -156,7 +156,7 @@ hexo.extend.generator.register('aic_tags_index', function (locals) {
   return {
     path: 'tags/index.html',
     layout: ['tags'],
-    data: { title: 'Tags', tags: locals.tags }
+    data: { title: 'title_tags', tags: locals.tags }
   }
 })
 
@@ -164,7 +164,7 @@ hexo.extend.generator.register('aic_404', function () {
   return {
     path: '404.html',
     layout: ['404'],
-    data: { title: '404 - Not Found', fullWidth: false }
+    data: { title: 'title_404', fullWidth: false }
   }
 })
 
@@ -172,6 +172,6 @@ hexo.extend.generator.register('aic_search', function () {
   return {
     path: 'search/index.html',
     layout: ['search'],
-    data: { title: 'Search', __search_page: true }
+    data: { title: 'title_search', __search_page: true }
   }
 })

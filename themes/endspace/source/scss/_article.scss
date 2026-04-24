@@ -5,6 +5,15 @@
   font-size: 1.05rem;
   line-height: 1.75;
 
+  // Tailwind preflight sets svg { display: block } — breaks inline MathJax
+  mjx-container {
+    display: inline !important;
+
+    svg {
+      display: inline !important;
+    }
+  }
+
   h1,
   h2,
   h3,
@@ -50,6 +59,10 @@
     margin: 1rem 0;
   }
 
+  ul {
+    list-style-type: circle;
+  }
+
   ul li,
   ol li {
     margin-bottom: 0.5em;
@@ -58,7 +71,6 @@
 
   ul li::marker {
     color: var(--endspace-accent-cyan);
-    font-weight: bold;
   }
 
   p {

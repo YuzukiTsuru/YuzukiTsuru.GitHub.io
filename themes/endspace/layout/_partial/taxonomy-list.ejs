@@ -1,6 +1,6 @@
 <%
   const items = (typeof aicItems !== 'undefined' && aicItems && aicItems.toArray) ? aicItems.toArray() : [];
-  const heading = (typeof aicHeading !== 'undefined' && aicHeading) ? aicHeading : 'ITEMS';
+  const heading = (typeof aicHeading !== 'undefined' && aicHeading) ? aicHeading : __('items');
   const prefix = (typeof aicPrefix !== 'undefined' && aicPrefix) ? aicPrefix : '';
   const wrapperClass = (typeof aicWrapper !== 'undefined' && aicWrapper) ? aicWrapper : 'endspace-card';
 %>
@@ -14,7 +14,7 @@
       </a>
     <% }); %>
     <% if (!items.length) { %>
-      <div class="text-sm text-[var(--endspace-text-muted)]">Nothing here yet.</div>
+      <div class="text-sm text-[var(--endspace-text-muted)]"><%= __('nothing_here') %></div>
     <% } %>
   </div>
 </div>

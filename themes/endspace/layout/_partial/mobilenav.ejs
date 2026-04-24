@@ -5,14 +5,14 @@
 %>
 <nav class="fixed top-0 left-0 right-0 z-50 md:hidden bg-white dark:bg-[#18181b] border-b border-[var(--endspace-border-base)] safe-area-top">
   <div class="flex items-center justify-between h-20 px-5">
-    <a href="<%- url_for('/aboutme/') %>" title="Profile" class="flex-shrink-0 flex items-center">
+    <a href="<%- url_for('/aboutme/') %>" title="<%= __('profile') %>" class="flex-shrink-0 flex items-center">
       <div class="w-14 h-14 rounded-full overflow-hidden">
         <img src="<%- url_for(theme.avatar || '/images/avatar.svg') %>" alt="Avatar" class="w-full h-full object-cover">
       </div>
     </a>
     <button id="mobilenav-toggle"
             class="w-14 h-14 flex items-center justify-center text-[var(--endspace-text-primary)]"
-            aria-label="Toggle Menu">
+            aria-label="<%= __('toggle_menu') %>">
       <span class="icon-open"><%- icon('menu', { size: 28 }) %></span>
       <span class="icon-close hidden"><%- icon('close', { size: 28 }) %></span>
     </button>

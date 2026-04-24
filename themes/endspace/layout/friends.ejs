@@ -12,7 +12,7 @@
            class="friend-card<%= friend.status === false ? ' friend-inactive' : '' %>">
           <div class="friend-name"><%= friend.name %></div>
           <% if (friend.status === false) { %>
-            <span class="friend-status">Inactive</span>
+            <span class="friend-status"><%= __('inactive') %></span>
           <% } %>
         </a>
       <% }) %>

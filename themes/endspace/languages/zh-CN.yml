@@ -1,0 +1,107 @@
+# Menu
+menu.home: 首页
+menu.tag: 标签
+menu.archive: 归档
+menu.friends: 友链
+menu.promotion: 推广
+menu.search: 搜索
+
+# Loading cover
+loading.init: 初始化中
+loading.loading: 加载中
+loading.ready: 就绪
+launching: 启动中
+welcome: 欢迎
+
+# 404
+page_not_found: 页面未找到
+404_description: 请求的资源无法定位
+redirecting_home: 正在返回首页...
+return_home: 返回首页
+error: 错误
+code_404: 代码: 404
+status_not_found: 状态: 未找到
+
+# Article
+doc_id: 文档编号 //
+online: 在线
+updated: 更新:
+chars: 字符
+prev_post: 上一篇
+next_post: 下一篇
+no_prev_article: 没有上一篇文章
+no_next_article: 没有下一篇文章
+navigation_related: 导航 // 相关文章
+access: 访问
+log_access: 日志访问
+
+# Post meta / warning
+old_post_warning: 这篇文章写于 %s，已经超过 %s 年了。内容可能已经过时。
+
+# Donation
+donation: 赞赏
+wechat: 微信
+alipay: 支付宝
+
+# Footer
+powered_by_hexo: 由 Hexo 驱动
+eu_disclaimer: 根据相关法律法规，本站不对欧盟用户提供服务。
+
+# Search
+search: 搜索
+input_query: 输入查询...
+go: 搜索
+system_status: 系统状态
+no_results: 无结果
+
+# Archive
+undated: 未标注日期
+entries_found: 条记录已找到
+status_archived: 状态: 已归档
+
+# Categories & Tags
+all_categories: 全部分类
+all_tags: 全部标签
+category: 分类:
+tag: 标签:
+entries: 条目
+items: 项目
+nothing_here: 这里还没有内容。
+frequent: 常用
+normal: 普通
+rare: 稀有
+
+# Friends
+inactive: 已停用
+
+# Floating controls
+table_of_contents: 目录
+close: 关闭
+no_headings: 暂无标题
+scroll_to_top: 回到顶部
+toggle_theme: 切换主题
+
+# Sidenav & Mobilenav
+profile: 个人资料
+toggle_menu: 切换菜单
+expand: 展开
+toggle_sidebar: 切换侧边栏
+
+# Pagination
+first_page: 第一页
+previous_page: 上一页
+next_page: 下一页
+last_page: 最后一页
+
+# Funny title
+funny_1: (≧∇≦) 不要走！
+funny_2: 快回来！ಥ_ಥ
+funny_3: 你还有未读的文章哦～
+funny_4: 页面已崩溃！ (...才怪)
+funny_5: 我在这里等你 (つ≧▽≦)つ
+
+# Page titles
+title_categories: 分类
+title_tags: 标签
+title_404: 404 - 页面未找到
+title_search: 搜索

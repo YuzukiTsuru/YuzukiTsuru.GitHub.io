@@ -1,0 +1,107 @@
+# Menu
+menu.home: Home
+menu.tag: Tag
+menu.archive: Archive
+menu.friends: Friends
+menu.promotion: Promotion
+menu.search: Search
+
+# Loading cover
+loading.init: INITIALIZING
+loading.loading: LOADING
+loading.ready: READY
+launching: LAUNCHING
+welcome: WELCOME
+
+# 404
+page_not_found: PAGE_NOT_FOUND
+404_description: The requested resource could not be located
+redirecting_home: Redirecting to home...
+return_home: RETURN_HOME
+error: ERROR
+code_404: CODE: 404
+status_not_found: STATUS: NOT_FOUND
+
+# Article
+doc_id: DOC_ID //
+online: ONLINE
+updated: UPDATED:
+chars: CHARS
+prev_post: PREV_POST
+next_post: NEXT_POST
+no_prev_article: NO_PREV_ARTICLE
+no_next_article: NO_NEXT_ARTICLE
+navigation_related: NAVIGATION // Related Articles
+access: Access
+log_access: LOG_ACCESS
+
+# Post meta / warning
+old_post_warning: This article was written in %s, over %s years ago. Content may be outdated.
+
+# Donation
+donation: DONATION
+wechat: WeChat
+alipay: Alipay
+
+# Footer
+powered_by_hexo: Powered by Hexo
+eu_disclaimer: According to relevant laws and regulations, this site does not provide services to EU users.
+
+# Search
+search: SEARCH
+input_query: Input query...
+go: GO
+system_status: SYSTEM_STATUS
+no_results: NO_RESULTS
+
+# Archive
+undated: Undated
+entries_found: _ENTRIES_FOUND
+status_archived: STATUS: ARCHIVED
+
+# Categories & Tags
+all_categories: ALL_CATEGORIES
+all_tags: ALL_TAGS
+category: CATEGORY:
+tag: TAG:
+entries: _ENTRIES
+items: ITEMS
+nothing_here: Nothing here yet.
+frequent: Frequent
+normal: Normal
+rare: Rare
+
+# Friends
+inactive: Inactive
+
+# Floating controls
+table_of_contents: Table of Contents
+close: Close
+no_headings: No headings
+scroll_to_top: Scroll To Top
+toggle_theme: Toggle theme
+
+# Sidenav & Mobilenav
+profile: Profile
+toggle_menu: Toggle Menu
+expand: Expand
+toggle_sidebar: Toggle sidebar
+
+# Pagination
+first_page: First Page
+previous_page: Previous Page
+next_page: Next Page
+last_page: Last Page
+
+# Funny title
+funny_1: (≧∇≦) Don't go!
+funny_2: Come back! ಥ_ಥ
+funny_3: You still have unread articles~
+funny_4: Page crashed! (...just kidding)
+funny_5: Waiting for you here (つ≧▽≦)つ
+
+# Page titles
+title_categories: Categories
+title_tags: Tags
+title_404: 404 - Not Found
+title_search: Search

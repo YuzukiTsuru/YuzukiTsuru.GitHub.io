@@ -8,11 +8,11 @@
 <div class="mb-10 w-full">
   <div class="mb-6 relative">
     <div class="flex items-center gap-3 mb-6 text-xs font-mono text-[var(--endspace-text-muted)] border-b border-[var(--endspace-border-base)] pb-2">
-      <span class="font-bold text-[var(--endspace-text-primary)]">DOC_ID // <%= docId(post) %></span>
+      <span class="font-bold text-[var(--endspace-text-primary)]"><%= __('doc_id') %> <%= docId(post) %></span>
       <span class="flex-1"></span>
       <span class="flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-        ONLINE
+        <%= __('online') %>
       </span>
     </div>
 
@@ -24,7 +24,7 @@
       </div>
       <% if (updatedStr && updatedStr !== dateStr) { %>
         <div class="flex items-center gap-2">
-          <%- icon('refresh', { size: 14 }) %><span>UPDATED: <%= updatedStr %></span>
+          <%- icon('refresh', { size: 14 }) %><span><%= __('updated') %> <%= updatedStr %></span>
         </div>
       <% } %>
       <% if (categoryName) { %>
@@ -35,7 +35,7 @@
       <% } %>
       <div class="flex items-center gap-2">
         <%- icon('file_text', { size: 14 }) %>
-        <span><%= wordCount %> CHARS</span>
+        <span><%= wordCount %> <%= __('chars') %></span>
       </div>
       <% if (tagItems.length) { %>
         <div class="flex items-center gap-2 ml-auto">

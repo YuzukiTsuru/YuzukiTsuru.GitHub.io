@@ -5,30 +5,30 @@
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-[#FBFB45] opacity-90 pointer-events-none" style="clip-path: polygon(50% 0%, 0% 100%, 100% 100%);"></div>
         <div class="relative text-8xl font-black text-black z-10">404</div>
       </div>
-      <div class="text-2xl font-bold text-[var(--endspace-text-primary)] mb-2">PAGE_NOT_FOUND</div>
-      <div class="text-[var(--endspace-text-muted)] text-sm font-mono">The requested resource could not be located</div>
+      <div class="text-2xl font-bold text-[var(--endspace-text-primary)] mb-2"><%= __('page_not_found') %></div>
+      <div class="text-[var(--endspace-text-muted)] text-sm font-mono"><%= __('404_description') %></div>
     </div>
 
     <div class="flex items-center justify-center gap-1 text-[#FBFB45] mb-8">
       <span class="animate-spin"><%- icon('loader', { size: 16 }) %></span>
-      <span class="tech-text text-sm">Redirecting to home...</span>
+      <span class="tech-text text-sm"><%= __('redirecting_home') %></span>
     </div>
 
     <a href="<%- url_for('/') %>">
       <button class="endspace-button-primary px-8 py-3">
-        <span class="tech-text">RETURN_HOME</span>
+        <span class="tech-text"><%= __('return_home') %></span>
       </button>
     </a>
 
     <div class="mt-8 pt-8 border-t border-gray-800 flex items-center justify-center gap-4 text-xs text-gray-600 tech-text">
       <div class="flex items-center gap-1">
         <div class="w-2 h-2 bg-red-500 rounded-full"></div>
-        <span>ERROR</span>
+        <span><%= __('error') %></span>
       </div>
       <span>|</span>
-      <div>CODE: 404</div>
+      <div><%= __('code_404') %></div>
       <span>|</span>
-      <div>STATUS: NOT_FOUND</div>
+      <div><%= __('status_not_found') %></div>
     </div>
   </div>
 </div>

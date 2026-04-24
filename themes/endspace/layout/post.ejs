@@ -8,7 +8,7 @@
     %>
     <% if (yearsOld > 2) { %>
       <div class="old-post-warning">
-        <span>This article was written in <%- postYear %>, over <%- yearsOld %> years ago. Content may be outdated.</span>
+        <span><%= __('old_post_warning', postYear, yearsOld) %></span>
       </div>
     <% } %>
   <% } %>

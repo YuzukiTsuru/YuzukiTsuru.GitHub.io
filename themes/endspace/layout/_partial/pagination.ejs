@@ -9,11 +9,11 @@
     return url_for(n <= 1 ? prefix + '/' : prefix + '/' + pageDir + '/' + n + '/');
   };
   const items = [
-    { href: pageUrl(1),           disabled: current === 1,     icon: 'chevrons_left',  label: 'First Page' },
-    { href: pageUrl(current - 1), disabled: current === 1,     icon: 'chevron_left',   label: 'Previous Page' },
+    { href: pageUrl(1),           disabled: current === 1,     icon: 'chevrons_left',  label: __('first_page') },
+    { href: pageUrl(current - 1), disabled: current === 1,     icon: 'chevron_left',   label: __('previous_page') },
     null,
-    { href: pageUrl(current + 1), disabled: current === total, icon: 'chevron_right',  label: 'Next Page' },
-    { href: pageUrl(total),       disabled: current === total, icon: 'chevrons_right', label: 'Last Page' }
+    { href: pageUrl(current + 1), disabled: current === total, icon: 'chevron_right',  label: __('next_page') },
+    { href: pageUrl(total),       disabled: current === total, icon: 'chevrons_right', label: __('last_page') }
   ];
 %>
 <div class="mt-12 py-6 flex flex-col items-center">

@@ -5,6 +5,8 @@ layout: page
 
 始めまして,どうぞ宜しくお愿いします
 
+Singing Voice Synthesis | Operating System | Web Develop | IoT
+
 ## 主要做
 
 ### 嵌入式

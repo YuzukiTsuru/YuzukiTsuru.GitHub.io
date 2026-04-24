@@ -23,7 +23,7 @@
     <div class="flex justify-center items-center text-[10px] font-mono text-gray-600 gap-2 flex-wrap">
       <span>© <%= since && since !== y ? (since + '-' + y) : y %> <%= config.author || '' %></span>
       <span class="hidden sm:inline">·</span>
-      <span class="hidden sm:inline">Powered by Hexo</span>
+      <span class="hidden sm:inline"><%= __('powered_by_hexo') %></span>
       <% if (footer.bei_an) { %>
         <span>·</span>
         <% if (footer.bei_an_link) { %>
@@ -34,7 +34,7 @@
         <% } %>
       <% } %>
       <span>·</span>
-      <span>According to relevant laws and regulations, this site does not provide services to EU users.</span>
+      <span><%= __('eu_disclaimer') %></span>
     </div>
   </div>
 </footer>

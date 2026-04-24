@@ -160,9 +160,12 @@
       });
       if (author) {
         author.classList.toggle('opacity-100', on);
-        author.classList.toggle('max-h-40', on);
         author.classList.toggle('opacity-0', !on);
-        author.classList.toggle('max-h-0', !on);
+        if (on) {
+          author.style.maxHeight = author.scrollHeight + 'px';
+        } else {
+          author.style.maxHeight = '0';
+        }
       }
       if (expanded) {
         expanded.classList.toggle('opacity-100', on);
@@ -455,7 +458,7 @@
                 tocBtn.style.animation = '';
               }
           } else {
-            tocNav.innerHTML = '<div class="text-xs text-gray-400 italic">No headings</div>';
+            tocNav.innerHTML = '<div class="text-xs text-gray-400 italic">' + (window.__aicI18n && window.__aicI18n.no_headings || 'No headings') + '</div>';
             if (tocBtn) {
               tocBtn.classList.add('fc-btn-exit');
               setTimeout(function() { tocBtn.style.display = 'none'; tocBtn.classList.remove('fc-btn-exit'); }, 300);
@@ -484,6 +487,59 @@
 
       // Re-init donation toggle
       if (window.__aicInitDonation) window.__aicInitDonation();
+
+      // Re-init MathJax if the new page needs it
+      var swupMain = doc.getElementById('swup-main');
+      if (swupMain && swupMain.getAttribute('data-mathjax') === 'true') {
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          // MathJax loaded — clear old rendering then re-typeset
+          MathJax.typesetClear([doc.getElementById('swup-content')]);
+          MathJax.typesetPromise([doc.getElementById('swup-content')]).catch(function (err) {
+            console.warn('MathJax typeset failed:', err);
+          });
+        } else {
+          // MathJax not loaded — dynamically load it with the same config as head.ejs
+          window.MathJax = {
+            tex: { inlineMath: [['$', '$']], displayMath: [['\\[', '\\]']], processEnvironments: true, processRefs: true },
+            options: { skipHtmlTags: ['noscript', 'style', 'textarea', 'pre', 'code'], ignoreHtmlClass: 'tex2jax_ignore' },
+            svg: { fontCache: 'global' },
+            loader: { load: ['[tex]/mhchem'] },
+            startup: {
+              typeset: true,
+              elements: [doc.getElementById('swup-content')]
+            }
+          };
+          var mjScript = doc.createElement('script');
+          mjScript.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
+          mjScript.async = true;
+          doc.head.appendChild(mjScript);
+        }
+      }
+
+      // Re-init plot (function-plot) if the new page needs it
+      if (swupMain && swupMain.getAttribute('data-plot') === 'true') {
+        var d3Src = swupMain.getAttribute('data-plot-d3');
+        var fpSrc = swupMain.getAttribute('data-plot-fp');
+        function loadScript(src, cb) {
+          var existing = doc.querySelector('script[src="' + src + '"]');
+          if (existing) { cb(); return; }
+          var s = doc.createElement('script');
+          s.src = src;
+          s.onload = cb;
+          doc.head.appendChild(s);
+        }
+        loadScript(d3Src, function () {
+          loadScript(fpSrc, function () {
+            doc.querySelectorAll('#swup-content script').forEach(function (el) {
+              if (el.textContent.indexOf('functionPlot') !== -1) {
+                var ns = doc.createElement('script');
+                ns.textContent = el.textContent;
+                el.parentNode.replaceChild(ns, el);
+              }
+            });
+          });
+        });
+      }
     });
   })();
 
@@ -492,7 +548,13 @@
     var funnyEl = doc.querySelector('[data-funny-title]');
     if (!funnyEl) return;
     var origTitle = doc.title;
-    var funnyTexts = [
+    var funnyTexts = window.__aicI18n ? [
+      window.__aicI18n.funny_1,
+      window.__aicI18n.funny_2,
+      window.__aicI18n.funny_3,
+      window.__aicI18n.funny_4,
+      window.__aicI18n.funny_5
+    ] : [
       '(≧∇≦) 不要走！',
       '快回来！ಥ_ಥ',
       '你还有未读的文章哦～',
