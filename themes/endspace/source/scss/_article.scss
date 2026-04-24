@@ -149,17 +149,18 @@
   cursor: pointer;
   transition: all 0.2s;
 
-  &:hover {
-    background: var(--endspace-accent-cyan-dim);
-    color: var(--endspace-accent-cyan);
-    border-color: var(--endspace-accent-cyan);
-  }
-
+  &:hover,
   &.active {
     background: var(--endspace-accent-cyan-dim);
-    color: var(--endspace-accent-cyan);
-    border-color: var(--endspace-accent-cyan);
+    color: var(--endspace-text-primary);
+    border-color: var(--endspace-text-primary);
   }
+}
+
+.dark .donation-btn:hover,
+.dark .donation-btn.active {
+  color: var(--endspace-accent-cyan);
+  border-color: var(--endspace-accent-cyan);
 }
 
 .donation-qrcode-panel {

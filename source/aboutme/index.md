@@ -11,8 +11,8 @@ Singing Voice Synthesis | Operating System | Web Develop | IoT
 
 ### 嵌入式开发
 
-- Tina Linux SDK 开发与适配
-- SyterKit Bootloader 开发
+- Linux BSP 开发与适配
+- SyterKit 裸机开发
 - 主线 Linux 内核适配
 - HIFI5 DSP 开发
 - NPU/OpenCV 应用
