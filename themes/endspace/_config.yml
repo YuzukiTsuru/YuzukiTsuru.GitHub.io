@@ -1,12 +1,13 @@
 # Endspace theme configuration
 
 favicon: /images/logo.png
-avatar: /images/avatar.jpg
+avatar: /images/logo.png
 author: 柚木 鉉
 bio: Singing Voice Synthesis | Operating System | Web Develop | IoT
 
 menu:
   Home: /
+  Posts: /posts/
   Tag: /tags/
   Archive: /archives/
   About: /aboutme/
@@ -25,6 +26,17 @@ endspace:
 
   banner_watermark_text: YUZUKITSURU_SPACE
   article_watermark_text: 柚木鉉
+
+  homepage_banner:
+    enable: true
+    image: /images/banner.jpg
+    # Responsive images for different screen sizes
+    image_tablet: /images/banner_small.jpg      # For tablets and medium screens
+    image_mobile: /images/banner_small_thin.jpg # For mobile devices
+    show_title: true
+    show_bio: true
+    show_scroll_hint: false
+    scroll_hint_text: SCROLL TO EXPLORE
 
   menu_category: true
   menu_tag: true

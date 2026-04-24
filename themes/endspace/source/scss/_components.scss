@@ -265,9 +265,15 @@
 }
 
 // Promotion page
+.promotion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
 .promotion-card {
   display: block;
-  padding: 1.5rem;
+  padding: 0.75rem;
   background: var(--endspace-bg-secondary);
   border: 1px solid var(--endspace-border-base);
   border-radius: 4px;
@@ -284,7 +290,7 @@
 .promotion-img {
   max-width: 100%;
   border-radius: 2px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .promotion-name {

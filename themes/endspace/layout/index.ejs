@@ -1,6 +1,13 @@
+<%
+  const banner = theme.endspace && theme.endspace.homepage_banner;
+%>
+
+<% if (banner && banner.enable) { %>
+<% } else { %>
 <div id="posts-wrapper">
   <% page.posts.each(function(post){ %>
     <%- partial('_partial/blog-post-card', { post: post }) %>
   <% }); %>
 </div>
 <%- partial('_partial/pagination') %>
+<% } %>

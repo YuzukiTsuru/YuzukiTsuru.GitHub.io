@@ -1,15 +1,19 @@
 # Menu
-menu.home: 首页
-menu.tag: 标签
-menu.archive: 归档
-menu.friends: 友链
-menu.promotion: 推广
-menu.search: 搜索
+menu:
+  home: 首页
+  posts: 文章
+  tag: 标签
+  archive: 归档
+  friends: 友链
+  promotion: 推广
+  search: 搜索
 
 # Loading cover
-loading.init: 初始化中
-loading.loading: 加载中
-loading.ready: 就绪
+loading:
+  init: 初始化中
+  loading: 加载中
+  ready: 就绪
+
 launching: 启动中
 welcome: 欢迎
 
@@ -19,19 +23,19 @@ page_not_found: 页面未找到
 redirecting_home: 正在返回首页...
 return_home: 返回首页
 error: 错误
-code_404: 代码: 404
-status_not_found: 状态: 未找到
+code_404: "代码: 404"
+status_not_found: "状态: 未找到"
 
 # Article
-doc_id: 文档编号 //
+doc_id: "文档编号 //"
 online: 在线
-updated: 更新:
+updated: "更新:"
 chars: 字符
 prev_post: 上一篇
 next_post: 下一篇
 no_prev_article: 没有上一篇文章
 no_next_article: 没有下一篇文章
-navigation_related: 导航 // 相关文章
+navigation_related: "导航 // 相关文章"
 access: 访问
 log_access: 日志访问
 
@@ -57,13 +61,13 @@ no_results: 无结果
 # Archive
 undated: 未标注日期
 entries_found: 条记录已找到
-status_archived: 状态: 已归档
+status_archived: "状态: 已归档"
 
 # Categories & Tags
 all_categories: 全部分类
 all_tags: 全部标签
-category: 分类:
-tag: 标签:
+category: "分类:"
+tag: "标签:"
 entries: 条目
 items: 项目
 nothing_here: 这里还没有内容。

@@ -1,15 +1,19 @@
 # Menu
-menu.home: Home
-menu.tag: Tag
-menu.archive: Archive
-menu.friends: Friends
-menu.promotion: Promotion
-menu.search: Search
+menu:
+  home: Home
+  posts: Posts
+  tag: Tag
+  archive: Archive
+  friends: Friends
+  promotion: Promotion
+  search: Search
 
 # Loading cover
-loading.init: INITIALIZING
-loading.loading: LOADING
-loading.ready: READY
+loading:
+  init: INITIALIZING
+  loading: LOADING
+  ready: READY
+
 launching: LAUNCHING
 welcome: WELCOME
 
@@ -19,13 +23,13 @@ page_not_found: PAGE_NOT_FOUND
 redirecting_home: Redirecting to home...
 return_home: RETURN_HOME
 error: ERROR
-code_404: CODE: 404
-status_not_found: STATUS: NOT_FOUND
+code_404: "CODE: 404"
+status_not_found: "STATUS: NOT_FOUND"
 
 # Article
-doc_id: DOC_ID //
+doc_id: "DOC_ID //"
 online: ONLINE
-updated: UPDATED:
+updated: "UPDATED:"
 chars: CHARS
 prev_post: PREV_POST
 next_post: NEXT_POST
@@ -57,13 +61,13 @@ no_results: NO_RESULTS
 # Archive
 undated: Undated
 entries_found: _ENTRIES_FOUND
-status_archived: STATUS: ARCHIVED
+status_archived: "STATUS: ARCHIVED"
 
 # Categories & Tags
 all_categories: ALL_CATEGORIES
 all_tags: ALL_TAGS
-category: CATEGORY:
-tag: TAG:
+category: "CATEGORY:"
+tag: "TAG:"
 entries: _ENTRIES
 items: ITEMS
 nothing_here: Nothing here yet.

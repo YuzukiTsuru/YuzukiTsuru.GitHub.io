@@ -5,6 +5,7 @@
 const SVG_ICONS = {
   cloud: '<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6 19a5 5 0 0 1-1.1-9.88A6 6 0 0 1 17 8.46 4.5 4.5 0 0 1 18.5 17H6Z"/></svg>',
   home: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1v-8.5Z"/></svg>',
+  posts: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v2H4V4Zm0 4h16v2H4V8Zm0 4h10v2H4v-2Zm0 4h8v2H4v-2Z"/></svg>',
   category: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Z"/></svg>',
   tag: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h6l11 11-6 6L3 10V4Z"/><circle cx="7" cy="8" r="1.5" fill="currentColor"/></svg>',
   archive: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 4h18v4H3zM4 10h16l-1.5 10a2 2 0 0 1-2 2H7.5a2 2 0 0 1-2-2L4 10Zm5 3v2h6v-2H9Z"/></svg>',
@@ -68,12 +69,13 @@ hexo.extend.helper.register('postCover', function (post) {
 hexo.extend.helper.register('themeMenu', function () {
   const e = (this.theme.endspace) || {}
   return [
-    { name: this.__('menu.home'),      path: '/',            show: true },
-    { name: this.__('menu.tag'),       path: '/tags/',       show: e.menu_tag !== false },
-    { name: this.__('menu.archive'),   path: '/archives/',   show: e.menu_archive !== false },
-    { name: this.__('menu.friends'),   path: '/friends/',    show: true },
-    { name: this.__('menu.promotion'), path: '/promotion/',  show: e.menu_promotion !== false },
-    { name: this.__('menu.search'),    path: '/search/',     show: e.menu_search !== false }
+    { name: this.__('menu.home'),      path: '/',            icon: 'home',      show: true },
+    { name: this.__('menu.posts'),     path: '/posts/',      icon: 'posts',     show: e.menu_posts !== false },
+    { name: this.__('menu.tag'),       path: '/tags/',       icon: 'tag',       show: e.menu_tag !== false },
+    { name: this.__('menu.archive'),   path: '/archives/',   icon: 'archive',   show: e.menu_archive !== false },
+    { name: this.__('menu.friends'),   path: '/friends/',    icon: 'friends',   show: true },
+    { name: this.__('menu.promotion'), path: '/promotion/',  icon: 'promotion', show: e.menu_promotion !== false },
+    { name: this.__('menu.search'),    path: '/search/',     icon: 'search',    show: e.menu_search !== false }
   ].filter(i => i.show)
 })
 
@@ -174,4 +176,33 @@ hexo.extend.generator.register('aic_search', function () {
     layout: ['search'],
     data: { title: 'title_search', __search_page: true }
   }
+})
+
+hexo.extend.generator.register('aic_posts_index', function (locals) {
+  const config = this.config
+  const perPage = config.per_page || 10
+  const posts = locals.posts.sort('-date')
+  const total = Math.ceil(posts.length / perPage)
+
+  const results = []
+
+  for (let i = 0; i < total; i++) {
+    const start = i * perPage
+    const end = start + perPage
+
+    results.push({
+      path: i === 0 ? 'posts/index.html' : `posts/page/${i + 1}/index.html`,
+      layout: ['posts'],
+      data: {
+        title: 'Posts',
+        posts: posts.slice(start, end),
+        current: i + 1,
+        total: total,
+        base: '/posts/',
+        __pagination: true
+      }
+    })
+  }
+
+  return results
 })

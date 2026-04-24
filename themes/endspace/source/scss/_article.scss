@@ -60,7 +60,7 @@
   }
 
   ul {
-    list-style-type: circle;
+    list-style-type: disc !important;
   }
 
   ul li,
@@ -70,7 +70,7 @@
   }
 
   ul li::marker {
-    color: var(--endspace-accent-cyan);
+    color: var(--endspace-list-marker);
   }
 
   p {

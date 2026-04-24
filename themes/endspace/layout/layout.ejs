@@ -12,19 +12,21 @@
   <%- partial('_partial/sidenav') %>
   <%- partial('_partial/mobilenav') %>
 
+  <%
+  const isHomepage = page.path === 'index.html';
+  const showBanner = isHomepage && theme.endspace && theme.endspace.homepage_banner && theme.endspace.homepage_banner.enable;
+%>
   <div id="swup-main" class="md:ml-[5rem] flex flex-col min-h-screen transition-fade"<% if (page.mathjax) { %> data-mathjax="true"<% } %><% if (page.plot) { %> data-plot="true" data-plot-d3="<%- url_for('/js/vendor/d3.min.js') %>" data-plot-fp="<%- url_for('/js/vendor/function-plot.js') %>"<% } %>>
-    <% if (!page.fullWidth) { %>
+    <% if (showBanner) { %>
+      <%- partial('_partial/titlebar', { post: null, isHomepage: true }) %>
+    <% } else if (!page.fullWidth) { %>
       <%- partial('_partial/titlebar', { post: page.layout === 'post' ? page : null }) %>
-    <% } %>
-
-    <main id="container-inner"
-          class="w-full relative z-10 flex-grow mx-auto py-8 px-4 md:px-8 lg:px-12 max-w-screen-xl xl:max-w-screen-2xl <%= page.fullWidth ? '' : 'max-w-4xl' %>">
-      <div id="swup-content" class="fade-enter ready">
-        <%- body %>
-      </div>
-    </main>
-
-    <% if (!page.fullWidth) { %>
+      <main id="container-inner"
+            class="w-full relative z-10 flex-grow mx-auto py-8 px-4 md:px-8 lg:px-12 max-w-screen-xl xl:max-w-screen-2xl <%= page.fullWidth ? '' : 'max-w-4xl' %>">
+        <div id="swup-content" class="fade-enter ready">
+          <%- body %>
+        </div>
+      </main>
       <%- partial('_partial/footer') %>
     <% } %>
 
