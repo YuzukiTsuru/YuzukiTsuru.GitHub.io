@@ -1,6 +1,6 @@
 {
-  "name": "hexo-site",
-  "version": "0.0.0",
+  "name": "yuzukitsuru.github.io",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build:css": "npx @tailwindcss/cli -i tailwind-input.css -o themes/endspace/source/css/tailwind.css --minify",
