@@ -151,13 +151,13 @@
 
   &:hover {
     background: var(--endspace-accent-cyan-dim);
-    color: var(--endspace-text-primary);
+    color: var(--endspace-accent-cyan);
     border-color: var(--endspace-accent-cyan);
   }
 
   &.active {
     background: var(--endspace-accent-cyan-dim);
-    color: var(--endspace-text-primary);
+    color: var(--endspace-accent-cyan);
     border-color: var(--endspace-accent-cyan);
   }
 }
