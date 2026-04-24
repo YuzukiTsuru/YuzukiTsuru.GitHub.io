@@ -1,44 +1,46 @@
 'use strict';
 
-// Generate redirect pages for legacy long URL format
-// Long format: live/2026-04-19-20260419.aspx (Hexo default without custom permalink)
-// Short format: live/20260419.aspx (custom permalink in front matter)
+// Generate short-format URL pages for posts (live/YYYYMMDD.aspx)
+// and redirect pages for long-format URLs (live/YYYY-MM-DD-YYYYMMDD.aspx)
+// Default Hexo permalink is changed to posts/:title.aspx to avoid conflict
 
-hexo.extend.generator.register('legacy-redirect', function (locals) {
+hexo.extend.generator.register('post-urls', function (locals) {
   const posts = locals.posts.toArray();
-  const redirects = [];
+  const pages = [];
 
   posts.forEach(post => {
-    // Get the canonical URL from permalink
-    const canonicalUrl = post.permalink;
+    if (!post.source) return;
+    const match = post.source.match(/\/([0-9]{4}-[0-9]{2}-[0-9]{2}-([0-9]+))\.md$/);
+    if (!match) return;
 
-    // Build the legacy long-format URL that Hexo would have generated
-    // Pattern: YYYY-MM-DD-title.aspx -> live/YYYY-MM-DD-title.aspx
-    const sourceMatch = post.source.match(/\/([0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]+)\.md$/);
-    if (!sourceMatch) return;
+    const shortUrl = `live/${match[2]}.aspx`;
+    const longUrl = `live/${match[1]}.aspx`;
 
-    const legacyLongUrl = `live/${sourceMatch[1]}.aspx`;
+    // Generate short URL page (full article)
+    pages.push({
+      path: shortUrl,
+      data: post,
+      layout: ['post', 'page']
+    });
 
-    // Skip if legacy and canonical are the same
-    if (legacyLongUrl === canonicalUrl) return;
-
-    redirects.push({
-      path: legacyLongUrl,
+    // Generate redirect for long URL
+    pages.push({
+      path: longUrl,
       data: `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <title>${post.title || 'Redirect'}</title>
-  <meta http-equiv="refresh" content="0;url=${canonicalUrl}">
-  <link rel="canonical" href="${canonicalUrl}">
-  <script>window.location.replace('${canonicalUrl}');</script>
+  <meta http-equiv="refresh" content="0;url=/${shortUrl}">
+  <link rel="canonical" href="/${shortUrl}">
+  <script>window.location.replace('/${shortUrl}');</script>
 </head>
 <body>
-  <p>Redirecting to <a href="${canonicalUrl}">${canonicalUrl}</a></p>
+  <p>Redirecting to <a href="/${shortUrl}">/${shortUrl}</a></p>
 </body>
 </html>`
     });
   });
 
-  return redirects;
+  return pages;
 });
