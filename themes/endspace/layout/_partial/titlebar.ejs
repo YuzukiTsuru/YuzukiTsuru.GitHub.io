@@ -41,9 +41,9 @@
         <%= endspace.loading_site_name || config.title || theme.author || '' %>
       </h1>
     <% } %>
-    <% if (banner.show_bio) { %>
+    <% if (config.subtitle) { %>
       <p class="text-sm md:text-base font-mono text-white/70 tracking-widest uppercase">
-        <%= theme.bio || '' %>
+        <%= config.subtitle %>
       </p>
     <% } %>
   </div>
