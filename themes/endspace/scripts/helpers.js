@@ -85,7 +85,7 @@ hexo.extend.helper.register('postCover', function (post) {
   else if (Array.isArray(post.photos) && post.photos.length) cover = post.photos[0];
   try {
     post._aicCover = cover;
-  } catch (e) {}
+  } catch (_e) {}
   return cover;
 });
 
@@ -144,7 +144,7 @@ function ensureToc(post) {
     const empty = { toc: [], html: post.content };
     try {
       post._aicToc = empty;
-    } catch (e) {}
+    } catch (_e) {}
     return empty;
   }
   const cheerio = require('cheerio');
@@ -178,7 +178,7 @@ function ensureToc(post) {
   const out = { toc, html: $.html() };
   try {
     post._aicToc = out;
-  } catch (e) {}
+  } catch (_e) {}
   return out;
 }
 

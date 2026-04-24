@@ -16,14 +16,14 @@
     if (saved) applyTheme(saved);
     else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches)
       applyTheme('dark');
-  } catch (e) {}
+  } catch (_e) {}
 
   function toggleTheme() {
     var next = root.classList.contains('dark') ? 'light' : 'dark';
     applyTheme(next);
     try {
       localStorage.setItem('aic-theme', next);
-    } catch (e) {}
+    } catch (_e) {}
   }
 
   (function loadingCover() {
@@ -134,7 +134,7 @@
       setPhase('complete');
       try {
         sessionStorage.setItem('aic-loaded', '1');
-      } catch (e) {}
+      } catch (_e) {}
       setTimeout(function () {
         setPhase('sweeping');
         setTimeout(function () {
@@ -561,7 +561,7 @@
             }
             if (drawer) drawer.classList.remove('open');
           }
-        } catch (e) {}
+        } catch (_e) {}
       }
 
       // Update floating controls scrollspy

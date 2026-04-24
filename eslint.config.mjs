@@ -27,7 +27,7 @@ export default [
     },
     rules: {
       'no-undef': 'off',
-      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' }],
       'prefer-const': 'warn',
       'no-var': 'warn',
       'camelcase': 'off',
@@ -65,7 +65,7 @@ export default [
     rules: {
       'no-var': 'off',
       'prefer-const': 'off',
-      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' }],
       'no-undef': 'off',
       'comma-dangle': ['warn', 'never'],
       'semi': ['warn', 'always'],
