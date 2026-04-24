@@ -1,7 +1,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<% var pageTitle = page.title || ''; // Generator pages set i18n keys as title (prefixed with "title_") if (pageTitle.indexOf('title_') === 0) pageTitle = __(pageTitle); %>
+<% var pageTitle = page.title || ''; // Generator pages set i18n keys as title (prefixed with "title_") if (pageTitle.indexOf('title_') === 0) pageTitle = __(pageTitle); // 404 page if (page.path && page.path.indexOf('404') !== -1) pageTitle = '404'; %>
 <title><%= pageTitle ? (pageTitle + ' · ' + config.title) : config.title %></title>
 <meta
   name="description"

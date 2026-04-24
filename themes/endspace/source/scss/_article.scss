@@ -63,13 +63,18 @@
     list-style-type: disc !important;
   }
 
+  ol {
+    list-style-type: decimal !important;
+  }
+
   ul li,
   ol li {
     margin-bottom: 0.5em;
     color: var(--endspace-text-secondary);
   }
 
-  ul li::marker {
+  ul li::marker,
+  ol li::marker {
     color: var(--endspace-list-marker);
   }
 
