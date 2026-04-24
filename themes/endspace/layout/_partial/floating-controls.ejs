@@ -1,0 +1,47 @@
+<%
+  let tocList = (typeof aicToc !== 'undefined' && aicToc) ? aicToc : [];
+  if (!Array.isArray(tocList)) tocList = [];
+%>
+<div id="fc-drawer" class="fc-drawer" data-tab="">
+  <div class="fc-drawer-header">
+    <div id="fc-drawer-title" class="flex items-center gap-2">
+      <%- icon('list_tree', { size: 16 }) %>
+      <span>Table of Contents</span>
+    </div>
+    <button class="fc-close text-gray-400 hover:text-black" aria-label="Close">
+      <%- icon('x', { size: 18 }) %>
+    </button>
+  </div>
+  <div class="fc-drawer-body">
+    <nav id="fc-toc" class="space-y-1">
+      <% tocList.forEach(function(t){ %>
+        <a href="#<%= t.id %>"
+           class="fc-toc-item"
+           data-toc-id="<%= t.id %>"
+           style="padding-left: <%= (t.indentLevel || 0) * 12 + 8 %>px;">
+          <%= t.text %>
+        </a>
+      <% }); %>
+      <% if (!tocList.length) { %>
+        <div class="text-xs text-gray-400 italic">No headings</div>
+      <% } %>
+    </nav>
+  </div>
+</div>
+
+<div class="fc-capsule pointer-events-auto">
+    <button type="button" class="fc-btn" data-fc-action="toc" title="Table of Contents" style="<%= tocList && tocList.length ? '' : 'display:none' %>">
+      <div class="fc-btn-inner">
+        <span class="fc-percent">0%</span>
+        <span class="fc-icon-hover"><%- icon('list_tree', { size: 20 }) %></span>
+      </div>
+    </button>
+  <button type="button" class="fc-btn" data-fc-action="top" title="Scroll To Top">
+    <div class="fc-btn-inner"><%- icon('arrow_up', { size: 20 }) %></div>
+  </button>
+  <button type="button" class="fc-btn" data-fc-action="theme" title="Toggle theme">
+    <div class="fc-btn-inner">
+      <i class="ri-contrast-2-line text-[18px]"></i>
+    </div>
+  </button>
+</div>

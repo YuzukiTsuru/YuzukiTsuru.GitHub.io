@@ -1,0 +1,45 @@
+{
+  "name": "hexo-site",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i tailwind-input.css -o themes/endspace/source/css/tailwind.css --minify",
+    "build:scss": "sass themes/endspace/source/scss/main.scss themes/endspace/source/css/endspace.css --no-source-map",
+    "build": "npm run build:scss && npm run build:css && hexo generate",
+    "clean": "hexo clean",
+    "deploy": "hexo deploy",
+    "watch:scss": "sass themes/endspace/source/scss/main.scss themes/endspace/source/css/endspace.css --no-source-map --watch",
+    "watch:css": "npx @tailwindcss/cli -i tailwind-input.css -o themes/endspace/source/css/tailwind.css --watch",
+    "watch:hexo": "hexo server",
+    "server": "hexo server",
+    "dev": "concurrently \"npm run watch:scss\" \"npm run watch:css\" \"npm run watch:hexo\""
+  },
+  "hexo": {
+    "version": "8.1.1"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fortawesome/fontawesome-free": "^7.2.0",
+    "cheerio": "^1.0.0-rc.12",
+    "hexo": "^8.0.0",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-feed": "^4.0.0",
+    "hexo-generator-index": "^4.0.0",
+    "hexo-generator-search": "^2.4.3",
+    "hexo-generator-sitemap": "^3.0.1",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.0",
+    "hexo-renderer-stylus": "^3.0.1",
+    "hexo-server": "^3.0.0",
+    "remixicon": "^4.9.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.4",
+    "concurrently": "^9.2.1",
+    "sass": "^1.99.0",
+    "tailwindcss": "^4.2.4"
+  }
+}

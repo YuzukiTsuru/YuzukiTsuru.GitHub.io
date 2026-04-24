@@ -1,0 +1,52 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title><%= page.title ? (page.title + ' · ' + config.title) : config.title %></title>
+<meta name="description" content="<%= page.description || page.excerpt || config.description || '' %>">
+<meta name="keywords" content="<%= (page.keywords || config.keywords || '') %>">
+<meta name="generator" content="Hexo + Endspace">
+<% if (config.url) { %>
+<meta property="og:title" content="<%= page.title || config.title %>">
+<meta property="og:description" content="<%= page.description || page.excerpt || config.description || '' %>">
+<meta property="og:type" content="<%= page.layout === 'post' ? 'article' : 'website' %>">
+<meta property="og:url" content="<%- url_for(page.path) %>">
+<% if (page.cover) { %><meta property="og:image" content="<%= page.cover %>"><% } %>
+<% } %>
+
+<link rel="icon" type="image/x-icon" href="<%- url_for(theme.favicon || '/favicon.ico') %>">
+<% if (config.feed) { %>
+<link rel="alternate" type="application/atom+xml" title="<%= config.title %>" href="<%- url_for('/atom.xml') %>">
+<% } %>
+
+<!-- Fonts (local) -->
+<link rel="stylesheet" href="<%- url_for('/css/vendor/inter.css') %>">
+<link rel="stylesheet" href="<%- url_for('/css/vendor/jetbrains-mono.css') %>">
+
+<!-- Icons (local) -->
+<link rel="stylesheet" href="<%- url_for('/css/vendor/remixicon.css') %>">
+<link rel="stylesheet" href="<%- url_for('/css/vendor/fontawesome.min.css') %>">
+
+<!-- Tailwind CSS (precompiled) -->
+<link rel="stylesheet" href="<%- url_for('/css/tailwind.css') %>">
+
+<!-- Theme CSS -->
+<link rel="stylesheet" href="<%- url_for('/css/endspace.css') %>">
+
+<!-- Search index location -->
+<meta name="aic-search-path" content="<%- url_for('/search.xml') %>">
+
+<% if (page.mathjax) { %>
+<script>
+  MathJax = {
+    tex: { inlineMath: [['$', '$']], displayMath: [['\\[', '\\]']], processEnvironments: true, processRefs: true },
+    options: { skipHtmlTags: ['noscript', 'style', 'textarea', 'pre', 'code'], ignoreHtmlClass: 'tex2jax_ignore' },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<% } %>
+
+<% if (page.plot) { %>
+<script src="<%- url_for('/js/vendor/d3.min.js') %>"></script>
+<script src="<%- url_for('/js/vendor/function-plot.js') %>"></script>
+<% } %>

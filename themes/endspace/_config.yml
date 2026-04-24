@@ -1,0 +1,67 @@
+# Endspace theme configuration
+
+favicon: /favicon.ico
+avatar: /images/avatar.jpg
+author: 柚木 鉉
+bio: Singing Voice Synthesis | Operating System | Web Develop | IoT
+
+menu:
+  Home: /
+  Category: /categories/
+  Tag: /tags/
+  Archive: /archives/
+  About: /aboutme/
+  Friends: /friends/
+  Search: /search/
+
+endspace:
+  loading_cover: true
+  loading_site_name: 柚木鉉の空間
+  loading_text_init: INITIALIZING
+  loading_text_loading: LOADING
+  loading_text_complete: READY
+  loading_text_sweeping: LAUNCHING
+  loading_text_fadeout: WELCOME
+  loading_image: /svg/cloud.svg
+
+  banner_watermark_text: YUZUKITSURU_SPACE
+  article_watermark_text: 柚木鉉
+
+  menu_category: true
+  menu_tag: true
+  menu_archive: true
+  menu_search: true
+
+  post_list_cover: true
+  post_list_preview: true
+  post_list_style: page
+
+  article_layout_vertical: false
+  article_adjacent: true
+
+contact:
+  email: mailto:gloomyghost@gloomyghost.com
+  github: https://github.com/YuzukiTsuru
+  twitter: https://twitter.com/GLGH_
+  weibo: ''
+  bilibili: https://space.bilibili.com/24622028
+  telegram: ''
+  instagram: ''
+  youtube: ''
+  linkedin: ''
+  wechat_public: ''
+  zhishixingqiu: ''
+  xiaohongshu: ''
+
+footer:
+  enable_rss: true
+  bei_an: 滇ICP备19005195号-1
+  bei_an_link: https://beian.miit.gov.cn/
+  since: 2014
+
+donation:
+  enable: true
+  wepay: /images/wepay.jpeg
+  alipay: /images/alipay.jpeg
+
+funny_title: true

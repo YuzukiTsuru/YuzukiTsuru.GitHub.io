@@ -1,0 +1,46 @@
+<%
+  const endspace = theme.endspace || {};
+  if (endspace.article_adjacent === false) return;
+  if (!post.prev && !post.next) return;
+%>
+<section class="my-8">
+  <div class="flex items-center gap-2 mb-4">
+    <div class="w-1 h-4 bg-[var(--endspace-accent-yellow)]"></div>
+    <span class="tech-text text-xs text-[var(--endspace-text-muted)]">NAVIGATION // Related Articles</span>
+    <div class="flex-1 h-px bg-[var(--endspace-border-base)]"></div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <% if (post.prev) { %>
+      <a href="<%- url_for(post.prev.path) %>"
+         class="group endspace-frame p-5 flex flex-col justify-between min-h-[100px] hover:border-[var(--endspace-accent-yellow)] transition-all duration-300">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="text-black dark:text-[var(--endspace-accent-cyan)] text-xs"><%- icon('chevron_left', { size: 12 }) %></span>
+          <span class="tech-text text-xs text-[var(--endspace-text-muted)]">PREV_POST</span>
+        </div>
+        <div class="text-[var(--endspace-text-primary)] font-semibold line-clamp-2"><%= post.prev.title %></div>
+        <div class="mt-3 h-1 bg-[var(--endspace-accent-yellow)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </a>
+    <% } else { %>
+      <div class="endspace-frame p-5 flex items-center justify-center min-h-[100px] opacity-40">
+        <span class="tech-text text-xs text-[var(--endspace-text-muted)]">// NO_PREV_ARTICLE</span>
+      </div>
+    <% } %>
+
+    <% if (post.next) { %>
+      <a href="<%- url_for(post.next.path) %>"
+         class="group endspace-frame p-5 flex flex-col justify-between min-h-[100px] hover:border-[var(--endspace-accent-yellow)] transition-all duration-300">
+        <div class="flex items-center justify-end gap-2 mb-3">
+          <span class="tech-text text-xs text-[var(--endspace-text-muted)]">NEXT_POST</span>
+          <span class="text-black dark:text-[var(--endspace-accent-cyan)] text-xs"><%- icon('chevron_right', { size: 12 }) %></span>
+        </div>
+        <div class="text-[var(--endspace-text-primary)] font-semibold line-clamp-2 text-right"><%= post.next.title %></div>
+        <div class="mt-3 h-1 bg-[var(--endspace-accent-yellow)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </a>
+    <% } else { %>
+      <div class="endspace-frame p-5 flex items-center justify-center min-h-[100px] opacity-40">
+        <span class="tech-text text-xs text-[var(--endspace-text-muted)]">// NO_NEXT_ARTICLE</span>
+      </div>
+    <% } %>
+  </div>
+</section>

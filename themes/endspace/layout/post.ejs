@@ -1,0 +1,27 @@
+<div class="relative">
+  <%- partial('_partial/post-meta', { post: page }) %>
+
+  <% if (page.date) { %>
+    <%
+      var postYear = page.date.year ? page.date.year() : new Date(page.date).getFullYear();
+      var yearsOld = new Date().getFullYear() - postYear;
+    %>
+    <% if (yearsOld > 2) { %>
+      <div class="old-post-warning">
+        <span>This article was written in <%- postYear %>, over <%- yearsOld %> years ago. Content may be outdated.</span>
+      </div>
+    <% } %>
+  <% } %>
+
+  <div id="article-wrapper" class="relative mb-12">
+    <div id="notion-article" class="<%= page.fullTable ? 'full-table' : '' %>">
+      <%- page.content %>
+    </div>
+  </div>
+
+  <% if (theme.donation && theme.donation.enable) { %>
+    <%- partial('_partial/donation') %>
+  <% } %>
+
+  <%- partial('_partial/article-adjacent', { post: page }) %>
+</div>

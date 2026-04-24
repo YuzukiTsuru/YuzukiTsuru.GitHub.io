@@ -1,0 +1,57 @@
+<%
+  const menuItems = themeMenu();
+  const socialLinks = themeSocial();
+  const email = (theme.contact && theme.contact.email) || '';
+%>
+<nav class="fixed top-0 left-0 right-0 z-50 md:hidden bg-white dark:bg-[#18181b] border-b border-[var(--endspace-border-base)] safe-area-top">
+  <div class="flex items-center justify-between h-20 px-5">
+    <a href="<%- url_for('/aboutme/') %>" title="Profile" class="flex-shrink-0 flex items-center">
+      <div class="w-14 h-14 rounded-full overflow-hidden">
+        <img src="<%- url_for(theme.avatar || '/images/avatar.svg') %>" alt="Avatar" class="w-full h-full object-cover">
+      </div>
+    </a>
+    <button id="mobilenav-toggle"
+            class="w-14 h-14 flex items-center justify-center text-[var(--endspace-text-primary)]"
+            aria-label="Toggle Menu">
+      <span class="icon-open"><%- icon('menu', { size: 28 }) %></span>
+      <span class="icon-close hidden"><%- icon('close', { size: 28 }) %></span>
+    </button>
+  </div>
+</nav>
+
+<div id="mobilenav-backdrop"
+     class="fixed inset-0 z-40 md:hidden bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+<div id="mobilenav-panel"
+     class="fixed top-20 left-0 right-0 bottom-0 z-40 md:hidden bg-white dark:bg-[#18181b] translate-x-full transition-transform duration-300 ease-out overflow-y-auto">
+  <div class="flex flex-col items-start p-6 space-y-2">
+    <% menuItems.forEach(function(item){ %>
+      <a href="<%- url_for(item.path) %>"
+         class="flex items-center gap-4 py-3 w-full mobilenav-item text-[var(--endspace-text-secondary)]"
+         data-nav="<%= item.name %>"
+         data-nav-path="<%= item.path %>">
+        <span class="text-gray-400 mobilenav-icon"><%- icon(item.name.toLowerCase(), { size: 20 }) %></span>
+        <span class="text-xl font-medium"><%= item.name %></span>
+      </a>
+    <% }); %>
+  </div>
+
+  <div class="px-6 pb-8">
+    <div class="flex items-center gap-3 flex-wrap">
+      <% if (email) { %>
+        <a href="mailto:<%= email %>"
+           class="w-9 h-9 flex items-center justify-center rounded-full bg-[var(--endspace-bg-secondary)] text-[var(--endspace-text-muted)] hover:text-[var(--endspace-text-primary)] transition-colors">
+          <i class="ri-mail-fill text-[16px]"></i>
+        </a>
+      <% } %>
+      <% socialLinks.forEach(function(s){ %>
+        <a href="<%= s.url %>" target="_blank" rel="noopener noreferrer" title="<%= s.label %>"
+           class="w-9 h-9 flex items-center justify-center rounded-full bg-[var(--endspace-bg-secondary)] text-[var(--endspace-text-muted)] hover:text-[var(--endspace-text-primary)] transition-colors">
+          <i class="<%= s.icon %> text-[16px]"></i>
+        </a>
+      <% }); %>
+    </div>
+  </div>
+</div>
+
+<div class="h-20 md:hidden"></div>

@@ -1,0 +1,31 @@
+<%
+  const e = theme.endspace || {};
+%>
+<div id="loading-cover" class="loading-cover"
+     data-text-init="<%= e.loading_text_init || 'INITIALIZING' %>"
+     data-text-loading="<%= e.loading_text_loading || 'LOADING' %>"
+     data-text-complete="<%= e.loading_text_complete || 'READY' %>"
+     data-text-sweeping="<%= e.loading_text_sweeping || 'LAUNCHING' %>"
+     data-text-fadeout="<%= e.loading_text_fadeout || 'WELCOME' %>">
+
+  <div class="progress-container">
+    <div class="progress-fill"></div>
+  </div>
+
+  <div class="center-content">
+    <% if (e.loading_image) { %>
+      <img src="<%- url_for(e.loading_image) %>" alt="Loading" class="loading-image">
+    <% } %>
+    <div class="site-name"><%= e.loading_site_name || config.title || 'CLOUD09_SPACE' %></div>
+  </div>
+
+  <div class="progress-info">
+    <div class="progress-percent">0%</div>
+    <div class="status-line">
+      <span class="status-dot"></span>
+      <span class="status-text"><%= e.loading_text_init || 'INITIALIZING' %></span>
+    </div>
+  </div>
+
+  <div class="sweep-overlay"></div>
+</div>

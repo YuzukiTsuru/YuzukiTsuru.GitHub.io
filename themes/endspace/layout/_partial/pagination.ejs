@@ -1,0 +1,44 @@
+<%
+  const current = page.current || 1;
+  const total = page.total || 1;
+  if (total <= 1) return;
+  const base = page.base || '/';
+  const prefix = base.replace(/\/$/, '');
+  const pageDir = config.pagination_dir || 'page';
+  const pageUrl = function (n) {
+    return url_for(n <= 1 ? prefix + '/' : prefix + '/' + pageDir + '/' + n + '/');
+  };
+  const items = [
+    { href: pageUrl(1),           disabled: current === 1,     icon: 'chevrons_left',  label: 'First Page' },
+    { href: pageUrl(current - 1), disabled: current === 1,     icon: 'chevron_left',   label: 'Previous Page' },
+    null,
+    { href: pageUrl(current + 1), disabled: current === total, icon: 'chevron_right',  label: 'Next Page' },
+    { href: pageUrl(total),       disabled: current === total, icon: 'chevrons_right', label: 'Last Page' }
+  ];
+%>
+<div class="mt-12 py-6 flex flex-col items-center">
+  <div class="bg-[#2a2a2a] rounded-full p-1.5 flex items-center gap-3 shadow-2xl">
+    <% items.forEach(function(it){ %>
+      <% if (!it) { %>
+        <div class="font-mono text-white text-lg tracking-widest min-w-[60px] text-center select-none">
+          <%= current %>/<%= total %>
+        </div>
+      <% } else { %>
+        <%
+          const tag = it.disabled ? 'span' : 'a';
+          const base = 'w-10 h-10 rounded-full flex items-center justify-center p-1 shadow-lg transition-transform';
+          const outer = it.disabled
+            ? base + ' bg-white/20 cursor-not-allowed opacity-50'
+            : base + ' bg-white cursor-pointer group active:scale-95';
+          const inner = 'w-full h-full rounded-full flex items-center justify-center bg-transparent transition-colors duration-200 '
+            + (it.disabled ? 'text-white/50' : 'text-black group-hover:bg-[var(--endspace-accent-yellow)]');
+        %>
+        <<%= tag %><% if (!it.disabled) { %> href="<%- it.href %>"<% } %> aria-label="<%= it.label %>" class="<%= outer %>">
+          <div class="<%= inner %>">
+            <%- icon(it.icon, { size: 16 }) %>
+          </div>
+        </<%= tag %>>
+      <% } %>
+    <% }); %>
+  </div>
+</div>

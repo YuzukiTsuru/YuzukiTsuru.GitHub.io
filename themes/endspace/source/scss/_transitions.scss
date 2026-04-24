@@ -1,0 +1,95 @@
+// =============================================================
+
+// Marquee watermark
+@keyframes bgMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.bg-watermark-scroll {
+  display: inline-block;
+  animation: bgMarquee 30s linear infinite;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+// Fade-in on mount
+.fade-enter {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  &.ready {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Line clamps (Tailwind's are available via CDN but we also ship native
+// fallbacks for older CDNs or if Tailwind is offline)
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+// Swup page transitions
+.transition-fade {
+  opacity: 1;
+  transition: opacity 0.15s ease-out;
+}
+
+html.is-changing .transition-fade {
+  opacity: 0;
+}
+
+html.is-rendering .transition-fade {
+  opacity: 0;
+}
+
+html.is-popstate .transition-fade {
+  transition: none;
+}
+
+// Swup loading spinner
+.swup-spinner {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 5rem;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 30;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 767px) {
+  .swup-spinner {
+    left: 0;
+  }
+}
+
+.swup-spinner-ring {
+  width: 200px;
+  height: 200px;
+  border: 5px solid var(--endspace-border-base);
+  border-top-color: var(--endspace-accent-yellow);
+  border-radius: 50%;
+  animation: swup-spin 0.6s linear infinite;
+}
+
+@keyframes swup-spin {
+  to { transform: rotate(360deg); }
+}

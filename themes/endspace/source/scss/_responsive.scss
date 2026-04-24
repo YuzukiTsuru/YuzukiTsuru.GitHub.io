@@ -1,0 +1,31 @@
+// =============================================================
+
+// Safe-area helpers
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+// Mobile adjustments
+@media (max-width: 767px) {
+  #theme-endspace::before {
+    background-size: 30px 30px;
+  }
+
+  .tech-text {
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
+  }
+
+  #notion-article {
+    font-size: 1rem;
+    line-height: 1.7;
+
+    p {
+      margin-bottom: 1.25em;
+    }
+  }
+}

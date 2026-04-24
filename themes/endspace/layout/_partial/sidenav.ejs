@@ -1,0 +1,76 @@
+<%
+  const menuItems = themeMenu();
+  const socialLinks = themeSocial();
+  const email = (theme.contact && theme.contact.email) || '';
+%>
+<aside id="sidenav"
+       class="fixed left-0 top-0 bottom-0 z-40 hidden md:flex flex-col bg-[var(--endspace-bg-base)] border-r border-[var(--endspace-border-base)] transition-all duration-300 ease-in-out shadow-md w-[5rem]">
+  <div class="flex-shrink-0 h-[10rem] py-6 flex flex-col items-center">
+    <a href="<%- url_for('/aboutme/') %>" title="Profile">
+      <div class="w-[3rem] h-[3rem] flex-shrink-0 transition-transform duration-300 cursor-pointer hover:scale-105">
+        <img src="<%- url_for(theme.avatar || '/images/avatar.svg') %>" alt="Avatar"
+             class="w-full h-full rounded-full object-cover shadow-lg">
+      </div>
+    </a>
+    <div class="sidenav-author mt-3 text-center overflow-hidden opacity-0 max-h-0 transition-all duration-300">
+      <a href="<%- url_for('/aboutme/') %>" class="hover:text-[var(--endspace-accent-yellow)] transition-colors">
+        <div class="text-sm font-bold text-[var(--endspace-text-primary)] uppercase tracking-wider">
+          <%= config.author || '' %>
+        </div>
+      </a>
+      <div class="text-xs text-[var(--endspace-text-muted)] mt-1 px-3 leading-relaxed">
+        <%= theme.bio || config.subtitle || '' %>
+      </div>
+    </div>
+  </div>
+
+  <nav id="sidenav-items" class="flex-1 py-4 flex flex-col gap-2 overflow-y-auto overflow-x-hidden relative">
+    <div id="sidenav-indicator"
+         class="absolute left-0 w-1.5 h-[3rem] bg-[var(--endspace-text-primary)] transition-all duration-300 ease-out z-10"
+         style="top:0; opacity:0;"></div>
+    <% menuItems.forEach(function(item){ %>
+      <a href="<%- url_for(item.path) %>"
+         class="nier-nav-item relative h-[3rem] flex items-center cursor-pointer group"
+         data-nav="<%= item.name %>"
+         data-nav-path="<%= item.path %>">
+        <span class="w-[5rem] flex-shrink-0 flex items-center justify-center z-10 text-[20px]">
+          <%- icon(item.name.toLowerCase(), { class: 'w-5 h-5' }) %>
+        </span>
+        <span class="sidenav-label text-sm font-medium tracking-wide uppercase whitespace-nowrap z-10 opacity-0 w-0 transition-opacity duration-300">
+          <%= item.name.toUpperCase() %>
+        </span>
+      </a>
+    <% }); %>
+  </nav>
+
+  <div class="flex-shrink-0 flex flex-col justify-end h-auto pb-4">
+    <div>
+      <div class="sidenav-expanded-contact px-3 opacity-0 h-0 overflow-hidden transition-all duration-300">
+        <div class="flex items-center justify-center gap-1.5 flex-nowrap">
+          <% if (email) { %>
+            <a href="mailto:<%= email %>" title="<%= email %>"
+               class="w-[1.75rem] h-[1.75rem] flex items-center justify-center bg-gray-200 text-gray-500 rounded-full hover:text-white hover:bg-gray-600 transition-colors flex-shrink-0">
+              <i class="ri-mail-fill text-[14px]"></i>
+            </a>
+          <% } %>
+          <% socialLinks.forEach(function(s){ %>
+            <a href="<%= s.url %>" target="_blank" rel="noreferrer" title="<%= s.label %>"
+               class="w-[1.75rem] h-[1.75rem] flex items-center justify-center bg-gray-200 text-gray-500 rounded-full hover:text-white hover:bg-gray-600 transition-colors flex-shrink-0">
+              <i class="<%= s.icon %> text-[14px]"></i>
+            </a>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-4">
+      <div class="flex justify-center">
+        <button id="sidenav-toggle"
+                class="w-[2rem] h-[2rem] flex items-center justify-center cursor-pointer"
+                title="Expand" aria-label="Toggle sidebar">
+          <span class="sidenav-triangle w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-[var(--endspace-text-primary)] transition-transform duration-300"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</aside>

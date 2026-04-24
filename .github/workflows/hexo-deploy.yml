@@ -1,0 +1,33 @@
+name: Hexo Build & Deploy
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - run: npm ci
+
+    - run: npm run build
+
+    - name: Sync Files
+      uses: SamKirkland/web-deploy@v1
+      continue-on-error: true
+      with:
+        target-server: ${{ secrets.FTP_SERVER_IP }}
+        remote-user: ${{ secrets.FTP_SERVER_USERNAME }}
+        private-ssh-key: ${{ secrets.FTP_SERVER_PASSWD }}
+        destination-path: /www/wwwroot/gloomyghost.com
+        source-path: ${{ github.workspace }}/public/
+        rsync-options: --archive --compress --delete-after --exclude=.git* --exclude=.git/ --exclude=.well-known/ --exclude=.user.ini --exclude=.gitignore --no-times --no-perms

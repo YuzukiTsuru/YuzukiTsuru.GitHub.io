@@ -1,0 +1,52 @@
+<%
+  const dateStr = post.date ? date(post.date, 'YYYY-MM-DD') : '';
+  const updatedStr = post.updated ? date(post.updated, 'YYYY-MM-DD') : '';
+  const categoryName = post.categories && post.categories.length ? post.categories.data[0].name : '';
+  const tagItems = post.tags && post.tags.length ? post.tags.data : [];
+  const wordCount = (typeof post.length === 'number') ? post.length : (post.content ? String(post.content).replace(/<[^>]+>/g, '').length : 0);
+%>
+<div class="mb-10 w-full">
+  <div class="mb-6 relative">
+    <div class="flex items-center gap-3 mb-6 text-xs font-mono text-[var(--endspace-text-muted)] border-b border-[var(--endspace-border-base)] pb-2">
+      <span class="font-bold text-[var(--endspace-text-primary)]">DOC_ID // <%= docId(post) %></span>
+      <span class="flex-1"></span>
+      <span class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+        ONLINE
+      </span>
+    </div>
+
+    <h1 class="text-4xl md:text-6xl font-black text-[var(--endspace-text-primary)] mb-6 leading-tight tracking-tight"><%= post.title %></h1>
+
+    <div class="flex flex-wrap items-center gap-x-8 gap-y-4 text-sm font-mono text-[var(--endspace-text-secondary)]">
+      <div class="flex items-center gap-2">
+        <%- icon('clock', { size: 14 }) %><span><%= dateStr %></span>
+      </div>
+      <% if (updatedStr && updatedStr !== dateStr) { %>
+        <div class="flex items-center gap-2">
+          <%- icon('refresh', { size: 14 }) %><span>UPDATED: <%= updatedStr %></span>
+        </div>
+      <% } %>
+      <% if (categoryName) { %>
+        <div class="flex items-center gap-2">
+          <%- icon('folder', { size: 14 }) %>
+          <span class="font-bold text-[var(--endspace-text-primary)]"><%= categoryName.toUpperCase() %></span>
+        </div>
+      <% } %>
+      <div class="flex items-center gap-2">
+        <%- icon('file_text', { size: 14 }) %>
+        <span><%= wordCount %> CHARS</span>
+      </div>
+      <% if (tagItems.length) { %>
+        <div class="flex items-center gap-2 ml-auto">
+          <% tagItems.forEach(function(t){ %>
+            <a href="<%- url_for(t.path) %>"
+               class="px-2 py-1 bg-[var(--endspace-bg-secondary)] text-[var(--endspace-text-secondary)] text-xs rounded hover:bg-[var(--endspace-text-primary)] hover:text-white transition-colors">
+              #<%= t.name.toUpperCase() %>
+            </a>
+          <% }); %>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</div>

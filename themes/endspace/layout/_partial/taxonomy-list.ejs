@@ -1,0 +1,20 @@
+<%
+  const items = (typeof aicItems !== 'undefined' && aicItems && aicItems.toArray) ? aicItems.toArray() : [];
+  const heading = (typeof aicHeading !== 'undefined' && aicHeading) ? aicHeading : 'ITEMS';
+  const prefix = (typeof aicPrefix !== 'undefined' && aicPrefix) ? aicPrefix : '';
+  const wrapperClass = (typeof aicWrapper !== 'undefined' && aicWrapper) ? aicWrapper : 'endspace-card';
+%>
+<div class="<%= wrapperClass %> p-8">
+  <h2 class="text-3xl font-black text-[var(--endspace-text-primary)] mb-8 uppercase tracking-wide"><%= heading %></h2>
+  <div class="flex flex-wrap gap-3">
+    <% items.forEach(function(it){ %>
+      <a href="<%- url_for(it.path) %>" class="ef-btn group">
+        <span class="ef-btn-indicator"></span>
+        <span class="ef-btn-text"><%= prefix %><%= it.name %> · <%= it.posts ? it.posts.length : it.length %></span>
+      </a>
+    <% }); %>
+    <% if (!items.length) { %>
+      <div class="text-sm text-[var(--endspace-text-muted)]">Nothing here yet.</div>
+    <% } %>
+  </div>
+</div>

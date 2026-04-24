@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@source "../themes/endspace/layout/**/*.ejs";
+@source "../themes/endspace/source/js/*.js";
+
+@theme {
+  --color-endspace-base: var(--endspace-bg-base);
+  --color-endspace-primary: var(--endspace-bg-primary);
+  --color-endspace-secondary: var(--endspace-bg-secondary);
+  --color-endspace-yellow: #FBFB45;
+}

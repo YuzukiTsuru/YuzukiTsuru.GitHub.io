@@ -1,118 +1,110 @@
-# Site settings 配置站点
-title: "柚木鉉の空間 | GloomyGhost Blog"
-home-title: 柚木鉉の空間
-description: Ne me plaignez pas C'est pour cela que je suis née
-keyword: "GloomyGhost, C++, CPP, JavaScript, Web, WWW, Blog"
-url: ""
-baseurl: ""
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
 
-version: 0.4.1
-
-# Navigation links 导航链接
-nav:
-  home: "/"
-  tags: "/page/tags"
-  about: "/page/about"
-  links: "/page/links"
-  promotion: "/page/promotion"
-  tenebrous: "http://github.gloomyghost.com/Tenebrous/"
-
-# Footer 创立日前
-footer:
-  since: 2014
-
-# Funny Title
-funny_title: true
-
-# beian 备案号
-beian: <a href="https://beian.miit.gov.cn/">滇ICP备19005195号-1</a>
-
-# hitokoto url 一言地址
-hitokoto: https://v1.hitokoto.cn/?encode=js&select=%23hitokoto
-
-# Author 配置博主信息
+# Site
+title: 柚木鉉の空間
+subtitle: "Ne me plaignez pas C'est pour cela que je suis née"
+description: GloomyGhost Blog - Singing Voice Synthesis | Operating System | Web Develop | IoT
+keywords: GloomyGhost, C++, CPP, JavaScript, Web, Blog
 author: 柚木 鉉
-nickname: GloomyGhost | 蚊香豹
-pronc: ゆずき　つる
-bio: Singing Voice Synthesis | Operating System | Web Develop | IoT <br> (｀・∀・´)
-avatar: "/assets/img/profile.jpg"
+language: zh-CN
+timezone: Asia/Shanghai
 
-# Search
-search: true
+# URL
+## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
+url: https://github.gloomyghost.com
+permalink: live/:title.aspx
+permalink_defaults:
+pretty_urls:
+  trailing_index: true
+  trailing_html: true
 
-# 赞赏
-zanshang: true
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
 
-# advertisement 广告
-ad: false
+# Writing
+new_post_name: :title.md
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+syntax_highlighter: highlight.js
+highlight:
+  line_number: false
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: true
+prismjs:
+  preprocess: true
+  line_number: false
+  tab_replace: ''
 
-# Night mode
-nightMode: false
+# Home page setting
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
 
-# MathJax
-mathjax: true
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
 
-# Math Plot
-plot: true
+# Metadata elements
+meta_generator: true
 
-# Chem Plot 
-cmplot: true
+# Date / Time format
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+updated_option: 'mtime'
 
-# Activated OS
-activated_os: true
+# Pagination
+per_page: 10
+pagination_dir: page
 
-# Sass
-sass:
-  sass_dir: _sass
-  style: compressed
+# Include / Exclude file(s)
+include:
+exclude:
+ignore:
 
-# theme color 主题皮肤
-theme-color: "default" # default
+# Extensions
+theme: endspace
 
-# Post header background patterns (when the post no cover): circuitBoard, overlappingCircles, food, glamorous, ticTacToe, seaOfClouds
-postPatterns: "circuitBoard"
+# Search (hexo-generator-search)
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
 
-# SNS settings 配置社交网站
-# url: email, weibo, zhihu, twitter, instagram, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
-sns:
-  email: "mailto:gloomyghost@gloomyghost.com"
-  zhihu: "https://www.zhihu.com/people/gloomyghost"
-  github: "https://github.com/YuzukiTsuru"
-  qq: "http://wpa.qq.com/msgrd?v=3&uin=2427346650&site=qq&menu=yes"
-  twitter: "https://twitter.com/GLGH_"
-  bilibili: "https://space.bilibili.com/24622028"
+# Marked renderer: enable heading IDs so client-side TOC scrollspy works
+marked:
+  headerIds: true
+  prependRoot: true
+  postAsset: false
 
-# Tags 设置标签
-recommend-tags: true # whether or not display recommend-tags on the sidebar
-recommend-condition-size: 12 # a tag will be recommended if the size of it is more than this value
+# Feed (hexo-generator-feed)
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
 
-# Build settings
-paginate: 10
-paginate_path: "page:num"
-exclude: [.gitignore', "README.md"]
-
-# Compress
-compress_html:
-  clippings: all
-  comments: ["<!-- ", " -->"]
-  endings: all
-  ignore:
-    envs: [local]
-  blanklines: false
-  profile: false
-  startings: [html, head, body]
-
-# Markdown
-markdown: kramdown
-highlighter: rouge
-kramdown:
-  input: GFM
-
-# RSS
-RSS: true
-
-# Permalink
-permalink: /live/:title.aspx
-
-# Plugins
-plugins: [jekyll-paginate]
+# Deployment
+deploy:
+  type: ''

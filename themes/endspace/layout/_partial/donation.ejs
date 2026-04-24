@@ -1,0 +1,21 @@
+<div class="donation-wrapper mt-8 mb-4">
+  <div class="donation-btn-wrapper text-center">
+    <button id="donation-toggle" class="donation-btn">
+      <i class="ri-cup-line mr-1"></i><%= __('DONATION') || '赞赏' %>
+    </button>
+  </div>
+  <div id="donation-qrcode" class="donation-qrcode-panel">
+    <% if (theme.donation.wepay) { %>
+    <div class="donation-item text-center">
+      <img src="<%- url_for(theme.donation.wepay) %>" alt="WeChat Pay" class="donation-qr" />
+      <span class="text-xs mt-1 block text-[var(--endspace-text-secondary)]">WeChat</span>
+    </div>
+    <% } %>
+    <% if (theme.donation.alipay) { %>
+    <div class="donation-item text-center">
+      <img src="<%- url_for(theme.donation.alipay) %>" alt="Alipay" class="donation-qr" />
+      <span class="text-xs mt-1 block text-[var(--endspace-text-secondary)]">Alipay</span>
+    </div>
+    <% } %>
+  </div>
+</div>

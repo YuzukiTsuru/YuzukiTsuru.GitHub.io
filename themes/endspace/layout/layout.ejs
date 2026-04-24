@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="<%= config.language || 'en' %>" class="<%= theme.default_dark ? 'dark' : '' %>">
+<head>
+  <%- partial('_partial/head') %>
+</head>
+<body id="theme-endspace" class="min-h-screen relative"<% if (theme.funny_title) { %> data-funny-title<% } %>>
+
+  <% if (theme.endspace && theme.endspace.loading_cover) { %>
+    <%- partial('_partial/loading-cover') %>
+  <% } %>
+
+  <%- partial('_partial/sidenav') %>
+  <%- partial('_partial/mobilenav') %>
+
+  <div id="swup-main" class="md:ml-[5rem] flex flex-col min-h-screen transition-fade">
+    <% if (!page.fullWidth) { %>
+      <%- partial('_partial/titlebar', { post: page.layout === 'post' ? page : null }) %>
+    <% } %>
+
+    <main id="container-inner"
+          class="w-full relative z-10 flex-grow mx-auto py-8 px-4 md:px-8 lg:px-12 max-w-screen-xl xl:max-w-screen-2xl <%= page.fullWidth ? '' : 'max-w-4xl' %>">
+      <div id="swup-content" class="fade-enter ready">
+        <%- body %>
+      </div>
+    </main>
+
+    <% if (!page.fullWidth) { %>
+      <%- partial('_partial/footer') %>
+    <% } %>
+
+    <!-- Hidden TOC data for swup to read -->
+    <template id="aic-toc-data"><%= JSON.stringify(Array.isArray(page.__toc) ? page.__toc : []) %></template>
+  </div>
+
+  <%- partial('_partial/floating-controls', { aicToc: Array.isArray(page.__toc) ? page.__toc : [] }) %>
+
+  <script src="<%- url_for('/js/swup.min.js') %>" defer></script>
+  <script src="<%- url_for('/js/theme.js') %>" defer></script>
+  <script src="<%- url_for('/js/search.js') %>" defer></script>
+</body>
+</html>

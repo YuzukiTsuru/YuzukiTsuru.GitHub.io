@@ -1,0 +1,61 @@
+<%
+  // page.posts is a collection of all archive posts when archive_generator runs.
+  // Hexo also provides page.year / page.month for filtered archives.
+  const groups = {};
+  page.posts.each(function(post){
+    const d = post.date;
+    const key = d ? d.format('YYYY-MM') : 'Undated';
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(post);
+  });
+  const keys = Object.keys(groups).sort().reverse();
+%>
+<div class="mb-10 pb-20 min-h-screen w-full">
+  <% keys.forEach(function(archiveTitle){ %>
+    <div class="mb-16">
+      <div class="flex items-end gap-3 mb-8 pb-2 border-b border-[var(--endspace-border-base)] relative">
+        <div class="text-6xl font-black text-[var(--endspace-text-muted)] opacity-20 absolute -top-4 -left-2 select-none z-0">
+          LOG_<%= archiveTitle.split('-')[0] %>
+        </div>
+        <h2 class="text-3xl font-bold text-black dark:text-white tech-text z-10 relative pl-2"><%= archiveTitle %></h2>
+        <span class="text-xs text-[var(--endspace-text-secondary)] mb-2 tech-text z-10">// <%= groups[archiveTitle].length %>_ENTRIES_FOUND</span>
+        <div class="flex-1"></div>
+        <div class="text-xs text-black dark:text-white mb-2 tech-text">STATUS: ARCHIVED</div>
+      </div>
+
+      <div class="relative pl-6 md:pl-10 space-y-2">
+        <div class="absolute left-2 md:left-4 top-0 bottom-0 w-px bg-[var(--endspace-border-base)]"></div>
+        <% groups[archiveTitle].forEach(function(post){
+             const day = post.date ? post.date.format('YYYY-MM-DD') : '';
+             const tags = post.tags && post.tags.length ? post.tags.data.slice(0, 3).map(function(t){ return t.name; }) : [];
+        %>
+          <div class="group relative">
+            <div class="absolute left-[-1.5rem] md:left-[-2.5rem] top-1/2 -mt-px w-4 md:w-8 h-px bg-[var(--endspace-border-base)] group-hover:bg-[var(--endspace-text-primary)] transition-colors"></div>
+            <div class="absolute left-[-1.7rem] md:left-[-2.7rem] top-1/2 -mt-1 w-2 h-2 rounded-full bg-[var(--endspace-bg-base)] border border-[var(--endspace-border-base)] group-hover:border-[var(--endspace-text-primary)] group-hover:bg-[var(--endspace-text-primary)] transition-all z-10"></div>
+            <a href="<%- url_for(post.path) %>">
+              <div class="endspace-frame p-4 flex flex-col md:flex-row md:items-center gap-4 hover:bg-[#FBFB45] transition-all group">
+                <div class="flex-shrink-0 flex items-center gap-2 text-xs tech-text text-[var(--endspace-text-secondary)] md:w-32 border-r border-[var(--endspace-border-base)] pr-4 group-hover:text-black group-hover:border-black/20 transition-colors">
+                  <span class="text-black dark:text-white opacity-70 group-hover:opacity-100 transition-colors">[<%= day %>]</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="text-sm md:text-base font-bold text-black dark:text-white truncate transition-colors"><%= post.title %></h3>
+                  <% if (tags.length) { %>
+                    <div class="flex gap-2 mt-1">
+                      <% tags.forEach(function(t){ %>
+                        <span class="text-[10px] text-gray-500 dark:text-gray-400 transition-colors uppercase">#<%= t %></span>
+                      <% }); %>
+                    </div>
+                  <% } %>
+                </div>
+                <div class="hidden md:block text-[var(--endspace-text-muted)] group-hover:text-black transition-transform group-hover:translate-x-1 font-mono text-xs">
+                  &gt;&gt; LOG_ACCESS
+                </div>
+              </div>
+            </a>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  <% }); %>
+</div>
+<%- partial('_partial/pagination') %>

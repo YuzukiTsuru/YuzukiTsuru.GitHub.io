@@ -1,0 +1,10 @@
+<div class="endspace-frame p-8 md:p-12 mb-12">
+  <% if (page.title) { %>
+    <h1 class="text-3xl md:text-5xl font-black text-[var(--endspace-text-primary)] mb-6 uppercase tracking-wide">
+      <%= page.title %>
+    </h1>
+  <% } %>
+  <div id="notion-article">
+    <%- page.content %>
+  </div>
+</div>
