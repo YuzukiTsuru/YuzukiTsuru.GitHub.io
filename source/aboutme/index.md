@@ -71,14 +71,3 @@ Singing Voice Synthesis | Operating System | Web Develop | IoT
 | Twitter | [@GLGH_](https://twitter.com/GLGH_) |
 | Bilibili | [24622028](https://space.bilibili.com/24622028) |
 | Email | gloomyghost@gloomyghost.com |
-
----
-
-## 版权与引用
-
-<blockquote>
-    <p>大部分链接的图片来自：<a href="https://piapro.jp/Kurayoru" title="Ei-Flowさん">Ei-Flowさん</a>。</p>
-    <p>主题为自研的 <a href="https://github.com/YuzukiTsuru/aic-themes">endspace</a>，设计灵感来自 <a href="https://endfield.arknights.jp/">Arknights: Endfield</a>。</p>
-    <p>由 <a href="https://hexo.io/">Hexo</a> 强力驱动。</p>
-    <p>插画来自 <a href="https://www.avogado6.com/">アボガド6</a>。</p>
-</blockquote>
