@@ -27,5 +27,22 @@
     p {
       margin-bottom: 1.25em;
     }
+
+    // Tables - horizontal scroll on mobile
+    table {
+      display: block;
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    // Code blocks - ensure horizontal scroll works
+    figure.highlight {
+      max-width: 100%;
+    }
+
+    pre {
+      max-width: 100%;
+      overflow-x: auto;
+    }
   }
 }

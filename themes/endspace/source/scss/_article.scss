@@ -71,6 +71,7 @@
   ol li {
     margin-bottom: 0.5em;
     color: var(--endspace-text-secondary);
+    overflow-wrap: anywhere;
   }
 
   ul li::marker,
@@ -106,9 +107,21 @@
   // Tables
   table {
     width: 100%;
+    max-width: 100%;
     border-collapse: collapse;
     margin: 1.5rem 0;
     font-size: 0.95rem;
+  }
+
+  // Table wrapper for horizontal scroll on mobile
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .table-container table {
+    margin: 0;
   }
 
   th,
