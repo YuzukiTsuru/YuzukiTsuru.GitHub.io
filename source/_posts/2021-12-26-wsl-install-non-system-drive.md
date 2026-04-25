@@ -18,7 +18,7 @@ date: 2021-12-26 00:00:00
    这里提供一种方法，你也可以从Github、Gitlab、SourceForge下载 WSL 安装包
    1. 打开[微软 WSL 发行页面](https://docs.microsoft.com/zh-cn/windows/wsl/install-manual#downloading-distributions)
    2. 选一个你喜欢的 WSL 发行版
-      ![image-20211226205044356](/images/post/2021-12-16-20211216/image-20211226205044356.png)
+      ![image-20211226205044356](/images/post/2021-12-26-wsl-install-non-system-drive/image-20211226205044356.png)
    3. 下载 appx 文件
 
 3. 把 appx 文件复制到 D 盘
@@ -29,18 +29,18 @@ date: 2021-12-26 00:00:00
 
 6. 双击EXE文件，就开始安装了
 
-   ![image-20211226205637251](/images/post/2021-12-16-20211216/image-20211226205637251.png)
+   ![image-20211226205637251](/images/post/2021-12-26-wsl-install-non-system-drive/image-20211226205637251.png)
 
 7. 安装完成
 
-   ![image-20211226205941186](/images/post/2021-12-16-20211216/image-20211226205941186.png)
+   ![image-20211226205941186](/images/post/2021-12-26-wsl-install-non-system-drive/image-20211226205941186.png)
 
 8. 如果需要使用更炫的 WSL2，CMD 执行 `wsl --set-version <名称> 2`，比如我执行 `wsl --set-version Ubuntu-18.04 2`
 
 9. 如果哪天不想要这个环境了，CMD执行 `wsl -l` 找到要删除的环境，比如这里是Ubuntu-18.04
 
-   ![image-20211226205752445](/images/post/2021-12-16-20211216/image-20211226205752445.png)
+   ![image-20211226205752445](/images/post/2021-12-26-wsl-install-non-system-drive/image-20211226205752445.png)
 
 10. 然后 `wsl --unregister Ubuntu-18.04`
 
-    ![image-20211226205847499](/images/post/2021-12-16-20211216/image-20211226205847499.png)
+    ![image-20211226205847499](/images/post/2021-12-26-wsl-install-non-system-drive/image-20211226205847499.png)

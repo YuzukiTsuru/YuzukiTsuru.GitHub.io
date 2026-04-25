@@ -304,7 +304,7 @@ clang-13: error: linker command failed with exit code 1 (use -v to see invocatio
 
 参照知乎大佬[为了用上OpenCL，被逼0基础修复ELF……](https://zhuanlan.zhihu.com/p/385020334)，发现需要修改ELF文件，把`libOpenCL.so`复制出来到电脑上，打开网站 [https://elfy.io/](https://elfy.io/)，找到`Section headers`的`Elf_Shdr 2`，把`0x2c`的`sh_info`改为`0x1`，二进制为`01 00 00 00`.
 
-![image](/images/post/2021-11-04-20211104/2.png)
+![image](/images/post/2021-11-04-android-termux-opencl/2.png)
 
 然后替换文件，重新编译运行，报错：
 

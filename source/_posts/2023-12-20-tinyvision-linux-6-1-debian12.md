@@ -44,19 +44,19 @@ cmake ..
 make
 ```
 
-![f6cd8396-6b9e-4171-a32f-b6e908fa1fb9-image.png](../images/post/2023-12-20-20231220/1702729920306-f6cd8396-6b9e-4171-a32f-b6e908fa1fb9-image.png)
+![f6cd8396-6b9e-4171-a32f-b6e908fa1fb9-image.png](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/1702729920306-f6cd8396-6b9e-4171-a32f-b6e908fa1fb9-image.png)
 
 编译后的可执行文件位于 `build/app` 中，这里包括 SyterKit 的多种APP可供使用。
 
-![ecd7330e-1281-4296-9de7-0433e12fef2f-image.png](../images/post/2023-12-20-20231220/1702729933404-ecd7330e-1281-4296-9de7-0433e12fef2f-image.png)
+![ecd7330e-1281-4296-9de7-0433e12fef2f-image.png](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/1702729933404-ecd7330e-1281-4296-9de7-0433e12fef2f-image.png)
 
 这里我们使用的是 `syter_boot` 作为启动引导。进入 syter_boot 文件夹，可以看到这些文件
 
-![d631adb8-9d69-4f38-99f4-f080a3d04cc4-image.png](../images/post/2023-12-20-20231220/1702729955121-d631adb8-9d69-4f38-99f4-f080a3d04cc4-image.png)
+![d631adb8-9d69-4f38-99f4-f080a3d04cc4-image.png](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/1702729955121-d631adb8-9d69-4f38-99f4-f080a3d04cc4-image.png)
 
 由于 TinyVision 是 TF 卡启动，所以我们需要用到 `syter_boot_bin_card.bin`
 
-![0bee1188-3372-4a0a-94c3-5ae19322eab3-image.png](../images/post/2023-12-20-20231220/1702729964449-0bee1188-3372-4a0a-94c3-5ae19322eab3-image.png)
+![0bee1188-3372-4a0a-94c3-5ae19322eab3-image.png](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/1702729964449-0bee1188-3372-4a0a-94c3-5ae19322eab3-image.png)
 
 ## 编译 Linux-6.1 内核
 
@@ -100,17 +100,17 @@ CROSS_COMPILE=arm-linux-gnueabihf- make ARCH=arm menuconfig
 
 进入 `General Setup ->`，选中 `Control Group Support`
 
-![image-20231221104449523](../images/post/2023-12-20-20231220/image-20231221104449523.png)
+![image-20231221104449523](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/image-20231221104449523.png)
 
-![image-20231221122711591](../images/post/2023-12-20-20231220/image-20231221122711591.png)
+![image-20231221122711591](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/image-20231221122711591.png)
 
 前往 `File Systems` 找到 `FUSE (Filesystem in Userspace) support`
 
-![image-20231221104607368](../images/post/2023-12-20-20231220/image-20231221104607368.png)
+![image-20231221104607368](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/image-20231221104607368.png)
 
 前往 `File Systems` 找到 `Inotify support for userspace`
 
-![image-20231221122848948](../images/post/2023-12-20-20231220/image-20231221122848948.png)
+![image-20231221122848948](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/image-20231221122848948.png)
 
 编译内核
 
@@ -145,11 +145,11 @@ sudo mount rootfs.img rootfs
 sudo debootstrap --arch=armhf bookworm rootfs_data https://mirrors.tuna.tsinghua.edu.cn/debian/
 ```
 
-![image-20231221093653561](../images/post/2023-12-20-20231220/image-20231221093653561.png)
+![image-20231221093653561](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/image-20231221093653561.png)
 
 看到 `I: Base system installed successfully.` 就是构建完成了
 
-![image-20231221094602269](../images/post/2023-12-20-20231220/image-20231221094602269.png)
+![image-20231221094602269](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/image-20231221094602269.png)
 
 等待构建完成后，使用chroot进入到目录，这里编写一个挂载脚本方便挂载使用，新建文件 `ch-mount.sh` 并写入以下内容：
 
@@ -205,7 +205,7 @@ chmod 777 ch-mount.sh
 
 执行挂载，可以看到进入了 debian 的 rootfs
 
-![image-20231221094725953](../images/post/2023-12-20-20231220/image-20231221094725953.png)
+![image-20231221094725953](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/image-20231221094725953.png)
 
 配置系统字符集，选择 en_US 作为默认字符集
 
@@ -217,11 +217,11 @@ dpkg-reconfigure locales
 
 选择一个就可以
 
-![image-20231221095332517](../images/post/2023-12-20-20231220/image-20231221095332517.png)
+![image-20231221095332517](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/image-20231221095332517.png)
 
 直接 OK 下一步
 
-![image-20231221095409399](../images/post/2023-12-20-20231220/image-20231221095409399.png)
+![image-20231221095409399](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/image-20231221095409399.png)
 
 安装 Linux 基础工具
 
@@ -331,7 +331,7 @@ sudo umount rootfs
 
 编译内核后，可以在文件夹 `arch/arm/boot/dts/allwinner` 生成`sun8i-v851se-tinyvision.dtb` ，在文件夹`arch/arm/boot` 生成 `zImage` ，把他们拷贝出来。
 
-![33140ec9-fd56-4cef-9250-ffa210b74178.png](../images/post/2023-12-20-20231220/1702731217300-33140ec9-fd56-4cef-9250-ffa210b74178.png)
+![33140ec9-fd56-4cef-9250-ffa210b74178.png](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/1702731217300-33140ec9-fd56-4cef-9250-ffa210b74178.png)
 
 然后将 `sun8i-v851se-tinyvision.dtb` 改名为 `sunxi.dtb` ，这个设备树名称是定义在 SyterKit 源码中的，如果之前修改了 SyterKit 的源码需要修改到对应的名称，SyterKit 会去读取这个设备树。
 
@@ -361,7 +361,7 @@ sudo make install
 
 编译后运行试一试，这里正常
 
-![8dd643b9-5f40-4b9e-a355-457fd80d8c5b.png](../images/post/2023-12-20-20231220/1702731225454-8dd643b9-5f40-4b9e-a355-457fd80d8c5b.png)
+![8dd643b9-5f40-4b9e-a355-457fd80d8c5b.png](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/1702731225454-8dd643b9-5f40-4b9e-a355-457fd80d8c5b.png)
 
 ### 使用 GENIMAGE 打包固件
 
@@ -463,7 +463,7 @@ genimage \
 
 准备完成，文件如下所示
 
-![8986491d-003b-479e-9ef0-01f3c93ca43c.png](../images/post/2023-12-20-20231220/1702731236382-8986491d-003b-479e-9ef0-01f3c93ca43c.png)
+![8986491d-003b-479e-9ef0-01f3c93ca43c.png](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/1702731236382-8986491d-003b-479e-9ef0-01f3c93ca43c.png)
 
 运行命令进行打包
 
@@ -472,10 +472,10 @@ chmod 777 genimage.sh
 ./genimage.sh -c genimage.cfg
 ```
 
-![1ad6cdd4-59b6-4089-a5f4-2aac0e3538ef.png](../images/post/2023-12-20-20231220/1702731309228-1ad6cdd4-59b6-4089-a5f4-2aac0e3538ef.png)
+![1ad6cdd4-59b6-4089-a5f4-2aac0e3538ef.png](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/1702731309228-1ad6cdd4-59b6-4089-a5f4-2aac0e3538ef.png)
 
 打包完成，可以找到 `sdcard.img`
 
 使用软件烧录固件到TF卡上
 
-![d06e037d-102f-46cc-80c1-49b47f72b8b1.png](../images/post/2023-12-20-20231220/1702731317182-d06e037d-102f-46cc-80c1-49b47f72b8b1.png)
+![d06e037d-102f-46cc-80c1-49b47f72b8b1.png](../images/post/2023-12-20-tinyvision-linux-6-1-debian12/1702731317182-d06e037d-102f-46cc-80c1-49b47f72b8b1.png)

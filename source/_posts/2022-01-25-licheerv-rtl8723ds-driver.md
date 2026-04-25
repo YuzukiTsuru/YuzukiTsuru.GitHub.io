@@ -10,25 +10,25 @@ RTL8723DS焊接上去了，现在把驱动程序移植上去。
 
 下载完成后，把驱动文件复制到 `tina-d1-open\lichee\linux-5.4\drivers\net\wireless\rtl8723ds` 里，没有`rtl8723ds`文件夹记得新建一个。
 
-![fe5ca772-673e-4a45-a2df-c8b39365be51-image.png](/images/post/2022-01-25-20220125/1643093019117-fe5ca772-673e-4a45-a2df-c8b39365be51-image.png)
+![fe5ca772-673e-4a45-a2df-c8b39365be51-image.png](/images/post/2022-01-25-licheerv-rtl8723ds-driver/1643093019117-fe5ca772-673e-4a45-a2df-c8b39365be51-image.png)
 
 修改`tina-d1-open\lichee\linux-5.4\drivers\net\wireless\Makefile`，加一行 `obj-$(CONFIG_RTL8723DS) += rtl8723ds/`
 
-![bb6a7df5-1a7a-4e9a-b680-570e4284fd69-image.png](/images/post/2022-01-25-20220125/1643093048676-bb6a7df5-1a7a-4e9a-b680-570e4284fd69-image.png)
+![bb6a7df5-1a7a-4e9a-b680-570e4284fd69-image.png](/images/post/2022-01-25-licheerv-rtl8723ds-driver/1643093048676-bb6a7df5-1a7a-4e9a-b680-570e4284fd69-image.png)
 
 修改`tina-d1-open\lichee\linux-5.4\drivers\net\wireless\Kconfig`，加一行 `source "drivers/net/wireless/rtl8723ds/Kconfig"`
 
-![fdb8f381-75aa-43c8-94e4-ce36577ec0e5-image.png](/images/post/2022-01-25-20220125/1643093133367-fdb8f381-75aa-43c8-94e4-ce36577ec0e5-image.png)
+![fdb8f381-75aa-43c8-94e4-ce36577ec0e5-image.png](/images/post/2022-01-25-licheerv-rtl8723ds-driver/1643093133367-fdb8f381-75aa-43c8-94e4-ce36577ec0e5-image.png)
 
 修改`tina-d1-open\lichee\linux-5.4\drivers\net\wireless\rtl8723ds\os_dep\linux\os_intfs.c`
 加一行`MODULE_IMPORT_NS(VFS_internal_I_am_really_a_filesystem_and_am_NOT_a_driver);`
 
-![1c869ee5-ccc3-4cd0-b92f-185d830f4d9e-image.png](/images/post/2022-01-25-20220125/1643093182574-1c869ee5-ccc3-4cd0-b92f-185d830f4d9e-image.png)
+![1c869ee5-ccc3-4cd0-b92f-185d830f4d9e-image.png](/images/post/2022-01-25-licheerv-rtl8723ds-driver/1643093182574-1c869ee5-ccc3-4cd0-b92f-185d830f4d9e-image.png)
 
 修改`tina-d1-open\lichee\linux-5.4\drivers\net\wireless\rtl8723ds\os_dep\linux\rtw_cfgvendor.c`
 在每一行`.policy = VENDOR_CMD_RAW_DATA,` 下面加上 `.maxattr = 1,`
 
-![43e66411-c05e-496a-868a-9034ca7098b6-image.png](/images/post/2022-01-25-20220125/1643093354906-43e66411-c05e-496a-868a-9034ca7098b6-image.png)
+![43e66411-c05e-496a-868a-9034ca7098b6-image.png](/images/post/2022-01-25-licheerv-rtl8723ds-driver/1643093354906-43e66411-c05e-496a-868a-9034ca7098b6-image.png)
 
 修改`tina-d1-open\target\allwinner\d1-lichee_rv_dock\modules.mk`，增加以下内容：
 
@@ -50,7 +50,7 @@ $(eval $(call KernelPackage,net-rtl8723ds))
 
 （其中的`d1-lichee_rv_dock` 是我的板级配置，请选择自己的板级配置比如`d1-nezha`，如下图）
 
-![93134673-9dd9-4a31-9179-da70d31ede99-image.png](/images/post/2022-01-25-20220125/1643094009731-93134673-9dd9-4a31-9179-da70d31ede99-image.png)
+![93134673-9dd9-4a31-9179-da70d31ede99-image.png](/images/post/2022-01-25-licheerv-rtl8723ds-driver/1643094009731-93134673-9dd9-4a31-9179-da70d31ede99-image.png)
 
 进入内核配置，勾选Realtek 8723D SDIO or SPI WiFi为Module（`<M>`不是`<*>`）
 
@@ -85,4 +85,4 @@ pack
 
 烧录后就能看到了
 
-![e04b88a3-b684-4cfe-9ddf-ad75bc45daaf-739PM1SA(5)F32B@_B{@3~Q.jpg](/images/post/2022-01-25-20220125/1643093833714-e04b88a3-b684-4cfe-9ddf-ad75bc45daaf-739pm1sa-5-f32b-_b-3-q.jpg)
+![e04b88a3-b684-4cfe-9ddf-ad75bc45daaf-739PM1SA(5)F32B@_B{@3~Q.jpg](/images/post/2022-01-25-licheerv-rtl8723ds-driver/1643093833714-e04b88a3-b684-4cfe-9ddf-ad75bc45daaf-739pm1sa-5-f32b-_b-3-q.jpg)

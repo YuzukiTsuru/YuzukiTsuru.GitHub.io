@@ -8,30 +8,30 @@ date: 2022-02-01 00:00:00
 
 首先，待宰的WiFI：FAST FW325R，其LAN MAC地址为 `00-5C-86-05-00-EC`
 
-![q](/images/post/2022-02-01-20220201/q.jpg)
+![q](/images/post/2022-02-01-hardware-mod-wifi-lan-mac/q.jpg)
 
 在网页后台显示 MAC 地址不可修改。
 
-![image-20220201131831376](/images/post/2022-02-01-20220201/image-20220201131831376.png)
+![image-20220201131831376](/images/post/2022-02-01-hardware-mod-wifi-lan-mac/image-20220201131831376.png)
 
 ### 开始修改
 
 首先，拆除 Flash
 
-![img](/images/post/2022-02-01-20220201/U}]TFH5L3Y[}@KZSNT2ID.jpg)
+![img](/images/post/2022-02-01-hardware-mod-wifi-lan-mac/U}]TFH5L3Y[}@KZSNT2ID.jpg)
 
 使用编程器读出固件
 
-![image-20220201132227836](/images/post/2022-02-01-20220201/image-20220201132227836.png)
+![image-20220201132227836](/images/post/2022-02-01-hardware-mod-wifi-lan-mac/image-20220201132227836.png)
 
 保存固件，WinHEX打开查找
 
-![image-20220201132242362](/images/post/2022-02-01-20220201/image-20220201132242362.png)
+![image-20220201132242362](/images/post/2022-02-01-hardware-mod-wifi-lan-mac/image-20220201132242362.png)
 
 重新刷入固件
 
-![image-20220201133355108](/images/post/2022-02-01-20220201/image-20220201133355108.png)
+![image-20220201133355108](/images/post/2022-02-01-hardware-mod-wifi-lan-mac/image-20220201133355108.png)
 
 重置路由器即可
 
-![image-20220201133418074](/images/post/2022-02-01-20220201/image-20220201133418074.png)
+![image-20220201133418074](/images/post/2022-02-01-hardware-mod-wifi-lan-mac/image-20220201133418074.png)

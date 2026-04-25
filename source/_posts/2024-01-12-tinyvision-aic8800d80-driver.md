@@ -14,15 +14,15 @@ TinyVision 使用GPIO引出WIFI模块，配套的WIFI模块主控芯片为 AIC88
 
 下载驱动后获得驱动的 `tar.gz` 压缩包
 
-![image-20240115145222134](../images/post/2024-01-12-20240112/image-20240115145222134.png)
+![image-20240115145222134](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115145222134.png)
 
 解压后找到如下驱动与文件夹
 
-![image-20240115145406939](../images/post/2024-01-12-20240112/image-20240115145406939.png)
+![image-20240115145406939](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115145406939.png)
 
 进入内核，找到 `linux-4.9/drivers/net/wireless` 文件夹中，新建文件夹`aic8800` 并且把上面的驱动与文件夹放入刚刚创建好的 `aic8800` 中。
 
-![image-20240115145530599](../images/post/2024-01-12-20240112/image-20240115145530599.png)
+![image-20240115145530599](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115145530599.png)
 
 修改 `linux-4.9/drivers/net/wireless/Kconfig` ，增加一行
 
@@ -30,7 +30,7 @@ TinyVision 使用GPIO引出WIFI模块，配套的WIFI模块主控芯片为 AIC88
 source "drivers/net/wireless/aic8800/Kconfig"
 ```
 
-![image-20240115145601334](../images/post/2024-01-12-20240112/image-20240115145601334.png)
+![image-20240115145601334](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115145601334.png)
 
 修改 `linux-4.9/drivers/net/wireless/Makefile` ，增加一行
 
@@ -38,7 +38,7 @@ source "drivers/net/wireless/aic8800/Kconfig"
 obj-$(CONFIG_AIC_WLAN_SUPPORT) += aic8800/
 ```
 
-![image-20240115145650592](../images/post/2024-01-12-20240112/image-20240115145650592.png)
+![image-20240115145650592](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115145650592.png)
 
 进入内核配置页，找到并勾选如下选项。
 
@@ -52,11 +52,11 @@ Device Drivers  --->
 			<M>   AIC8800 bluetooth Support (UART)
 ```
 
-![image-20240115150856511](../images/post/2024-01-12-20240112/image-20240115150856511.png)
+![image-20240115150856511](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115150856511.png)
 
 编译后可以找到对应的驱动程序
 
-![image-20240115150831849](../images/post/2024-01-12-20240112/image-20240115150831849.png)
+![image-20240115150831849](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115150831849.png)
 
 其加载顺序是
 
@@ -86,7 +86,7 @@ wlan: wlan@0 {
 };
 ```
 
-![image-20240115151211548](../images/post/2024-01-12-20240112/image-20240115151211548.png)
+![image-20240115151211548](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115151211548.png)
 
 ### Tina SDK 移植
 
@@ -96,11 +96,11 @@ Tina SDK 基于OpenWrt 提供了一些自动化方案，可以参考 OpenWrt 的
 
 下载得到 `aic8800-firmware.tar.gz` 这里面包含着 WIFI 使用的固件
 
-![image-20240115151604351](../images/post/2024-01-12-20240112/image-20240115151604351.png)
+![image-20240115151604351](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115151604351.png)
 
 解压后拷贝到 `package/firmware/linux-firmware/aic8800` 即可
 
-![image-20240115151709361](../images/post/2024-01-12-20240112/image-20240115151709361.png)
+![image-20240115151709361](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115151709361.png)
 
 然后找到 `target/allwinner/v851se-common/modules.mk` 文件，在末尾添加如下内容
 
@@ -133,7 +133,7 @@ $(eval $(call KernelPackage,net-aic8800))
 
 通过这些内容可以使 Tina 自动去内核文件夹将 ko 打包进文件系统。
 
-![image-20240115151917530](../images/post/2024-01-12-20240112/image-20240115151917530.png)
+![image-20240115151917530](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115151917530.png)
 
 #### 配置自动装载模块
 
@@ -208,11 +208,11 @@ Kernel modules  --->
 
 上电启动，可以看到 LOG 正常挂载 WIFI
 
-![image-20240115152521341](../images/post/2024-01-12-20240112/image-20240115152521341.png)
+![image-20240115152521341](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115152521341.png)
 
 可以看到正常初始化进程
 
-![image-20240115152554437](../images/post/2024-01-12-20240112/image-20240115152554437.png)
+![image-20240115152554437](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115152554437.png)
 
 ## Linux 5.15 内核驱动移植
 
@@ -220,17 +220,17 @@ Kernel modules  --->
 
 下载驱动后获得驱动的 `tar.gz` 压缩包
 
-![image-20240115145222134](../images/post/2024-01-12-20240112/image-20240115145222134.png)
+![image-20240115145222134](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115145222134.png)
 
 解压后找到如下驱动与文件夹
 
-![image-20240115145406939](../images/post/2024-01-12-20240112/image-20240115145406939.png)
+![image-20240115145406939](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115145406939.png)
 
 由于 Linux 5.15 需要保证内核的主线化，不可将非主线的第三方驱动放置于内核文件夹中，所以将驱动放置于 `bsp` 文件夹中。
 
 进入`bsp`，找到 `bsp/drivers/net/wireless` 文件夹中，新建文件夹`aic8800` 并且把上面的驱动与文件夹放入刚刚创建好的 `aic8800` 中。
 
-![image-20240115161401833](../images/post/2024-01-12-20240112/image-20240115161401833.png)
+![image-20240115161401833](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115161401833.png)
 
 修改 `bsp/drivers/net/wireless/Kconfig` ，增加一行
 
@@ -238,7 +238,7 @@ Kernel modules  --->
 source "bsp/drivers/net/wireless/aic8800/Kconfig"
 ```
 
-![image-20240115163522102](../images/post/2024-01-12-20240112/image-20240115163522102.png)
+![image-20240115163522102](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115163522102.png)
 
 修改 `bsp/drivers/net/wireless/Makefile` ，增加一行
 
@@ -246,11 +246,11 @@ source "bsp/drivers/net/wireless/aic8800/Kconfig"
 obj-$(CONFIG_AIC_WLAN_SUPPORT) += aic8800/
 ```
 
-![image-20240115145650592](../images/post/2024-01-12-20240112/image-20240115145650592.png)
+![image-20240115145650592](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115145650592.png)
 
 修改 `bsp/drivers/net/wireless/aic8800/Kconfig`，修改为 `bsp` 的索引
 
-![image-20240115163428151](../images/post/2024-01-12-20240112/image-20240115163428151.png)
+![image-20240115163428151](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115163428151.png)
 
 ```
 if AIC_WLAN_SUPPORT
@@ -349,7 +349,7 @@ Device Drivers  --->
 
 编译时可以看到生成的对应的 ko 模块
 
-![image-20240115164630796](../images/post/2024-01-12-20240112/image-20240115164630796.png)
+![image-20240115164630796](../images/post/2024-01-12-tinyvision-aic8800d80-driver/image-20240115164630796.png)
 
 ### 测试
 

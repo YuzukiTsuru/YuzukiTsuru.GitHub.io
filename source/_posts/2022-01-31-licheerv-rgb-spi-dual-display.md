@@ -83,7 +83,7 @@ static void fbtft_reset(struct fbtft_par *par)
 
 找到 `static void fbtft_set_addr_win()` 函数，添加地址偏移。否则会出现下图部分雪花屏现象。
 
-![image-20220130233626284](/images/post/2022-01-31-20220131/image-20220130233626284.jpg)
+![image-20220130233626284](/images/post/2022-01-31-licheerv-rgb-spi-dual-display/image-20220130233626284.jpg)
 
 ```c
 static void fbtft_set_addr_win(struct fbtft_par *par, int xs, int ys, int xe,
@@ -165,7 +165,7 @@ static struct fbtft_display display = {
 
 首先打开电路图，找到 SPI 屏幕的电路。
 
-![image-20220130234217827](/images/post/2022-01-31-20220131/image-20220130234217827.jpg)
+![image-20220130234217827](/images/post/2022-01-31-licheerv-rgb-spi-dual-display/image-20220130234217827.jpg)
 
 根据电路，找到 `pio` 节点，添加 SPI0 所用引脚，`spi0_pins_a` 作为数据时钟绑定，`spi0_pins_b` 作为 CS 的绑定，并上拉。RST，DC，背光在这里不做声明。
 
@@ -264,7 +264,7 @@ pack
 fbviewer Yuzuki.jpg
 ```
 
-![image-20220130235222641](/images/post/2022-01-31-20220131/image-20220130235222641.jpg)
+![image-20220130235222641](/images/post/2022-01-31-licheerv-rgb-spi-dual-display/image-20220130235222641.jpg)
 
 ### 修改为双屏驱动
 
@@ -349,7 +349,7 @@ Kernel modules  --->
 
 编译，打包，测试。这里使用 `ffmpeg` 进行双屏播放 `badapple.mp4`
 
-![image-20220130235928850](/images/post/2022-01-31-20220131/image-20220130235928850.jpg)
+![image-20220130235928850](/images/post/2022-01-31-licheerv-rgb-spi-dual-display/image-20220130235928850.jpg)
 
 附录：部分设备树完整参考（配置双屏后，HDMI禁用了）
 

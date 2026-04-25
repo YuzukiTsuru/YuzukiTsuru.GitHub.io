@@ -39,4 +39,4 @@ lunch
 密码: tina
 ```
 
-![603c0a3c-f1db-4836-b364-e8e0686b2ad9-image.png](/images/post/2022-01-30-20220130/1643525748441-603c0a3c-f1db-4836-b364-e8e0686b2ad9-image.png)
+![603c0a3c-f1db-4836-b364-e8e0686b2ad9-image.png](/images/post/2022-01-30-wsl2-licheerv-tina-bsp/1643525748441-603c0a3c-f1db-4836-b364-e8e0686b2ad9-image.png)

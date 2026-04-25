@@ -8,11 +8,11 @@ date: 2022-09-19 00:00:00
 
 首先移植一下基础结构，按照SDK的结构编辑修改。把头文件放置于`include/tinymaix` 文件夹里
 
-![image-20220920112216471](/images/post/2022-09-19-20220919/image-20220920112216471.png)
+![image-20220920112216471](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220920112216471.png)
 
 源文件放置于 `src/tinymaix` 文件夹里
 
-![image-20220920112355878](/images/post/2022-09-19-20220919/image-20220920112355878.png)
+![image-20220920112355878](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220920112355878.png)
 
 编辑 `Makefile` 增加引索
 
@@ -56,21 +56,21 @@ config TINYMAIX
 		set y to build library tinymaix.
 ```
 
-![image-20220920112728387](/images/post/2022-09-19-20220919/image-20220920112728387.png)
+![image-20220920112728387](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220920112728387.png)
 
 同样吧`project/project.mk`加入引索
 
-![image-20220920112812583](/images/post/2022-09-19-20220919/image-20220920112812583.png)
+![image-20220920112812583](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220920112812583.png)
 
 ## mnist demo 移植
 
 先复制一份`hello_world`，重命名为 `tinymaix_mnist`
 
-![image-20220920113145964](/images/post/2022-09-19-20220919/image-20220920113145964.png)
+![image-20220920113145964](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220920113145964.png)
 
 在 `defconfig` 里加入使用的包
 
-![image-20220920113013035](/images/post/2022-09-19-20220919/image-20220920113013035.png)
+![image-20220920113013035](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220920113013035.png)
 
 ## 运行错误，`exception:6 happen!!`
 
@@ -441,23 +441,23 @@ FPSCR:0xe000ed38
 
 参考[Arm® Cortex®-M33 Devices Generic User Guide](https://documentation-service.arm.com/static/5f16e93d20b7cf4bc524af1d)，查阅到 `exception:6` 为 `usage fault`
 
-![image-20220919211856598](/images/post/2022-09-19-20220919/image-20220919211856598.png)
+![image-20220919211856598](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220919211856598.png)
 
 继续追踪，查看 `UFSR` 寄存器定义，结合上面报错 `usage fault happen, UFSR:0x100` 可以得出这里的错误是 `UNALIGNED` ，也就是 `Illegal unaligned load or store`
 
-![image-20220919212006673](/images/post/2022-09-19-20220919/image-20220919212006673.png)
+![image-20220919212006673](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220919212006673.png)
 
 对于 Cortex M33 平台，仅仅支持如下的部分访问方式，其他的访问方法均会触发`UNALIGNED`错误
 
-![image-20220919212150146](/images/post/2022-09-19-20220919/image-20220919212150146.png)
+![image-20220919212150146](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220919212150146.png)
 
 那么看一下是哪一行代码触发了这个错误，看最后一个PC指向的地址：`0x00204062`
 
-![image-20220919212452817](/images/post/2022-09-19-20220919/image-20220919212452817.png)
+![image-20220919212452817](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220919212452817.png)
 
 位于 `tm_stat.c`，看上去只是一行普普通通的 `printf` ，注释了看看效果。
 
-![image-20220919212533825](/images/post/2022-09-19-20220919/image-20220919212533825.png)
+![image-20220919212533825](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220919212533825.png)
 
 虽然也出错了，但是代码已经运行到后面去了，现在继续上面的操作。
 
@@ -568,29 +568,29 @@ FPSCR:0xe000ed38
 
 找到 `PC->0x0020420e` 果然又是`printf`
 
-![image-20220919212907799](/images/post/2022-09-19-20220919/image-20220919212907799.png)
+![image-20220919212907799](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220919212907799.png)
 
 注释掉
 
-![image-20220919212950482](/images/post/2022-09-19-20220919/image-20220919212950482.png)
+![image-20220919212950482](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220919212950482.png)
 
 然后终于不是死在`printf` 上了，死在 `switch` 上了
 
-![20220920111005](/images/post/2022-09-19-20220919/20220920111005.png)
+![20220920111005](/images/post/2022-09-19-tinymaix-xr806-porting/20220920111005.png)
 
 这就没招了，询问群里大佬
 
-![image-20220920111521799](/images/post/2022-09-19-20220919/image-20220920111521799.png)
+![image-20220920111521799](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220920111521799.png)
 
 那行，换一个编译器看看，换一个 `gcc-arm-none-eabi-10.3-2021.07-x86_64-linux.tar.bz2`，测试完全正常。
 
-![image-20220920112422463](/images/post/2022-09-19-20220919/image-20220920112422463.png)
+![image-20220920112422463](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220920112422463.png)
 
 ## Kconfig 增加选项
 
 每一次修改模型类型，优化都要修改头文件，太不优雅了，加入 `Kconfig` 里直接配置比较好
 
-![image-20220920114727802](/images/post/2022-09-19-20220919/image-20220920114727802.png)
+![image-20220920114727802](/images/post/2022-09-19-tinymaix-xr806-porting/image-20220920114727802.png)
 
 编写 `Kconfig`
 

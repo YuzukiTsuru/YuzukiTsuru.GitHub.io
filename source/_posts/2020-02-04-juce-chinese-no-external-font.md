@@ -1,6 +1,6 @@
 ---
 title: 'JUCE类库使用中文且不增加自带字库'
-cover: /images/post/2020-02-04-20200204/juce.jpg
+cover: /images/post/2020-02-04-juce-chinese-no-external-font/juce.jpg
 date: 2020-02-04 00:00:00
 tags: [JUCE, C++, IOS, macOS, Windows, Linux]
 ---

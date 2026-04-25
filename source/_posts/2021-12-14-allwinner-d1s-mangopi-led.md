@@ -14,11 +14,11 @@ date: 2021-12-14 00:00:00
 
 打开PhoenixCard，选择固件，选择启动卡，然后烧录
 
-![image](/images/post/2021-12-14-20211214/1.jpg)
+![image](/images/post/2021-12-14-allwinner-d1s-mangopi-led/1.jpg)
 
 烧录完成了
 
-![image](/images/post/2021-12-14-20211214/2.jpg)
+![image](/images/post/2021-12-14-allwinner-d1s-mangopi-led/2.jpg)
 
 ## 启动TTY
 
@@ -30,13 +30,13 @@ adb shell
 
 然后就启动tty了（（
 
-![image](/images/post/2021-12-14-20211214/4.jpg)
+![image](/images/post/2021-12-14-allwinner-d1s-mangopi-led/4.jpg)
 
 ## 看看原理图
 
 咱要点的灯原理图上是PD22
 
-![image](/images/post/2021-12-14-20211214/5.jpg)
+![image](/images/post/2021-12-14-allwinner-d1s-mangopi-led/5.jpg)
 
 ## 点灯点灯
 
@@ -46,7 +46,7 @@ adb shell
 cat /sys/kernel/debug/pinctrl/2000000.pinctrl/pinmux-pins
 ```
 
-![image](/images/post/2021-12-14-20211214/6.jpg)
+![image](/images/post/2021-12-14-allwinner-d1s-mangopi-led/6.jpg)
 
 嗯，是118脚，导出这个脚
 
@@ -66,6 +66,6 @@ echo 0 > value  #LED点亮
 
 然后亮了，顿时索然无味
 
-![image](/images/post/2021-12-14-20211214/7.jpg)
+![image](/images/post/2021-12-14-allwinner-d1s-mangopi-led/7.jpg)
 
 摸了

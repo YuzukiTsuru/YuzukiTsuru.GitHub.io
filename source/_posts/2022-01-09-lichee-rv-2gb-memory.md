@@ -8,23 +8,23 @@ date: 2022-01-09 00:00:00
 
 这是一个计算条，D1核心配上512MB内存。
 
-![ec02517e-e547-4847-b85d-7c188894bc5d-IMG_3350.JPG](/images/post/2022-01-09-20220109/1641708234554-ec02517e-e547-4847-b85d-7c188894bc5d-img_3350-resized.jpg)
+![ec02517e-e547-4847-b85d-7c188894bc5d-IMG_3350.JPG](/images/post/2022-01-09-lichee-rv-2gb-memory/1641708234554-ec02517e-e547-4847-b85d-7c188894bc5d-img_3350-resized.jpg)
 
-![ee510bf7-eccf-438d-acc2-5c5727159d76-image.png](/images/post/2022-01-09-20220109/1641708282964-ee510bf7-eccf-438d-acc2-5c5727159d76-image.png)
+![ee510bf7-eccf-438d-acc2-5c5727159d76-image.png](/images/post/2022-01-09-lichee-rv-2gb-memory/1641708282964-ee510bf7-eccf-438d-acc2-5c5727159d76-image.png)
 
 运行正常系统已经完全够用了，不过我不是那种正常的人，写的一个小程序经常把内存用完被oom杀了。
 
-![1941bbae-7619-4797-bd11-f4f1b9241c85-SDA.png](/images/post/2022-01-09-20220109/1641709794286-1941bbae-7619-4797-bd11-f4f1b9241c85-sda.png)
+![1941bbae-7619-4797-bd11-f4f1b9241c85-SDA.png](/images/post/2022-01-09-lichee-rv-2gb-memory/1641709794286-1941bbae-7619-4797-bd11-f4f1b9241c85-sda.png)
 
 ## ++内存
 
 查阅了一下资料（某宝），发现我钱包能承担的2G内存颗粒只有D9STR，也就是镁光MT41K1G16DGA-125:A，全新芯片280左右，但是二手只需要135。Datasheet显示这是一颗双晶DDR3L芯片。
 
-![a3469e03-9158-4164-88ba-dc006ff917a5-image.png](/images/post/2022-01-09-20220109/1641708693592-a3469e03-9158-4164-88ba-dc006ff917a5-image.png)
+![a3469e03-9158-4164-88ba-dc006ff917a5-image.png](/images/post/2022-01-09-lichee-rv-2gb-memory/1641708693592-a3469e03-9158-4164-88ba-dc006ff917a5-image.png)
 
 那就麻烦了，如果RV板子没有提供Two Rank，那就没办法驱动这颗芯片。于是查阅了Lichee RV的电路图
 
-![a314a199-3d8b-4a0c-957a-15b5a0dde08f-image.png](/images/post/2022-01-09-20220109/1641708794550-a314a199-3d8b-4a0c-957a-15b5a0dde08f-image.png)
+![a314a199-3d8b-4a0c-957a-15b5a0dde08f-image.png](/images/post/2022-01-09-lichee-rv-2gb-memory/1641708794550-a314a199-3d8b-4a0c-957a-15b5a0dde08f-image.png)
 
 好欸，LicheeRV 的CS#，ODT#，CK都是按照TwoRank的接法连接的，所以可以直接替换了！
 
@@ -49,14 +49,14 @@ date: 2022-01-09 00:00:00
 
 ## 结果
 
-[![15d51f68-84ff-4d47-a3cd-488040703745-daas.jpg](/images/post/2022-01-09-20220109/1641709323873-15d51f68-84ff-4d47-a3cd-488040703745-daas-resized.jpg)](https://bbs.aw-ol.com/assets/uploads/files/1641709323873-15d51f68-84ff-4d47-a3cd-488040703745-daas.jpg)
+[![15d51f68-84ff-4d47-a3cd-488040703745-daas.jpg](/images/post/2022-01-09-lichee-rv-2gb-memory/1641709323873-15d51f68-84ff-4d47-a3cd-488040703745-daas-resized.jpg)](https://bbs.aw-ol.com/assets/uploads/files/1641709323873-15d51f68-84ff-4d47-a3cd-488040703745-daas.jpg)
 
-[![1aa8bf03-3d7f-4422-9ad2-7d7b395a9921-wadsa.jpg](/images/post/2022-01-09-20220109/1641709339633-1aa8bf03-3d7f-4422-9ad2-7d7b395a9921-wadsa.jpg)](https://bbs.aw-ol.com/assets/uploads/files/1641709339633-1aa8bf03-3d7f-4422-9ad2-7d7b395a9921-wadsa.jpg)
+[![1aa8bf03-3d7f-4422-9ad2-7d7b395a9921-wadsa.jpg](/images/post/2022-01-09-lichee-rv-2gb-memory/1641709339633-1aa8bf03-3d7f-4422-9ad2-7d7b395a9921-wadsa.jpg)](https://bbs.aw-ol.com/assets/uploads/files/1641709339633-1aa8bf03-3d7f-4422-9ad2-7d7b395a9921-wadsa.jpg)
 
-[![ecf24651-dac7-41ba-86e7-51e36db04c0f-DE`}@R(8}O0JSV}RWMQ7{LH.png](/images/post/2022-01-09-20220109/1641709348831-ecf24651-dac7-41ba-86e7-51e36db04c0f-de-96-r-8-o0jsv-rwmq7-lh.png)](https://bbs.aw-ol.com/assets/uploads/files/1641709348831-ecf24651-dac7-41ba-86e7-51e36db04c0f-de-96-r-8-o0jsv-rwmq7-lh.png)
+[![ecf24651-dac7-41ba-86e7-51e36db04c0f-DE`}@R(8}O0JSV}RWMQ7{LH.png](/images/post/2022-01-09-lichee-rv-2gb-memory/1641709348831-ecf24651-dac7-41ba-86e7-51e36db04c0f-de-96-r-8-o0jsv-rwmq7-lh.png)](https://bbs.aw-ol.com/assets/uploads/files/1641709348831-ecf24651-dac7-41ba-86e7-51e36db04c0f-de-96-r-8-o0jsv-rwmq7-lh.png)
 
 再跑跑那个程序
 
-[![c2ebb27b-ebf8-4af8-9f22-db8b1c635b38-adas.png](/images/post/2022-01-09-20220109/1641710188206-c2ebb27b-ebf8-4af8-9f22-db8b1c635b38-adas.png)](https://bbs.aw-ol.com/assets/uploads/files/1641710188206-c2ebb27b-ebf8-4af8-9f22-db8b1c635b38-adas.png)
+[![c2ebb27b-ebf8-4af8-9f22-db8b1c635b38-adas.png](/images/post/2022-01-09-lichee-rv-2gb-memory/1641710188206-c2ebb27b-ebf8-4af8-9f22-db8b1c635b38-adas.png)](https://bbs.aw-ol.com/assets/uploads/files/1641710188206-c2ebb27b-ebf8-4af8-9f22-db8b1c635b38-adas.png)
 
 。。。。。。。。。。。。我回去改算法了

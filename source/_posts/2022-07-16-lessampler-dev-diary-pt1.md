@@ -14,35 +14,35 @@ date: 2022-07-16 00:00:00
 cannot seek string iterator after end
 ```
 
-![image-20220716210733928](/images/post/2022-07-16-20220716/image-20220716210733928.jpg)
+![image-20220716210733928](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716210733928.jpg)
 
 乍一看好像是某个迭代器有问题，那简单了，栈回溯看看，点击忽略（这里吐槽下这个版本的 LLDB，非得跳对话框忽略才行，MSVC风格）
 
-![image-20220716210925845](/images/post/2022-07-16-20220716/image-20220716210925845.jpg)
+![image-20220716210925845](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716210925845.jpg)
 
 看样子应该是因为 MSVC 的迭代器实现不太一样，`xutility` 报错越界了。那就看一下实际的代码。
 
-![image-20220716211111217](/images/post/2022-07-16-20220716/image-20220716211111217.jpg)
+![image-20220716211111217](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716211111217.jpg)
 
 `binary_prefix` 的 `size` 是 2，但是传入的 `value` 是1，所以迭代器越界了。解决方法也很简单，就在下面。估计库作者忘记修改这里了。
 
-![image-20220716211334012](/images/post/2022-07-16-20220716/image-20220716211334012.jpg)
+![image-20220716211334012](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716211334012.jpg)
 
 ## 给 `lessaudio` 做一个版本验证
 
 之前一直在想这事，lessampler 可以自己修改配置文件设定参数，但是修改后参数要重新生成模型才行。
 
-![image-20220716211815159](/images/post/2022-07-16-20220716/image-20220716211815159.jpg)
+![image-20220716211815159](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716211815159.jpg)
 
 这么多参数感觉重新 parse 下也挺麻烦的，还不如试试 hash 提取下特征。考虑了两个函数 `md5` 和 `sha1`。这里就别说啥安全性问题了，我知道这两个 hash 都会撞库，都不安全，但是对于音源参数这样的东西 yolo 就行了。首先考虑的是 `md5` 不过看了下实现怎么都在调用 `libopenssl` 还是算了。`sha1` 就好很多，有现成的库可以集成进来。
 
 而生成验证数据的方法也很简单，全部转换字符串拼起来就ok，然后丢 `sha1` 里 `checksum`
 
-![image-20220716212301890](/images/post/2022-07-16-20220716/image-20220716212301890.jpg)
+![image-20220716212301890](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716212301890.jpg)
 
 再加一个简单的 Timer 测试下耗时
 
-![image-20220716212453328](/images/post/2022-07-16-20220716/image-20220716212453328.jpg)
+![image-20220716212453328](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716212453328.jpg)
 
 测试了10次，如下表（测试速度变快不知道是不是因为 cache 刷进去了）
 
@@ -63,38 +63,38 @@ cannot seek string iterator after end
 
 第一次居然头部都不一样，离谱，检查下发现是因为两个配置的选项不一样，删了fex配置文件就ok了
 
-![image-20220716213731706](/images/post/2022-07-16-20220716/image-20220716213731706.jpg)
+![image-20220716213731706](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716213731706.jpg)
 
 这次一样的了
 
-![image-20220716214053668](/images/post/2022-07-16-20220716/image-20220716214053668.jpg)
+![image-20220716214053668](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716214053668.jpg)
 
 在看看下面的数值，有些许不太一样的地方，但是数组大部分是相同的
 
-![image-20220716214135934](/images/post/2022-07-16-20220716/image-20220716214135934.jpg)
+![image-20220716214135934](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716214135934.jpg)
 
 然后没有任何怀疑的使用了不同编译器编译的模型。
 
-![image-20220716214414699](/images/post/2022-07-16-20220716/image-20220716214414699.jpg)
+![image-20220716214414699](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716214414699.jpg)
 
 输出的音频也是一样的。至少我没听出什么区别
 
-![image-20220716214557301](/images/post/2022-07-16-20220716/image-20220716214557301.jpg)
+![image-20220716214557301](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716214557301.jpg)
 
 ## 解决 `ConfigUnit` 的异常处理被直接丢到 `std::cerr` 里的问题
 
 其他地方都不丢，就 `ConfigUnit` 丢错了
 
-![image-20220716214859048](/images/post/2022-07-16-20220716/image-20220716214859048.jpg)
+![image-20220716214859048](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716214859048.jpg)
 
 而我的异常处理都在 `main` 里管理了。
 
-![image-20220716214944820](/images/post/2022-07-16-20220716/image-20220716214944820.jpg)
+![image-20220716214944820](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716214944820.jpg)
 
 就是这里调用读取配置文件
 
-![image-20220716215021721](/images/post/2022-07-16-20220716/image-20220716215021721.jpg)
+![image-20220716215021721](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716215021721.jpg)
 
 然后一个一个排除，甚至以为这个 `throw` 是一层一层丢。没找到问题。然后才发现，我构造函数的时候没有包进 `try` 里
 
-![image-20220716215136636](/images/post/2022-07-16-20220716/image-20220716215136636.jpg)
+![image-20220716215136636](/images/post/2022-07-16-lessampler-dev-diary-pt1/image-20220716215136636.jpg)

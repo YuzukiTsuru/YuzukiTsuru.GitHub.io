@@ -16,11 +16,11 @@ https://github.com/openwrt/packages/tree/openwrt-21.02/utils/nano
 
 把Makefile，patch什么的的内容全部复制到tina-d1-open/packages/utils/nano/文件夹里，不存在文件夹就新建一个
 
-![image-20220123142919659](/images/post/2022-01-23-20220123/image-20220123142919659.png)
+![image-20220123142919659](/images/post/2022-01-23-tina-add-nano-package/image-20220123142919659.png)
 
 有些Package不止有一个Makefile文件，比如 VIM，这时候就要把全部文件复制过去
 
-![image-20220123143030951](/images/post/2022-01-23-20220123/image-20220123143030951.png)
+![image-20220123143030951](/images/post/2022-01-23-tina-add-nano-package/image-20220123143030951.png)
 
 重建packages引索文件。
 
@@ -53,4 +53,4 @@ include $(BUILD_DIR)/host-build.mk
 
 在Utilities，Editor里就能找到nano了
 
-![image-20220123143114732](/images/post/2022-01-23-20220123/image-20220123143114732.png)
+![image-20220123143114732](/images/post/2022-01-23-tina-add-nano-package/image-20220123143114732.png)

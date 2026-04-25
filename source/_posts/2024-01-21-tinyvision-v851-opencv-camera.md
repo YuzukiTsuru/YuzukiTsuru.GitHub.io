@@ -104,7 +104,7 @@ repo start devboard-v853-tina-for-awol --all
 
 放到 SDK 的主目录下
 
-![image-20240122151606422](../images/post/2024-01-21-20240121/image-20240122151606422.png)
+![image-20240122151606422](../images/post/2024-01-21-tinyvision-v851-opencv-camera/image-20240122151606422.png)
 
 运行解压指令
 
@@ -114,7 +114,7 @@ tar xvf tina-bsp-tinyvision.tar.gz
 
 即可使 Tina SDK 支持 TinyVision 板子
 
-![image-20240122151823777](../images/post/2024-01-21-20240121/image-20240122151823777.png)
+![image-20240122151823777](../images/post/2024-01-21-tinyvision-v851-opencv-camera/image-20240122151823777.png)
 
 ## 初始化 SDK 环境
 
@@ -126,7 +126,7 @@ source build/envsetup.sh
 
 然后按 1 选择 TinyVision
 
-![image-20240122202904787](../images/post/2024-01-21-20240121/image-20240122202904787.png)
+![image-20240122202904787](../images/post/2024-01-21-tinyvision-v851-opencv-camera/image-20240122202904787.png)
 
 ## 适配 ISP
 
@@ -138,11 +138,11 @@ Tina SDK 内置一个 libAWispApi 的包，支持在用户层对接 ISP，但是
 ISP_DIR:=isp600
 ```
 
-![image-20240122161729785](../images/post/2024-01-21-20240121/image-20240122161729785.png)
+![image-20240122161729785](../images/post/2024-01-21-tinyvision-v851-opencv-camera/image-20240122161729785.png)
 
 对于 v851s，v853 也可以这样操作，然后 `m menuconfig` 勾选上这个包
 
-![image-20240122202641560](../images/post/2024-01-21-20240121/image-20240122202641560.png)
+![image-20240122202641560](../images/post/2024-01-21-tinyvision-v851-opencv-camera/image-20240122202641560.png)
 
 ## 开启 camerademo 测试摄像头
 
@@ -157,7 +157,7 @@ Allwinner  --->
 
 编译系统然后烧录系统，运行命令 `camerademo` ，可以看到是正常拍摄照片的
 
-![image-20240122162014027](../images/post/2024-01-21-20240121/image-20240122162014027.png)
+![image-20240122162014027](../images/post/2024-01-21-tinyvision-v851-opencv-camera/image-20240122162014027.png)
 
 ## 适配 OpenCV
 
@@ -687,7 +687,7 @@ OpenCV  --->
 	[*]   Enabel opencv python3 binding support
 ```
 
-![image-20240122202827423](../images/post/2024-01-21-20240121/image-20240122202827423.png)
+![image-20240122202827423](../images/post/2024-01-21-tinyvision-v851-opencv-camera/image-20240122202827423.png)
 
 然后编译固件即可，请注意 Python3 编译非常慢，需要耐心等待下。
 
@@ -781,16 +781,16 @@ mp -j1 V=s
 
 U-Boot 默认配置的是使用 SDC2 也就是 TinyVision 的 SD-NAND 刷写固件。同时也支持使用 SDC0 也就是 TF 卡烧写固件，但是需要手动配置一下 U-Boot。否则会出现如下问题，U-Boot 去初始化不存在的 SD NAND 导致刷不进系统。
 
-![image-20240122155351715](../images/post/2024-01-21-20240121/image-20240122155351715.png)
+![image-20240122155351715](../images/post/2024-01-21-tinyvision-v851-opencv-camera/image-20240122155351715.png)
 
 前往文件夹 `brandy/brandy-2.0/u-boot-2018/drivers/sunxi_flash/mmc/sdmmc.c`
 
 找到第 188 行，将 `return sdmmc_init_for_sprite(0, 2);` 修改为 `return sdmmc_init_for_sprite(0, 0);`
 
-![image-20240122155513106](../images/post/2024-01-21-20240121/image-20240122155513106.png)
+![image-20240122155513106](../images/post/2024-01-21-tinyvision-v851-opencv-camera/image-20240122155513106.png)
 
 修改后需要重新编译固件。插入空白的 TF 卡，如果不是空白的 TF 卡可能出现芯片不进入烧录模式。
 
-![image-20240122160030117](../images/post/2024-01-21-20240121/image-20240122160030117.png)
+![image-20240122160030117](../images/post/2024-01-21-tinyvision-v851-opencv-camera/image-20240122160030117.png)
 
 出现 `try card 0` 开始下载到 TF 卡内

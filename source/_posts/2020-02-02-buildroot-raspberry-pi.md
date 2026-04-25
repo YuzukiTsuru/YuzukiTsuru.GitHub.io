@@ -1,6 +1,6 @@
 ---
 title: 'BuildRoot 与 RasperryPi'
-cover: /images/post/2020-02-02-20200202/cover.jpg
+cover: /images/post/2020-02-02-buildroot-raspberry-pi/cover.jpg
 date: 2020-02-02 00:00:00
 tags: [BuildRoot, RaspberryPi, Kernel, 内核]
 ---

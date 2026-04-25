@@ -62,4 +62,4 @@ PBW=100
 
 编辑器截图
 
-![png](/images/post/2020-07-14-20200714/sa.PNG)
+![png](/images/post/2020-07-14-utau-cli-parameters/sa.PNG)

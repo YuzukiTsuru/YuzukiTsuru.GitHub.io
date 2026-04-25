@@ -12,7 +12,7 @@ date: 2025-05-17 00:00:00
 Get-PhysicalDisk | Where-Object –Property HealthStatus –ne Healthy
 ```
 
-![image-20250517092336041](../images/post/2025-05-17-20250517/image-20250517092336041.png)
+![image-20250517092336041](../images/post/2025-05-17-windows-server-2025-nas-storage-pool/image-20250517092336041.png)
 
 新盘插入之后加入存储池中，之后需要运行命令将坏的盘退休
 
@@ -21,10 +21,10 @@ $FailedDisk = Get-PhysicalDisk | Where-Object –Property HealthStatus –ne Hea
 $FailedDisk | Set-PhysicalDisk –Usage Retired
 ```
 
-![image-20250517092438671](../images/post/2025-05-17-20250517/image-20250517092438671.png)
+![image-20250517092438671](../images/post/2025-05-17-windows-server-2025-nas-storage-pool/image-20250517092438671.png)
 
 然后需要重建磁盘库，点击修复磁盘库
 
-![image-20250517092454435](../images/post/2025-05-17-20250517/image-20250517092454435.png)
+![image-20250517092454435](../images/post/2025-05-17-windows-server-2025-nas-storage-pool/image-20250517092454435.png)
 
 等待修复完成，删除损坏的盘

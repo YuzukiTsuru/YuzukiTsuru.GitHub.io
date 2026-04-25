@@ -162,7 +162,7 @@ date: 2020-07-07 00:00:00
   - 能合成：非必需氨基酸（$\complement{必须氨基酸}$）
   - 不能合成：必需氨基酸（8种，婴儿9种）
 - 化学结构：
-  ![化学式](/images/post/2020-07-07-20200707/化学式.png)
+  ![化学式](/images/post/2020-07-07-biology-notes-for-exam/化学式.png)
 
 #### 合成方法
 
@@ -242,12 +242,12 @@ date: 2020-07-07 00:00:00
 
 #### 基本组成单位：核苷酸
 
-![核苷酸](/images/post/2020-07-07-20200707/核苷酸.jpg)
+![核苷酸](/images/post/2020-07-07-biology-notes-for-exam/核苷酸.jpg)
 
 - 组成元素：$C、H、O、N、P$
 - 分类：
   - 脱氧核糖核苷酸
-    ![脱氧核糖核苷酸](/images/post/2020-07-07-20200707/脱氧核苷酸.jpg)
+    ![脱氧核糖核苷酸](/images/post/2020-07-07-biology-notes-for-exam/脱氧核苷酸.jpg)
     - 含氮碱基：
       - $A$：$\text{Adenine}$ 腺嘌呤
       - $G$：$\text{Guanine}$ 鸟嘌呤
@@ -255,7 +255,7 @@ date: 2020-07-07 00:00:00
       - $T$：$\text{Thymine}$ 胸腺嘧啶
 
   - 核糖核苷酸
-    ![核苷酸](/images/post/2020-07-07-20200707/核苷酸.jpg)
+    ![核苷酸](/images/post/2020-07-07-biology-notes-for-exam/核苷酸.jpg)
     - 含氮碱基：
       - $A$：$\text{Adenine}$ 腺嘌呤
       - $G$：$\text{Guanine}$ 鸟嘌呤
@@ -346,11 +346,11 @@ date: 2020-07-07 00:00:00
 
 ## 细胞的基本结构
 
-![See the source image](/images/post/2020-07-07-20200707/动植物细胞.png)
+![See the source image](/images/post/2020-07-07-biology-notes-for-exam/动植物细胞.png)
 
 ### 细胞膜
 
-![细胞膜](/images/post/2020-07-07-20200707/细胞膜.jpg)
+![细胞膜](/images/post/2020-07-07-biology-notes-for-exam/细胞膜.jpg)
 
 - 组成元素：$C、H、O、N、P$
 
@@ -423,7 +423,7 @@ date: 2020-07-07 00:00:00
 
 #### 线粒体
 
-<img src="/images/post/2020-07-07-20200707/线粒体.png" alt="See the source image" style="zoom:13%;" />
+<img src="/images/post/2020-07-07-biology-notes-for-exam/线粒体.png" alt="See the source image" style="zoom:13%;" />
 
 - 双层膜结构 $\to$ 内膜存在有关**有氧呼吸**的酶
 - 内膜有脊 $\to$ 增大膜面积
@@ -439,7 +439,7 @@ date: 2020-07-07 00:00:00
 
 #### 叶绿体
 
-<img src="/images/post/2020-07-07-20200707/叶绿体.png" alt="See the source image" style="zoom:13%;" />
+<img src="/images/post/2020-07-07-biology-notes-for-exam/叶绿体.png" alt="See the source image" style="zoom:13%;" />
 
 - 双层膜结构：
   - 基粒（类囊体堆叠而成）
@@ -452,13 +452,13 @@ date: 2020-07-07 00:00:00
 
 - 光合作用：
 
-  ![光合作用](/images/post/2020-07-07-20200707/光合作用.png)
+  ![光合作用](/images/post/2020-07-07-biology-notes-for-exam/光合作用.png)
   - 光反应：叶绿体内囊体薄膜
   - 暗反应：叶绿体基质
 
 #### 内质网
 
-<img src="/images/post/2020-07-07-20200707/内质网.png" alt="Credit: Encyclopaedia Britannica/UIG/Getty Images" style="zoom:53%;" />
+<img src="/images/post/2020-07-07-biology-notes-for-exam/内质网.png" alt="Credit: Encyclopaedia Britannica/UIG/Getty Images" style="zoom:53%;" />
 
 - 由膜构成的网状结构 $\to$ 单层膜
 - 分类：
@@ -470,7 +470,7 @@ date: 2020-07-07 00:00:00
 
 #### 高尔基体
 
-<img src="/images/post/2020-07-07-20200707/高尔基体.png" alt="See the source image" style="zoom:33%;" />
+<img src="/images/post/2020-07-07-biology-notes-for-exam/高尔基体.png" alt="See the source image" style="zoom:33%;" />
 
 - 由**蛋白质**构成的囊状结构 $\to$ 单层膜
 
@@ -479,7 +479,7 @@ date: 2020-07-07 00:00:00
 
 #### 溶酶体
 
-<img src="/images/post/2020-07-07-20200707/溶酶体.png" alt="See the source image" style="zoom:33%;" />
+<img src="/images/post/2020-07-07-biology-notes-for-exam/溶酶体.png" alt="See the source image" style="zoom:33%;" />
 
 - 细胞的“酶仓库”和“消化车间”
 - 结构：单层膜 $\to$ 来源于高尔基体，内质网形成的囊泡
@@ -497,7 +497,7 @@ date: 2020-07-07 00:00:00
 
 #### 液泡
 
-<img src="/images/post/2020-07-07-20200707/液泡.png" alt="See the source image" style="zoom:33%;" />
+<img src="/images/post/2020-07-07-biology-notes-for-exam/液泡.png" alt="See the source image" style="zoom:33%;" />
 
 - 液泡：植物细胞中的“水源”和“营养库”
 - 结构
@@ -515,7 +515,7 @@ date: 2020-07-07 00:00:00
 
 #### 核糖体
 
-<img src="/images/post/2020-07-07-20200707/核糖体.png" alt="See the source image" style="zoom:23%;" />
+<img src="/images/post/2020-07-07-biology-notes-for-exam/核糖体.png" alt="See the source image" style="zoom:23%;" />
 
 - 功能：生产蛋白质的机器
 - 细胞合成蛋白质的场所
@@ -530,7 +530,7 @@ date: 2020-07-07 00:00:00
 
 #### 中心体
 
-<img src="/images/post/2020-07-07-20200707/中心体.png" alt="See the source image" style="zoom:23%;" />
+<img src="/images/post/2020-07-07-biology-notes-for-exam/中心体.png" alt="See the source image" style="zoom:23%;" />
 
 - 无膜结构
 - 结构：有两个互相垂直的圆柱形物质组成
@@ -550,7 +550,7 @@ date: 2020-07-07 00:00:00
 
 ### 细胞器之间的协调合作：分泌蛋白的分工合作
 
-![image-20200228082801570](/images/post/2020-07-07-20200707/细胞器之间的合作.png)
+![image-20200228082801570](/images/post/2020-07-07-biology-notes-for-exam/细胞器之间的合作.png)
 
 - 分泌蛋白的种类
   - 消化酶，溶酶体，抗体，淋巴因子
@@ -598,9 +598,9 @@ date: 2020-07-07 00:00:00
   - 蛋白质在细胞膜上的含量少于细胞器膜
 - 生物膜在结构上的联系
   - 直接联系
-    ![截屏2020-02-28上午9.01.53](/images/post/2020-07-07-20200707/生物膜直接联系.png)
+    ![截屏2020-02-28上午9.01.53](/images/post/2020-07-07-biology-notes-for-exam/生物膜直接联系.png)
   - 间接联系
-    ![image-20200228090041834](/images/post/2020-07-07-20200707/生物膜间接作用.png)
+    ![image-20200228090041834](/images/post/2020-07-07-biology-notes-for-exam/生物膜间接作用.png)
 - 生物膜系统的作用
   - 细胞膜作用：屏障作用，物质运输，能量交换
   - 附着大量的酶，是许多生化反应的重要场所
@@ -608,7 +608,7 @@ date: 2020-07-07 00:00:00
 
 ### 细胞核：系统的控制中心
 
-<img src="/images/post/2020-07-07-20200707/细胞核.png" alt="See the source image" style="zoom:23%;" />
+<img src="/images/post/2020-07-07-biology-notes-for-exam/细胞核.png" alt="See the source image" style="zoom:23%;" />
 
 - 结构：
   - 核膜（$Nuclear\ Envelop$）
@@ -679,12 +679,12 @@ date: 2020-07-07 00:00:00
      - 原生质层紧贴细胞壁
      - 细胞中有一个紫色中央大液泡
   3. 滴加蔗糖溶液
-     ![滴加蔗糖溶液](/images/post/2020-07-07-20200707/滴加蔗糖溶液.png)
+     ![滴加蔗糖溶液](/images/post/2020-07-07-biology-notes-for-exam/滴加蔗糖溶液.png)
   4. 低倍镜观察
      - 逐渐发生质壁分离
      - 液泡缩小，颜色变深
   5. 滴加清水
-     ![滴加清水](/images/post/2020-07-07-20200707/滴加清水.png)
+     ![滴加清水](/images/post/2020-07-07-biology-notes-for-exam/滴加清水.png)
   6. 低倍镜观察
 - 提示：
   - 实验不需要设置对照组
@@ -731,13 +731,13 @@ date: 2020-07-07 00:00:00
   - 蛋白质和$RNA$进出核孔
 - 图像
   - 物质浓度 自由扩散
-    ![物质浓度](/images/post/2020-07-07-20200707/物质浓度.png)
+    ![物质浓度](/images/post/2020-07-07-biology-notes-for-exam/物质浓度.png)
   - 物质浓度 协助扩散 / 主动运输
-    ![物质浓度-主动](/images/post/2020-07-07-20200707/物质浓度-主动.png)
+    ![物质浓度-主动](/images/post/2020-07-07-biology-notes-for-exam/物质浓度-主动.png)
   - $O_2$浓度影响 自由扩散 / 协助扩散
-    ![O2浓度](/images/post/2020-07-07-20200707/O2浓度.png)
+    ![O2浓度](/images/post/2020-07-07-biology-notes-for-exam/O2浓度.png)
   - $O_2$浓度影响 主动运输
-    ![O2浓度 (/images/post/2020-07-07-20200707/O2浓度 (1).png)](/images/post/2020-07-07-20200707/O2浓度 (1).png)
+    ![O2浓度 (/images/post/2020-07-07-biology-notes-for-exam/O2浓度 (1).png)](/images/post/2020-07-07-biology-notes-for-exam/O2浓度 (1).png)
 
 #### 影响细胞膜的透过性的环境因素
 
@@ -773,7 +773,7 @@ date: 2020-07-07 00:00:00
 - 只能催化允许进行的化学反应
 - 降低化学反应的活化能，提高反应速率
 - 不改变化学反应的平衡点
-  <img src="/images/post/2020-07-07-20200707/不改变化学反应平衡点.png" alt="image-20200309095234066" style="zoom:50%;" />
+  <img src="/images/post/2020-07-07-biology-notes-for-exam/不改变化学反应平衡点.png" alt="image-20200309095234066" style="zoom:50%;" />
 
 #### 酶在代谢中的作用
 
@@ -795,13 +795,13 @@ date: 2020-07-07 00:00:00
     - 低温（$a$）：酶活性降低，酶不会失活
     - 高温（$c$）：使酶活性降低，使酶的空间结构发生改变，使酶失活
 
-<img src="/images/post/2020-07-07-20200707/温度.png" alt="image-20200309095734345" style="zoom:50%;" />
+<img src="/images/post/2020-07-07-biology-notes-for-exam/温度.png" alt="image-20200309095734345" style="zoom:50%;" />
 
 - $pH$
   - 过酸过碱都会使酶发生不可逆转的失活
   - 人体适宜$pH$值：7.35～7.45（血浆）
   - 每种酶只能在一定的$pH$范围内才能表现活性，超出这个范围立即失活
-    <img src="/images/post/2020-07-07-20200707/image-20200311141008426.png" alt="image-20200311141008426" style="zoom:40%;" />
+    <img src="/images/post/2020-07-07-biology-notes-for-exam/image-20200311141008426.png" alt="image-20200311141008426" style="zoom:40%;" />
 
 - 实验：探究影响酶活性的条件
 
@@ -839,7 +839,7 @@ date: 2020-07-07 00:00:00
 - $T\to$ 三
 - $P \to$ 磷酸腺苷
 
-<img src="/images/post/2020-07-07-20200707/image-20200311152103790.png" alt="image-20200311152103790" style="zoom:50%;" />
+<img src="/images/post/2020-07-07-biology-notes-for-exam/image-20200311152103790.png" alt="image-20200311152103790" style="zoom:50%;" />
 
 #### $ATP$的基本性质
 
@@ -953,7 +953,7 @@ $\ce{外环境 <=>[O2][CO2] 内环境 <=>[O2][CO2] 组织细胞}$
 
 #### 细胞呼吸的图像问题
 
-<img src="/images/post/2020-07-07-20200707/image-20200316081207778.png" alt="image-20200316081207778" style="zoom:33%;" />
+<img src="/images/post/2020-07-07-biology-notes-for-exam/image-20200316081207778.png" alt="image-20200316081207778" style="zoom:33%;" />
 
 1. $CO_2$释放量和$O_2$吸收量的变化与呼吸作用的关系
    - 有氧呼吸：$\ce{C6H12O6 -> 6O2 -> 6CO2}$
@@ -969,7 +969,7 @@ $\ce{外环境 <=>[O2][CO2] 内环境 <=>[O2][CO2] 组织细胞}$
 
 - 叶绿体的种类以及作用
 
-  ![See the source image](/images/post/2020-07-07-20200707/figure1.png)
+  ![See the source image](/images/post/2020-07-07-biology-notes-for-exam/figure1.png)
   - 叶绿素$\frac{3}{4}$：主要吸收红光，蓝紫光
     - 叶绿素$a$ 蓝绿色
     - 叶绿素$b$ 黄绿色
@@ -983,7 +983,7 @@ $\ce{外环境 <=>[O2][CO2] 内环境 <=>[O2][CO2] 组织细胞}$
 
 - 色素的提取和分离
 
-  ![截屏2020-03-16上午8.53.00](/images/post/2020-07-07-20200707/光合作用色素提取.png)
+  ![截屏2020-03-16上午8.53.00](/images/post/2020-07-07-biology-notes-for-exam/光合作用色素提取.png)
   1. 提取色素：
      - 原理 $\to$ 叶绿素能溶解在有机溶剂中，可以用无水乙醇来提取色素
        - 代替：$95\%$的乙醇 $+$ $\ce{NaCO3}$
@@ -1022,10 +1022,10 @@ $\ce{外环境 <=>[O2][CO2] 内环境 <=>[O2][CO2] 组织细胞}$
 - 光合作用中，$H_2O$既是产物又是原料，总体来看光合作用消耗$H_2O$
   - 光反应
 
-  ![image-20200316102620401](/images/post/2020-07-07-20200707/image-20200316102620401.png)
+  ![image-20200316102620401](/images/post/2020-07-07-biology-notes-for-exam/image-20200316102620401.png)
   - 暗反应
 
-  ![截屏2020-03-18下午2.22.18](/images/post/2020-07-07-20200707/anfanying.png)
+  ![截屏2020-03-18下午2.22.18](/images/post/2020-07-07-biology-notes-for-exam/anfanying.png)
 
   |          | 光反应                                                   | 暗反应                                                                           |
   | -------- | -------------------------------------------------------- | -------------------------------------------------------------------------------- |
@@ -1043,7 +1043,7 @@ $\ce{外环境 <=>[O2][CO2] 内环境 <=>[O2][CO2] 组织细胞}$
 
   - 光照强度
 
-    ![image-20200318144151323](/images/post/2020-07-07-20200707/image-20200318144151323.png)
+    ![image-20200318144151323](/images/post/2020-07-07-biology-notes-for-exam/image-20200318144151323.png)
     - 光补偿点：$b$，植物的光合作用所吸收的$CO_2$和细胞呼吸所释放出的$CO_2$相等时的光照强度
     - 光饱和点：$c$，植物光合速率达到最大值的最小光照强度
     - $oa$段的绝对值表示植物的呼吸强度
@@ -1051,7 +1051,7 @@ $\ce{外环境 <=>[O2][CO2] 内环境 <=>[O2][CO2] 组织细胞}$
 
   - 叶面积指数
 
-    ![image-20200318144842412](/images/post/2020-07-07-20200707/image-20200318144842412.png)
+    ![image-20200318144842412](/images/post/2020-07-07-biology-notes-for-exam/image-20200318144842412.png)
     - $a$：光合作用的实际量
       - $oa$表示随着叶面积指数增大光合作用增强
     - $b$：呼吸作用的消耗量
@@ -1062,7 +1062,7 @@ $\ce{外环境 <=>[O2][CO2] 内环境 <=>[O2][CO2] 组织细胞}$
 
   - $CO_2$的浓度
 
-    ![image-20200318150416926](/images/post/2020-07-07-20200707/image-20200318145554481.png)
+    ![image-20200318150416926](/images/post/2020-07-07-biology-notes-for-exam/image-20200318145554481.png)
     - $oa$段的绝对值表示植物的呼吸强度
     - $b$点是$CO_2$的补偿点：植物的光合作用所吸收的$CO_2$的量等于细胞呼吸所释放出的$CO_2$量时的**外界$CO_2$浓度**
     - $c$点是$CO_2$的饱和点，植物的**光合速率**达到最大时的**外界环境**的$CO_2$的最低浓度
@@ -1089,7 +1089,7 @@ $\ce{外环境 <=>[O2][CO2] 内环境 <=>[O2][CO2] 组织细胞}$
 
   - 叶绿体，叶肉细胞和支柱光合速率的关系
 
-    ![image-20200318154802247](/images/post/2020-07-07-20200707/image-20200318154802247.png)
+    ![image-20200318154802247](/images/post/2020-07-07-biology-notes-for-exam/image-20200318154802247.png)
     - 叶肉细胞的光补偿点$C$ $<$ 植株的光补偿点$D$
     - 叶绿体，叶肉细胞，植株的光饱和点$E$相同
     - 叶肉细胞的呼吸速率$B$ $<$ 植株的呼吸速率$A$
@@ -1098,7 +1098,7 @@ $\ce{外环境 <=>[O2][CO2] 内环境 <=>[O2][CO2] 组织细胞}$
 
   - 植物吸收和释放$CO_2$速率的日变化
 
-    ![image-20200318160206078](/images/post/2020-07-07-20200707/image-20200318160206078.png)
+    ![image-20200318160206078](/images/post/2020-07-07-biology-notes-for-exam/image-20200318160206078.png)
     1. 表示环境中的**各种生态因素**（温度，光照强度，$CO_2$浓度等）对植物光合作用和呼吸作用的**综合影响**。假设一天内光照时段为$6\sim18$点
     2. 植物的呼吸强度在一昼夜中，处于不断变化的状态，$0\sim a$段的绝对值只表示$0$时刻的植物呼吸强度
     3. $d$和$h$时刻不是光合作用的起点和终点，在其前后均有光合作用，但是**光合作用速率**小于**呼吸作用速率**，是光补偿点。如果呼吸强度相等，由于$h$时刻大气中$CO_2$浓度低于$d$时刻，那么**$h$时刻的光照强度 $> d$时刻** ，$d\sim h$段植物的光合速率大于呼吸速率，植物吸收$CO_2$释放$O_2$积累有机物。
@@ -1111,7 +1111,7 @@ $\ce{外环境 <=>[O2][CO2] 内环境 <=>[O2][CO2] 组织细胞}$
 
   - 光合速率
 
-    ![image-20200318153850218](/images/post/2020-07-07-20200707/image-20200318153850218.png)
+    ![image-20200318153850218](/images/post/2020-07-07-biology-notes-for-exam/image-20200318153850218.png)
     1. 曲线含义：在一定光照强度范围内，光合作用强度随**光照强度**增加而增加，达到某**一光照强度**后光合作用不再随着光照强度增加而增加。
     2. 在光照条件下测定的植物净光合速率
        - 植物释放$CO_2\to$ 植物的净光合速率 $> 0$
@@ -1155,7 +1155,7 @@ $\ce{外环境 <=>[O2][CO2] 内环境 <=>[O2][CO2] 组织细胞}$
 
 #### 细胞周期
 
-<img src="/images/post/2020-07-07-20200707/2020-03-25.png" alt="截屏2020-03-25上午8.56.34" style="zoom:33%;" />
+<img src="/images/post/2020-07-07-biology-notes-for-exam/2020-03-25.png" alt="截屏2020-03-25上午8.56.34" style="zoom:33%;" />
 
 - 分裂周期：一次分裂完成到下一次细胞分裂完成，为一个细胞周期。经过一个细胞周期完成了一次细胞的增殖。
 - 分裂间期：是细胞生长的阶段，为分裂期做物质准备
@@ -1164,7 +1164,7 @@ $\ce{外环境 <=>[O2][CO2] 内环境 <=>[O2][CO2] 组织细胞}$
 
 ##### 分裂间期
 
-![截屏2020-03-25上午9.06.10](/images/post/2020-07-07-20200707/截屏2020-03-25上午9.06.10.png)
+![截屏2020-03-25上午9.06.10](/images/post/2020-07-07-biology-notes-for-exam/截屏2020-03-25上午9.06.10.png)
 
 - $G_1$期：主要进行$RNA$、蛋白质、酶的合成，为$S$期$DNA$的合成做准备
 

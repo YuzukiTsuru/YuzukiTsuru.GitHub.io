@@ -8,24 +8,24 @@ date: 2022-07-21 00:00:00
 
 ## Linux Bash 导致的 `terminate called after throwing an instance of 'std::invalid_argument'`
 
-![image-20220721232317584](/images/post/2022-07-21-20220721/image-20220721232317584.png)
+![image-20220721232317584](/images/post/2022-07-21-lessampler-dev-diary-pt2/image-20220721232317584.png)
 
 心血来潮，在 Linux 里运行下 lessampler，结果报错了。
 
 看上去是一个 `stoi` 转换的问题，唯一的调用在 `libUTAU` 里作为命令行解析器。把 `!120` 转换为 `120` 作为 tempo。
 
-![image-20220721232453060](/images/post/2022-07-21-20220721/image-20220721232453060.png)
+![image-20220721232453060](/images/post/2022-07-21-lessampler-dev-diary-pt2/image-20220721232453060.png)
 
 那就启动调试器看看，这里给的数据是啥，结果离谱的事情来了，IDE 里启动没有任何问题。
 
-![image-20220721232658909](/images/post/2022-07-21-20220721/image-20220721232658909.png)
+![image-20220721232658909](/images/post/2022-07-21-lessampler-dev-diary-pt2/image-20220721232658909.png)
 
 看来问题还是出在 bash 里，由于 bash 的特殊功能，无法以 `!` 作为参数所以使用了一个转义符号，直接运行会显示 `event not found`
 
-![image-20220721232820098](/images/post/2022-07-21-20220721/image-20220721232820098.png)
+![image-20220721232820098](/images/post/2022-07-21-lessampler-dev-diary-pt2/image-20220721232820098.png)
 
 估计是转义的锅，开 `strace` 看看
 
-![image-20220721232941845](/images/post/2022-07-21-20220721/image-20220721232941845.png)
+![image-20220721232941845](/images/post/2022-07-21-lessampler-dev-diary-pt2/image-20220721232941845.png)
 
 然后就发现居然加了2层转义。。。那行吧。
