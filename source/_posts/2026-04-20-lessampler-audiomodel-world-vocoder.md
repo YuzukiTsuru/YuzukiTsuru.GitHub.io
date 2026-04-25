@@ -1,6 +1,7 @@
 ---
 title: 'lessampler: AudioModel 模块 - WORLD 声码器的 C++ 封装'
 tags: ['lessampler', 'UTAU']
+mathjax: true
 date: 2026-04-20 00:00:00
 ---
 

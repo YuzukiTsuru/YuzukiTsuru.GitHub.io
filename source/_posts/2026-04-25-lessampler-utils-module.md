@@ -1,6 +1,7 @@
 ---
 title: 'lessampler: Utils 模块 - 工具类的设计哲学'
 tags: ['lessampler', 'UTAU']
+mathjax: true
 date: 2026-04-25 00:00:00
 ---
 Utils 模块提供 lessampler 的基础设施工具类，包括分级日志系统、高性能计时器、数组转换工具和自定义异常体系。这些工具类为整个项目提供一致的基础功能支持，确保代码的健壮性和可调试性。

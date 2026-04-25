@@ -1,6 +1,7 @@
 ---
 title: 'lessampler: AudioProcess 模块 - 音频变换的艺术'
 tags: ['lessampler', 'UTAU']
+mathjax: true
 date: 2026-04-21 00:00:00
 ---
 
