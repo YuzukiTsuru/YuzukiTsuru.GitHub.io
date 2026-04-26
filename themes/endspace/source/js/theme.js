@@ -473,6 +473,12 @@
     });
 
     swup.hooks.on('animation:out:start', function () {
+      // Safari fix: clone the ring to restart animation smoothly
+      var oldRing = spinner.querySelector('.swup-spinner-ring');
+      if (oldRing) {
+        var newRing = oldRing.cloneNode(true);
+        oldRing.parentNode.replaceChild(newRing, oldRing);
+      }
       spinner.style.display = '';
       spinner.style.opacity = '1';
     });
