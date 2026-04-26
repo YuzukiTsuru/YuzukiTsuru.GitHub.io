@@ -9,7 +9,7 @@
   class="fixed left-0 top-0 bottom-0 z-40 hidden md:flex flex-col bg-[var(--endspace-bg-base)] border-r border-[var(--endspace-border-base)] transition-all duration-300 ease-in-out shadow-md w-[5rem]"
 >
   <div class="flex-shrink-0 h-[10rem] py-6 flex flex-col items-center">
-    <a href="<%- url_for('/aboutme/') %>" title="<%= __('profile') %>">
+    <a href="<%- url_for('/posts/') %>" title="<%= __('menu.posts') %>">
       <div
         class="w-[3rem] h-[3rem] flex-shrink-0 transition-transform duration-300 cursor-pointer hover:scale-105"
       >
@@ -25,7 +25,7 @@
       data-author
     >
       <a
-        href="<%- url_for('/aboutme/') %>"
+        href="<%- url_for('/posts/') %>"
         class="hover:text-[var(--endspace-accent-yellow)] transition-colors"
       >
         <div class="text-sm font-bold text-[var(--endspace-text-primary)] uppercase tracking-wider">

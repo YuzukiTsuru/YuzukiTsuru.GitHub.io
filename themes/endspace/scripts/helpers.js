@@ -19,6 +19,8 @@ const SVG_ICONS = {
     '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7Z"/></svg>',
   portfolio:
     '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4Z"/></svg>',
+  about:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v1M12 12v4"/></svg>',
   menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>',
   close:
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5 5 19"/></svg>',
@@ -102,6 +104,7 @@ hexo.extend.helper.register('themeMenu', function () {
       icon: 'archive',
       show: e.menu_archive !== false
     },
+    { name: this.__('menu.about'), path: '/aboutme/', icon: 'about', show: true },
     { name: this.__('menu.friends'), path: '/friends/', icon: 'friends', show: true },
     {
       name: this.__('menu.promotion'),
