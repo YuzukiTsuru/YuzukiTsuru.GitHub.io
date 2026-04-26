@@ -118,13 +118,13 @@ double AudioProcess::GetAvgFreq() const {
 
 权重公式的数学推导：
 
-当 $q = f0[i-j-1] - f0[i]$ 时：
+当 $q = f_0[i-j-1] - f_0[i]$ 时：
 - $q = 0$（完全相同）：$p[j] = 1.0$（最大权重）
 - $q$ 很大（差异大）：$p[j] \to 0$（低权重）
 
-$$p[j] = \frac{f0}{f0 + q^2}$$
+$$p[j] = \frac{f_0}{f_0 + q^2}$$
 
-其中 $q = f0_{i-j-1} - f0_i$
+其中 $q = f_{0,i-j-1} - f_{0,i}$
 
 ### PicthEqualizing() 函数
 

@@ -593,10 +593,31 @@
       // Re-init MathJax if the new page needs it
       var swupMain = doc.getElementById('swup-main');
       if (swupMain && swupMain.getAttribute('data-mathjax') === 'true') {
+        // Decode HTML entities in $$ blocks before MathJax processes
+        var swupContent = doc.getElementById('swup-content');
+        if (swupContent) {
+          var walk = function (node) {
+            if (node.nodeType === 3) {
+              var text = node.textContent;
+              if (text.indexOf('$') !== -1) {
+                node.textContent = text
+                  .replace(/\$\$[\s\S]*?\$\$/g, function (m) {
+                    return m.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+                  })
+                  .replace(/\$[^$]+\$/g, function (m) {
+                    return m.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+                  });
+              }
+            } else if (node.nodeType === 1 && !/^(SCRIPT|STYLE|CODE|PRE)$/.test(node.tagName)) {
+              for (var i = 0; i < node.childNodes.length; i++) walk(node.childNodes[i]);
+            }
+          };
+          walk(swupContent);
+        }
         if (window.MathJax && window.MathJax.typesetPromise) {
           // MathJax loaded — clear old rendering then re-typeset
-          MathJax.typesetClear([doc.getElementById('swup-content')]);
-          MathJax.typesetPromise([doc.getElementById('swup-content')]).catch(function (err) {
+          MathJax.typesetClear([swupContent]);
+          MathJax.typesetPromise([swupContent]).catch(function (err) {
             console.warn('MathJax typeset failed:', err);
           });
         } else {
@@ -604,7 +625,10 @@
           window.MathJax = {
             tex: {
               inlineMath: [['$', '$']],
-              displayMath: [['\\[', '\\]']],
+              displayMath: [
+                ['$$', '$$'],
+                ['\\[', '\\]']
+              ],
               processEnvironments: true,
               processRefs: true
             },
@@ -616,7 +640,7 @@
             loader: { load: ['[tex]/mhchem'] },
             startup: {
               typeset: true,
-              elements: [doc.getElementById('swup-content')]
+              elements: [swupContent]
             }
           };
           var mjScript = doc.createElement('script');

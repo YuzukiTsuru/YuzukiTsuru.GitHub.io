@@ -14,6 +14,21 @@
     }
   }
 
+  // MathJax display math overflow handling
+  mjx-container[display="true"] {
+    display: block !important;
+    overflow: auto hidden !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0.5rem 0;
+    -webkit-overflow-scrolling: touch;
+
+    mjx-math {
+      display: inline-block !important;
+      max-width: none !important;
+    }
+  }
+
   h1,
   h2,
   h3,
@@ -206,4 +221,31 @@
   height: 160px;
   border-radius: 4px;
   box-shadow: var(--endspace-shadow-base);
+}
+
+// Mobile MathJax scaling and overflow
+@media (width <= 768px) {
+  #notion-article mjx-container[display="true"] {
+    font-size: 0.85em !important;
+    overflow-x: auto !important;
+    max-width: 100% !important;
+    padding: 0.5rem 0 !important;
+
+    mjx-math {
+      font-size: 0.85em !important;
+      display: inline-block !important;
+    }
+
+    mjx-tool {
+      display: none !important;
+    }
+
+    // Hide scrollbar
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }

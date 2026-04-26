@@ -48,10 +48,33 @@
 
 <% if (page.mathjax) { %>
 <script>
+  // Pre-process: decode HTML entities in $$ blocks before MathJax sees them
+  (function() {
+    var decodeEntities = function(str) {
+      return str.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+    };
+    var walk = function(node) {
+      if (node.nodeType === 3) {
+        var text = node.textContent;
+        if (text.indexOf('$') !== -1) {
+          node.textContent = text.replace(/\$\$[\s\S]*?\$\$/g, decodeEntities);
+        }
+      } else if (node.nodeType === 1 && !/^(SCRIPT|STYLE|CODE|PRE)$/.test(node.tagName)) {
+        for (var i = 0; i < node.childNodes.length; i++) {
+          walk(node.childNodes[i]);
+        }
+      }
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() { walk(document.body); });
+    } else {
+      walk(document.body);
+    }
+  })();
   MathJax = {
     tex: {
       inlineMath: [['$', '$']],
-      displayMath: [['\\[', '\\]']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
       processEnvironments: true,
       processRefs: true
     },
