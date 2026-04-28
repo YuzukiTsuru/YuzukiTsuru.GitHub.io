@@ -33,10 +33,10 @@ pub use stages::FlashStages;
 
 ### 双模式进度显示
 
-| 模式 | 进度显示 | 状态同步 | 适用场景 |
-|------|----------|----------|----------|
-| CLI | indicatif ProgressBar | 实时更新 | 命令行刷写 |
-| TUI | ProgressSnapshot 轮询 | 定时获取 | 交互界面 |
+| 模式 | 进度显示              | 状态同步 | 适用场景   |
+| ---- | --------------------- | -------- | ---------- |
+| CLI  | indicatif ProgressBar | 实时更新 | 命令行刷写 |
+| TUI  | ProgressSnapshot 轮询 | 定时获取 | 交互界面   |
 
 ### 模块依赖关系
 
@@ -671,11 +671,11 @@ let weight = self.completed_weight.fetch_add(weight, Ordering::SeqCst);
 
 **原子操作类型：**
 
-| 类型 | 作用 |
-|------|------|
-| AtomicU64 | 64 位整数原子操作 |
+| 类型        | 作用                   |
+| ----------- | ---------------------- |
+| AtomicU64   | 64 位整数原子操作      |
 | AtomicUsize | usize 原子操作（索引） |
-| AtomicBool | 布尔值原子操作 |
+| AtomicBool  | 布尔值原子操作         |
 
 ### 2. Ordering::SeqCst 内存序
 

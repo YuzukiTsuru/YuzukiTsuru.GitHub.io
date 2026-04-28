@@ -101,7 +101,7 @@ double AudioProcess::GetAvgFreq() const {
     }
 
     // 计算加权平均
-    if (base_timePercent > 0) 
+    if (base_timePercent > 0)
         freq_avg /= base_timePercent;
     return freq_avg;
 }
@@ -119,6 +119,7 @@ double AudioProcess::GetAvgFreq() const {
 权重公式的数学推导：
 
 当 $q = f_0[i-j-1] - f_0[i]$ 时：
+
 - $q = 0$（完全相同）：$p[j] = 1.0$（最大权重）
 - $q$ 很大（差异大）：$p[j] \to 0$（低权重）
 
@@ -147,7 +148,7 @@ void AudioProcess::PicthEqualizing() {
         for (double &i: audioModel.f0) {
             if (i != 0.0) {
                 // 调制公式
-                i = ((i - freq_avg) * shine.modulation / 100.0 + freq_avg) 
+                i = ((i - freq_avg) * shine.modulation / 100.0 + freq_avg)
                     * (shine.scale_num / freq_avg);
             } else {
                 i = 0;
@@ -204,6 +205,7 @@ $$f_{new} = f_0 \cdot \frac{f_{target}}{f_{avg}}$$
 ```
 
 这描述了 UTAU 合成的音频结构：
+
 - **offset**：原音频的起始偏移
 - **fixed**：固定部分（不拉伸）
 - **pre_cross**：预交叉部分（用于拉伸）
@@ -215,9 +217,9 @@ $$f_{new} = f_0 \cdot \frac{f_{target}}{f_{avg}}$$
 void AudioProcess::TimeStretch() {
     // 分配目标帧内存
     transAudioModel.f0.resize(shine.required_frame);
-    transAudioModel.spectrogram.resize(transAudioModel.f0.size(), 
+    transAudioModel.spectrogram.resize(transAudioModel.f0.size(),
         std::vector<double>(audioModel.w_length));
-    transAudioModel.aperiodicity.resize(transAudioModel.f0.size(), 
+    transAudioModel.aperiodicity.resize(transAudioModel.f0.size(),
         std::vector<double>(audioModel.w_length));
 
     auto avg_freq = GetAvgFreq();
@@ -232,7 +234,7 @@ void AudioProcess::TimeStretch() {
             _in_sample_index = shine.offset + _out_sample_index * shine.velocity;
         } else {
             // 拉伸部分：应用 stretch_length 缩放
-            _in_sample_index = shine.offset + shine.first_half_fixed_part 
+            _in_sample_index = shine.offset + shine.first_half_fixed_part
                 + (_out_sample_index - shine.base_length) * shine.stretch_length;
         }
 
@@ -249,7 +251,7 @@ void AudioProcess::TimeStretch() {
                 if (temp_f0 == 0) temp_f0 = avg_freq;
                 if (temp_f0_next == 0) temp_f0_next = avg_freq;
                 // 线性插值
-                temp_f0 = temp_f0 * (1.0 - _sample_sp_trans_index) 
+                temp_f0 = temp_f0 * (1.0 - _sample_sp_trans_index)
                     + temp_f0_next * _sample_sp_trans_index;
             }
         }
@@ -260,7 +262,7 @@ void AudioProcess::TimeStretch() {
         _sample_ap_trans_index -= _ap_trans_index;
 
         // Pitch Bend 插值
-        auto pitch_base = shine.scale_num * pow(2, 
+        auto pitch_base = shine.scale_num * pow(2,
             (shine.pitch_bend[_ap_trans_index] * (1.0 - _sample_ap_trans_index) +
              shine.pitch_bend[_ap_trans_index + 1] * _sample_ap_trans_index) / 1200.0);
 
@@ -271,11 +273,11 @@ void AudioProcess::TimeStretch() {
         // 频谱包络插值
         for (int j = 0; j < audioModel.w_length; ++j) {
             if (_sp_trans_index < audioModel.f0.size() - 1) {
-                transAudioModel.spectrogram[i][j] = 
+                transAudioModel.spectrogram[i][j] =
                     audioModel.spectrogram[_sp_trans_index][j] * (1.0 - _sample_sp_trans_index) +
                     audioModel.spectrogram[_sp_trans_index + 1][j] * _sample_sp_trans_index;
             } else {
-                transAudioModel.spectrogram[i][j] = 
+                transAudioModel.spectrogram[i][j] =
                     audioModel.spectrogram[audioModel.f0.size() - 1][j];
             }
         }
@@ -302,6 +304,7 @@ void AudioProcess::TimeStretch() {
 $$t_{in} = \begin{cases} offset + t_{out} \cdot velocity & \text{if } t_{out} < base\_length \\ offset + fixed + (t_{out} - base\_length) \cdot stretch & \text{otherwise} \end{cases}$$
 
 其中：
+
 - $velocity = 2^{time\_percent/100 - 1}$：影响固定部分的时长
 - $stretch = \frac{pre\_cross\_length}{cross\_length}$：拉伸比例
 
@@ -329,6 +332,7 @@ pitch_base = scale_num * pow(2, bend_value / 1200.0);
 ```
 
 **公式解释**：
+
 - $pitch\_step = \frac{60.0}{96.0 \cdot tempo} \cdot fs$：弯音采样步长
 - $\frac{bend\_value}{1200.0}$：cents 转半音（1200 cents = 12 半音 = 1 倍频）
 - $2^{(\cdot)}$：半音转频率比例
@@ -437,6 +441,7 @@ void AutoAMP::DiminishedConsonantFricative() {
 ```
 
 **算法要点**：
+
 - `* 0.5`：衰减系数，防止输出过大
 - `shine.volumes`：用户指定的音量百分比（已乘 0.01）
 - `/ MaxAMP`：归一化，使最大振幅映射到目标值
@@ -490,7 +495,7 @@ void AudioProcess::interp1(const double *x, const double *y, int x_length,
 ### histc() 直方图计数
 
 ```cpp
-void AudioProcess::histc(const double *x, int x_length, 
+void AudioProcess::histc(const double *x, int x_length,
     const double *edges, int edges_length, int *index) {
     int count = 1;
 
@@ -510,7 +515,7 @@ void AudioProcess::histc(const double *x, int x_length,
     }
 
     count--;
-    for (i++; i < edges_length; ++i) 
+    for (i++; i < edges_length; ++i)
         index[i] = count;
 }
 ```
@@ -588,7 +593,7 @@ AutoAMP amp(shineParams, rawOutput);
 double *finalOutput = amp.GetAMP();
 
 // 写入 WAV
-WavIO::WriteWav(shineParams.output_file_name, finalOutput, 
+WavIO::WriteWav(shineParams.output_file_name, finalOutput,
     shineParams.output_samples, transformedModel.fs);
 ```
 
@@ -596,11 +601,11 @@ WavIO::WriteWav(shineParams.output_file_name, finalOutput,
 
 ## 数学公式总结
 
-| 操作 | 公式 |
-|------|------|
-| 加权平均权重 | $$p[j] = \frac{f0}{f0 + q^2}$$, 其中 $q = f0_{i-j-1} - f0_i$ |
-| F0 调制 | $$f_{new} = \left((f_0 - f_{avg}) \cdot \frac{mod}{100} + f_{avg}\right) \cdot \frac{f_{target}}{f_{avg}}$$ |
-| 时间映射（固定） | $$t_{in} = offset + t_{out} \cdot velocity$$ |
-| 时间映射（拉伸） | $$t_{in} = offset + fixed + (t_{out} - base) \cdot stretch$$ |
-| Pitch Bend | $$pitch = base \cdot 2^{\frac{bend\_{cents}}{1200}}$$ |
-| 振幅归一化 | $$x_{out} = x \cdot 0.5 \cdot \frac{volume}{max\_amp}$$ |
+| 操作             | 公式                                                                                                        |
+| ---------------- | ----------------------------------------------------------------------------------------------------------- |
+| 加权平均权重     | $$p[j] = \frac{f0}{f0 + q^2}$$, 其中 $q = f0_{i-j-1} - f0_i$                                                |
+| F0 调制          | $$f_{new} = \left((f_0 - f_{avg}) \cdot \frac{mod}{100} + f_{avg}\right) \cdot \frac{f_{target}}{f_{avg}}$$ |
+| 时间映射（固定） | $$t_{in} = offset + t_{out} \cdot velocity$$                                                                |
+| 时间映射（拉伸） | $$t_{in} = offset + fixed + (t_{out} - base) \cdot stretch$$                                                |
+| Pitch Bend       | $$pitch = base \cdot 2^{\frac{bend\_{cents}}{1200}}$$                                                       |
+| 振幅归一化       | $$x_{out} = x \cdot 0.5 \cdot \frac{volume}{max\_amp}$$                                                     |

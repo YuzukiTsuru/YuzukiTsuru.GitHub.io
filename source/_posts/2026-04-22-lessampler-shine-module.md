@@ -77,13 +77,13 @@ public:
 
 **参数分类**：
 
-| 类别 | 参数 | 来源 |
-|------|------|------|
-| 输入输出 | input_file_name, output_file_name | UTAU 命令行 |
-| 时间控制 | offset, required_length, fixed_part, blank_part | UTAU 命令行 |
-| 音高控制 | scale_num, pitch_bend, modulation | UTAU 命令行 + 音名转换 |
-| 计算参数 | velocity, stretch_length, output_samples | CheckPara 计算 |
-| 音量控制 | volumes | UTAU 命令行 |
+| 类别     | 参数                                            | 来源                   |
+| -------- | ----------------------------------------------- | ---------------------- |
+| 输入输出 | input_file_name, output_file_name               | UTAU 命令行            |
+| 时间控制 | offset, required_length, fixed_part, blank_part | UTAU 命令行            |
+| 音高控制 | scale_num, pitch_bend, modulation               | UTAU 命令行 + 音名转换 |
+| 计算参数 | velocity, stretch_length, output_samples        | CheckPara 计算         |
+| 音量控制 | volumes                                         | UTAU 命令行            |
 
 ---
 
@@ -143,6 +143,7 @@ public:
 ```
 
 这是 UTAU 合成的经典模型：
+
 - **固定部分**：不进行拉伸，保持原音色
 - **预交叉部分**：用于拉伸/压缩，连接下一音符
 - **空白部分**：不使用的尾部
@@ -243,22 +244,22 @@ UTAUParameterParser::UTAUParameterParser(int argc, char *argv[]) {
 
 **参数对照表**：
 
-| argv 索引 | 参数名 | 格式示例 | 处理方式 |
-|-----------|--------|----------|----------|
-| 0 | 程序名 | lessampler.exe | 直接存储 |
-| 1 | 输入文件 | input.wav | 直接存储 |
-| 2 | 输出文件 | output.wav | 直接存储 |
-| 3 | 音名 | C4, D#5 | ScaleConvert 转 Hz |
-| 4 | 时间百分比 | 100 | pow(2, value/100 - 1) |
-| 5 | Flags | B0H10 | 待实现 |
-| 6 | 偏移 | 50.0 | 直接解析 |
-| 7 | 目标长度 | 200.0 | 直接解析 |
-| 8 | 固定部分 | 50.0 | 直接解析 |
-| 9 | 空白部分 | 20.0 | 直接解析 |
-| 10 | 音量 | 100 | × 0.01 |
-| 11 | 调制 | 50 | 直接解析 |
-| 12 | BPM | !120 或 AA120 | 解析数字 |
-| 13 | Pitch Bend | AA#10#BB | PitchBendDecoder |
+| argv 索引 | 参数名     | 格式示例       | 处理方式              |
+| --------- | ---------- | -------------- | --------------------- |
+| 0         | 程序名     | lessampler.exe | 直接存储              |
+| 1         | 输入文件   | input.wav      | 直接存储              |
+| 2         | 输出文件   | output.wav     | 直接存储              |
+| 3         | 音名       | C4, D#5        | ScaleConvert 转 Hz    |
+| 4         | 时间百分比 | 100            | pow(2, value/100 - 1) |
+| 5         | Flags      | B0H10          | 待实现                |
+| 6         | 偏移       | 50.0           | 直接解析              |
+| 7         | 目标长度   | 200.0          | 直接解析              |
+| 8         | 固定部分   | 50.0           | 直接解析              |
+| 9         | 空白部分   | 20.0           | 直接解析              |
+| 10        | 音量       | 100            | × 0.01                |
+| 11        | 调制       | 50             | 直接解析              |
+| 12        | BPM        | !120 或 AA120  | 解析数字              |
+| 13        | Pitch Bend | AA#10#BB       | PitchBendDecoder      |
 
 ---
 
@@ -303,18 +304,19 @@ bool ScaleConvert::ScaleConvertToDouble(std::string scaleName) {
 $$f = 440 \times 2^{octave} \times 2^{\frac{semitone}{12}}$$
 
 其中：
+
 - $440 \text{ Hz}$ = A4 的标准频率
 - $octave$ = 目标八度 - 4
 - $semitone$ = 目标音名相对于 A 的半音偏移
 
 **示例计算**：
 
-| 音名 | $octave$ | $semitone$ | 计算过程 | 结果 |
-|------|----------|------------|----------|------|
-| C4 | 0 | -9 | $440 \times 2^0 \times 2^{-9/12}$ | 261.63 Hz |
-| A4 | 0 | 0 | $440 \times 2^0 \times 2^0$ | 440 Hz |
-| C5 | 1 | -9 | $440 \times 2^1 \times 2^{-9/12}$ | 523.25 Hz |
-| D#4 | 0 | -6 | $440 \times 2^0 \times 2^{-6/12}$ | 311.13 Hz |
+| 音名 | $octave$ | $semitone$ | 计算过程                          | 结果      |
+| ---- | -------- | ---------- | --------------------------------- | --------- |
+| C4   | 0        | -9         | $440 \times 2^0 \times 2^{-9/12}$ | 261.63 Hz |
+| A4   | 0        | 0          | $440 \times 2^0 \times 2^0$       | 440 Hz    |
+| C5   | 1        | -9         | $440 \times 2^1 \times 2^{-9/12}$ | 523.25 Hz |
+| D#4  | 0        | -6         | $440 \times 2^0 \times 2^{-6/12}$ | 311.13 Hz |
 
 ---
 
@@ -326,19 +328,20 @@ UTAU 使用一种特殊的 Base64 变体编码 Pitch Bend：
 
 **字符映射表**：
 
-| 字符范围 | 数值 |
-|----------|------|
-| A-Z | 0-25 |
-| a-z | 26-51 |
-| 0-9 | 52-61 |
-| + | 62 |
-| / | 63 |
+| 字符范围 | 数值  |
+| -------- | ----- |
+| A-Z      | 0-25  |
+| a-z      | 26-51 |
+| 0-9      | 52-61 |
+| +        | 62    |
+| /        | 63    |
 
 每个 Pitch Bend 值由两个字符编码：
 
 $$value = char_1 \times 64 + char_2$$
 
 **有符号转换**：
+
 - 值 $\leq 2047$：正值
 - 值 $> 2047$：负值（$value - 4096$）
 
@@ -375,7 +378,7 @@ void PitchBendDecoder::PitchBendDecode() {
         if (str[i] == '#') {
             // Run-Length Encoding: #N# 表示重复前值 N 次
             i++;
-            ss << pitch.substr(pitch.find('#', i - 1) + 1, 
+            ss << pitch.substr(pitch.find('#', i - 1) + 1,
                 pitch.find('#', i + pitch.find('#')) - 1);
             ss >> num;
             for (ii = 0; ii < num && k < count; ii++) {
@@ -386,7 +389,7 @@ void PitchBendDecoder::PitchBendDecode() {
             i--;
         } else {
             // 正常解码
-            n = GetDataFromUTAU64(str[i]) * 64 
+            n = GetDataFromUTAU64(str[i]) * 64
                 + GetDataFromUTAU64(str[i + 1]);
             if (n > 2047)
                 n -= 4096;  // 转为负值
@@ -400,14 +403,15 @@ void PitchBendDecoder::PitchBendDecode() {
 
 **解码示例**：
 
-| 字符串 | 解码过程 | 结果数组 |
-|--------|----------|----------|
-| AA | 0×64+0=0 | [0] |
-| BB | 1×64+1=65 | [65] |
-| zz | 51×64+51=3315 → 3315-4096=-781 | [-781] |
-| AA#10#AA | 0, 重复10次, 0 | [0,0,0,0,0,0,0,0,0,0,0,0] |
+| 字符串   | 解码过程                       | 结果数组                  |
+| -------- | ------------------------------ | ------------------------- |
+| AA       | 0×64+0=0                       | [0]                       |
+| BB       | 1×64+1=65                      | [65]                      |
+| zz       | 51×64+51=3315 → 3315-4096=-781 | [-781]                    |
+| AA#10#AA | 0, 重复10次, 0                 | [0,0,0,0,0,0,0,0,0,0,0,0] |
 
 **Pitch Bend 值含义**：
+
 - 单位：cents（音分）
 - 10 cents = 1 半音
 - 1200 cents = 1 倍频
@@ -420,12 +424,12 @@ void PitchBendDecoder::PitchBendDecode() {
 ```cpp
 void libUTAU::CheckPara(const lessAudioModel& audioModel) {
     // 计算原音频长度（毫秒）
-    utauPara.wave_length = static_cast<double>(audioModel.x.size()) 
+    utauPara.wave_length = static_cast<double>(audioModel.x.size())
         / static_cast<double>(audioModel.fs) * 1000;
 
     // 处理负的 blank 值（从音频末尾计算）
     if (utauPara.last_unused_part < 0) {
-        utauPara.last_unused_part = utauPara.wave_length 
+        utauPara.last_unused_part = utauPara.wave_length
             - utauPara.offset + utauPara.last_unused_part;
         if (utauPara.last_unused_part < 0)
             utauPara.last_unused_part = 0;
@@ -437,13 +441,13 @@ void libUTAU::CheckPara(const lessAudioModel& audioModel) {
 
     // 验证：固定部分不能超过可用音频
     if (utauPara.offset + utauPara.last_unused_part + utauPara.first_half_fixed_part >= utauPara.wave_length)
-        utauPara.first_half_fixed_part = utauPara.wave_length 
+        utauPara.first_half_fixed_part = utauPara.wave_length
             - utauPara.offset + utauPara.last_unused_part;
 
     // 计算预交叉长度
-    utauPara.pre_cross_length = utauPara.wave_length 
-        - utauPara.offset 
-        - utauPara.first_half_fixed_part 
+    utauPara.pre_cross_length = utauPara.wave_length
+        - utauPara.offset
+        - utauPara.first_half_fixed_part
         - utauPara.last_unused_part;
 
     // 计算基础长度（固定部分除以 velocity）
@@ -470,14 +474,14 @@ void libUTAU::CheckPara(const lessAudioModel& audioModel) {
 
 **计算公式总结**：
 
-| 参数 | 公式 | 说明 |
-|------|------|------|
-| $wave\_length$ | $\frac{x.size()}{fs} \times 1000$ | 音频长度（毫秒） |
-| $pre\_cross$ | $wave\_length - offset - fixed - blank$ | 可用于拉伸的部分 |
-| $base\_length$ | $\frac{fixed}{velocity}$ | 固定部分的输出长度 |
-| $cross\_length$ | $required - base\_length$ | 拉伸部分的输出长度 |
-| $stretch$ | $\frac{pre\_cross}{cross\_length}$ | 拉伸系数 |
-| $output\_samples$ | $required \times 0.001 \times fs + 1$ | 输出采样数 |
+| 参数              | 公式                                    | 说明               |
+| ----------------- | --------------------------------------- | ------------------ |
+| $wave\_length$    | $\frac{x.size()}{fs} \times 1000$       | 音频长度（毫秒）   |
+| $pre\_cross$      | $wave\_length - offset - fixed - blank$ | 可用于拉伸的部分   |
+| $base\_length$    | $\frac{fixed}{velocity}$                | 固定部分的输出长度 |
+| $cross\_length$   | $required - base\_length$               | 拉伸部分的输出长度 |
+| $stretch$         | $\frac{pre\_cross}{cross\_length}$      | 拉伸系数           |
+| $output\_samples$ | $required \times 0.001 \times fs + 1$   | 输出采样数         |
 
 ---
 
@@ -503,7 +507,7 @@ Shine::Shine(int argc, char *argv[], const lessAudioModel &audioModel, SHINE_MOD
 ### SetShine() 参数转换
 
 ```cpp
-void Shine::SetShine(const UTAUPara &utau_para, UTAUFlags utau_flags, 
+void Shine::SetShine(const UTAUPara &utau_para, UTAUFlags utau_flags,
     const lessAudioModel &audioModel) {
     // 复制基础参数
     shine_para.input_file_name = utau_para.input_file_name;
@@ -567,6 +571,7 @@ void Shine::DecodePitchBend(int fs, double frame_period, std::string pitch) {
 $$pitch\_step = \frac{60.0}{96.0 \times tempo} \times fs$$
 
 其中：
+
 - $60.0$：每分钟秒数
 - $96.0$：UTAU 的 Pitch Bend 采样密度（每拍 96 个点）
 - $tempo$：BPM
@@ -645,8 +650,7 @@ int main(int argc, char *argv[]) {
     Synthesis synth(transformed, params.output_samples);
     AutoAMP amp(params, synth.GetWavData());
 
-    WavIO::WriteWav(params.output_file_name, amp.GetAMP(), 
+    WavIO::WriteWav(params.output_file_name, amp.GetAMP(),
         params.output_samples, audioModel.fs);
 }
 ```
-

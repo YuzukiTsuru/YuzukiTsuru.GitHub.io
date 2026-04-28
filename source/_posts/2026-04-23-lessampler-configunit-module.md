@@ -67,18 +67,18 @@ private:
 
 ### 参数详解
 
-| 参数 | 默认值 | 作用 | 影响 |
-|------|--------|------|------|
-| `model_amp` | 0.85 | AutoAMP 强度 | 音量归一化 |
-| `audio_model_frame_period` | ~5.8ms | 分析帧周期 | 时间分辨率 |
-| `fft_size` | 1024 | FFT 大小 | 频谱分辨率 |
-| `f0_mode` | HARVEST | F0 算法 | 分析精度/速度 |
-| `f0_speed` | 1 | DIO 降采样 | DIO 处理速度 |
-| `f0_dio_floor` | 40Hz | DIO F0 下限 | 低音分析范围 |
-| `f0_harvest_floor` | 40Hz | Harvest F0 下限 | 低音分析范围 |
-| `f0_cheap_trick_floor` | 71Hz | CheapTrick F0 下限 | 频谱包络质量 |
-| `f0_allow_range` | 0.1 | DIO 允许范围 | F0 稳定性 |
-| `ap_threshold` | 0.10 | D4C 阈值 | 清浊音判定 |
+| 参数                       | 默认值  | 作用               | 影响          |
+| -------------------------- | ------- | ------------------ | ------------- |
+| `model_amp`                | 0.85    | AutoAMP 强度       | 音量归一化    |
+| `audio_model_frame_period` | ~5.8ms  | 分析帧周期         | 时间分辨率    |
+| `fft_size`                 | 1024    | FFT 大小           | 频谱分辨率    |
+| `f0_mode`                  | HARVEST | F0 算法            | 分析精度/速度 |
+| `f0_speed`                 | 1       | DIO 降采样         | DIO 处理速度  |
+| `f0_dio_floor`             | 40Hz    | DIO F0 下限        | 低音分析范围  |
+| `f0_harvest_floor`         | 40Hz    | Harvest F0 下限    | 低音分析范围  |
+| `f0_cheap_trick_floor`     | 71Hz    | CheapTrick F0 下限 | 频谱包络质量  |
+| `f0_allow_range`           | 0.1     | DIO 允许范围       | F0 稳定性     |
+| `ap_threshold`             | 0.10    | D4C 阈值           | 清浊音判定    |
 
 ### make_ver() 版本校验生成
 
@@ -299,7 +299,7 @@ void ConfigUnit::make_schema() {
     // [audio_model] 音频模型部分
     inicpp::section_schema_params section_audio_model_params{};
     section_audio_model_params.name = "audio_model";
-    section_audio_model_params.comment = 
+    section_audio_model_params.comment =
         "\n========= Audio Model Settings ========\n"
         "Note: modifying any of the parameters here will require remodeling the voice db\n";
     config_schema.add_section(section_audio_model_params);
@@ -348,9 +348,9 @@ void ConfigUnit::parse_config() {
 
     // 解析 [audio_model] 部分
     auto audio_model_section = config["audio_model"];
-    configure.audio_model_frame_period = 
+    configure.audio_model_frame_period =
         audio_model_section["frame_period"].get<inicpp::float_ini_t>();
-    configure.model_amp = 
+    configure.model_amp =
         audio_model_section["model_amp"].get<inicpp::float_ini_t>();
 
     // FFT 大小：特殊处理 "auto" 字符串
@@ -366,7 +366,7 @@ void ConfigUnit::parse_config() {
 
     // 解析 [f0] 部分
     auto f0_section = config["f0"];
-    
+
     // F0 算法：字符串转枚举
     configure.f0_mode = [&]() -> lessConfigure::F0_MODE {
         auto f0_mode = f0_section["f0_mode"].get<inicpp::string_ini_t>();
@@ -464,7 +464,7 @@ private:
 void ConfigVoiceBank::SetVoiceConfig() {
     // 构建音源库配置文件路径
     voice_config_path = voice_path / VOIICEBANKCONFIGFILENAME;
-    
+
     if (voice_config_path.empty()) {
         throw file_open_error("Configure file: " + voice_config_path.string());
     }
@@ -478,7 +478,7 @@ void ConfigVoiceBank::parse_config() {
     auto audio_model_section = config["audio_model"];
     configure.audio_model_frame_period = audio_model_section["frame_period"].get<inicpp::float_ini_t>();
     configure.model_amp = audio_model_section["model_amp"].get<inicpp::float_ini_t>();
-    
+
     // ... 其他参数覆盖
 }
 ```
@@ -486,6 +486,7 @@ void ConfigVoiceBank::parse_config() {
 **使用场景**：
 
 不同音源库可能有不同的录制条件：
+
 - 采样率不同 → 需要调整帧周期
 - 音量不均 → 需要调整 model_amp
 - 低音音源 → 需要降低 f0_floor

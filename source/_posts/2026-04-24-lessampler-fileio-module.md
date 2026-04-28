@@ -153,6 +153,7 @@ std::ofstream AudioModelIO::WriteAudioContent() {
 ```
 
 **写入要点**：
+
 - 使用二进制模式 (`std::ios::binary`) 避免平台换行符差异
 - 二维数组按行存储，每行先写入长度再写入数据
 - 使用 `reinterpret_cast` 将数值转为字节序列
@@ -408,6 +409,7 @@ void GenerateAudioModel::for_each(I begin, I end, F f) {
 ```
 
 **并行处理要点**：
+
 - 使用 `std::thread::hardware_concurrency()` 获取可用线程数
 - 默认使用一半线程数，避免过度占用 CPU
 - 主线程也参与处理，提高效率
@@ -490,6 +492,7 @@ int WavIO::WavRead(const char *FilePath, double *output) {
 ```
 
 **立体声处理**：
+
 - lessampler 只支持单声道
 - 如果输入是立体声，将两声道平均合并为单声道
 - 公式：`mono = (left + right) / 2`
@@ -519,6 +522,7 @@ void WavIO::WriteWav(const std::filesystem::path &path, double *x, long long x_l
 ```
 
 **输出格式**：
+
 - WAV 格式（SF_FORMAT_WAV）
 - 16-bit PCM（SF_FORMAT_PCM_16）
 - 单声道
@@ -754,18 +758,19 @@ JSONFileIO jsonExporter(model, "model.json");
 
 对于典型的音频文件：
 
-| 参数 | 值 |
-|------|-----|
-| 采样率 | 44100 Hz |
-| 时长 | 1 秒 |
-| 帧周期 | 5.8 ms |
-| 帧数 | ~172 帧 |
-| FFT 大小 | 1024 |
-| W 长度 | 513 |
+| 参数     | 值       |
+| -------- | -------- |
+| 采样率   | 44100 Hz |
+| 时长     | 1 秒     |
+| 帧周期   | 5.8 ms   |
+| 帧数     | ~172 帧  |
+| FFT 大小 | 1024     |
+| W 长度   | 513      |
 
 **文件大小估算**：
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 &\text{Header} + \text{Version} &\approx& 50 \text{ bytes} \\
 &\text{基本信息} &\approx& 5 \times sizeof(int/double) \approx 28 \text{ bytes} \\
 &\text{F0} &=& 172 \times sizeof(double) \approx 1376 \text{ bytes} \\
@@ -774,7 +779,7 @@ $$\begin{aligned}
 &\text{Ending} &\approx& 5 \text{ bytes} \\
 \hline
 &\text{总计} &\approx& 1.4 \text{ MB/秒}
-\end{aligned}$$
+\end{aligned}
+$$
 
 对于典型音源库（100 个音素，每音素 0.5 秒），模型文件约 70 MB。
-

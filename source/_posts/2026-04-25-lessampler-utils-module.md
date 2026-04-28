@@ -4,9 +4,11 @@ tags: ['lessampler', 'UTAU']
 mathjax: true
 date: 2026-04-25 00:00:00
 ---
+
 Utils 模块提供 lessampler 的基础设施工具类，包括分级日志系统、高性能计时器、数组转换工具和自定义异常体系。这些工具类为整个项目提供一致的基础功能支持，确保代码的健壮性和可调试性。
 
 良好的工具类设计是软件工程质量的重要体现。Utils 模块的设计遵循以下原则：
+
 - **最小依赖**：尽量使用标准库，减少外部依赖
 - **线程安全**：支持多线程环境使用
 - **条件编译**：通过宏开关控制调试功能
@@ -45,16 +47,16 @@ enum Yall_LEVEL {
 
 **级别设计理念**：
 
-| 级别 | 用途 | 条件编译 | 输出颜色 |
-|------|------|----------|----------|
-| DUMP | 详细数据输出 | DUMP_DATA 宏 | 白色 + 源码位置 |
-| EVAL | 性能计时输出 | TIME_EVAL 宏 | 紫色 |
-| DEBUG | 调试追踪 | DEBUG_MODE 宏 | 白色 + 源码位置 |
-| OK | 操作成功 | 常开 | 绿色 |
-| INFO | 信息提示 | 常开 | 蓝色 |
-| WARN | 警告信息 | 常开 | 黄色 |
-| ERROR | 错误报告 | 常开 | 红色 |
-| CRITICAL | 严重错误 | 常开 | 红色背景 |
+| 级别     | 用途         | 条件编译      | 输出颜色        |
+| -------- | ------------ | ------------- | --------------- |
+| DUMP     | 详细数据输出 | DUMP_DATA 宏  | 白色 + 源码位置 |
+| EVAL     | 性能计时输出 | TIME_EVAL 宏  | 紫色            |
+| DEBUG    | 调试追踪     | DEBUG_MODE 宏 | 白色 + 源码位置 |
+| OK       | 操作成功     | 常开          | 绿色            |
+| INFO     | 信息提示     | 常开          | 蓝色            |
+| WARN     | 警告信息     | 常开          | 黄色            |
+| ERROR    | 错误报告     | 常开          | 红色            |
+| CRITICAL | 严重错误     | 常开          | 红色背景        |
 
 ### Yall_Inst 基类
 
@@ -75,6 +77,7 @@ protected:
 ```
 
 **设计要点**：
+
 - 使用 `std::mutex` 确保多线程环境下的输出顺序
 - 基类定义接口，派生类实现具体行为
 
@@ -118,6 +121,7 @@ public:
 ```
 
 **ColorCout 库集成**：
+
 - `cc::green`, `cc::cyan`, `cc::yellow` 等：设置文本颜色
 - `cc::on_red`：设置背景色
 - `cc::reset`：重置颜色
@@ -181,6 +185,7 @@ private:
 ```
 
 **调试输出格式**：
+
 ```
 [FUNC] ...WorldModule::F0Estim [FILE] ...orldModule/WorldModule.cpp [LINE]  123 [DEBUG] Estimating F0...
 ```
@@ -203,7 +208,7 @@ public:
         return *it->second;
     };
 
-    static Yall_Debug_Instance &GetDebugYall(Yall_LEVEL logLevel, 
+    static Yall_Debug_Instance &GetDebugYall(Yall_LEVEL logLevel,
         const std::string &FILE, const std::string &FUNC, int LINE) {
         auto it = GetDebugInstance().yall_debug_inst.find(logLevel);
         if (it == GetDebugInstance().yall_debug_inst.end()) {
@@ -235,6 +240,7 @@ private:
 ```
 
 **单例模式特点**：
+
 - 使用静态局部变量实现 Meyers 单例
 - `unordered_map` 存储各级别的日志器实例
 - 避免每次日志调用都创建新对象
@@ -344,6 +350,7 @@ private:
 ### 计时精度
 
 使用 `std::chrono::steady_clock`：
+
 - **单调递增**：不受系统时间调整影响
 - **高精度**：微秒级别分辨率
 - **跨平台**：标准 C++11 实现
@@ -413,6 +420,7 @@ struct VectorWrapper {
 ```
 
 **模板参数**：
+
 - `T`：数组元素类型
 - `N`：数组长度（编译时确定）
 
@@ -432,6 +440,7 @@ VectorWrapper<double, 4> freq_vec(freq_table);
 ```
 
 **应用场景**：
+
 - 将硬编码的数组转换为可操作的 vector
 - 支持迭代器和 STL 算法
 - 类型安全的数组转换
@@ -447,51 +456,51 @@ exception.h 定义了 lessampler 专用的异常类型，提供语义清晰的�
 ```cpp
 class file_open_error : public std::runtime_error {
 public:
-    explicit file_open_error(const std::string &what) 
+    explicit file_open_error(const std::string &what)
         : std::runtime_error("Fail to open file: " + what + ".") {};
 };
 
 class header_check_error : public std::runtime_error {
 public:
-    header_check_error(const std::string &what, const std::string &expect) 
+    header_check_error(const std::string &what, const std::string &expect)
         : std::runtime_error("Header: " + what + " is not same as " + expect + ".") {};
 };
 
 class file_version_error : public std::runtime_error {
 public:
-    explicit file_version_error(const std::string &what) 
+    explicit file_version_error(const std::string &what)
         : std::runtime_error(what + " Version Mismatch.") {};
 };
 
 class parameter_error : public std::runtime_error {
 public:
-    explicit parameter_error(const std::string &what) 
+    explicit parameter_error(const std::string &what)
         : std::runtime_error("Parameter Error: " + what + ".") {};
 };
 
 class type_error : public std::runtime_error {
 public:
-    explicit type_error(const std::string &what) 
+    explicit type_error(const std::string &what)
         : std::runtime_error("Type Error: " + what + ".") {};
 };
 
 class audio_file_error : public std::runtime_error {
 public:
-    explicit audio_file_error(const std::string &what) 
+    explicit audio_file_error(const std::string &what)
         : std::runtime_error("Audio File Error: " + what + ".") {};
 };
 ```
 
 ### 异常类型对照
 
-| 异常类型 | 使用场景 | 示例消息 |
-|----------|----------|----------|
-| `file_open_error` | 文件打开失败 | "Fail to open file: input.wav." |
-| `header_check_error` | 文件头验证失败 | "Header: xxx is not same as shine." |
-| `file_version_error` | 版本校验失败 | "Please Regenerate Audio Model Version Mismatch." |
-| `parameter_error` | 参数验证失败 | "Parameter Error: offset exceeds audio length." |
-| `type_error` | 类型转换错误 | "Type Error: invalid FFT size value." |
-| `audio_file_error` | 音频处理错误 | "Audio File Error: unsupported format." |
+| 异常类型             | 使用场景       | 示例消息                                          |
+| -------------------- | -------------- | ------------------------------------------------- |
+| `file_open_error`    | 文件打开失败   | "Fail to open file: input.wav."                   |
+| `header_check_error` | 文件头验证失败 | "Header: xxx is not same as shine."               |
+| `file_version_error` | 版本校验失败   | "Please Regenerate Audio Model Version Mismatch." |
+| `parameter_error`    | 参数验证失败   | "Parameter Error: offset exceeds audio length."   |
+| `type_error`         | 类型转换错误   | "Type Error: invalid FFT size value."             |
+| `audio_file_error`   | 音频处理错误   | "Audio File Error: unsupported format."           |
 
 ### 异常处理模式
 
@@ -559,6 +568,7 @@ void libUTAU::CheckPara(const lessAudioModel& audioModel) {
 **配置方式**：
 
 通过 CMake 定义：
+
 ```cmake
 if(CMAKE_BUILD_TYPE MATCHES Debug)
     target_compile_definitions(lessampler PRIVATE DEBUG_MODE DUMP_DATA TIME_EVAL)
@@ -566,6 +576,7 @@ endif()
 ```
 
 或通过 lessconfig.ini：
+
 ```ini
 [config]
 debug = 1

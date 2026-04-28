@@ -48,10 +48,10 @@ utils 模块
 
 OpenixCLI 支持两种运行模式：
 
-| 模式 | 输出目标 | 进度显示 | 适用场景 |
-|------|----------|----------|----------|
-| CLI | stdout/stderr | indicatif 进度条 | 命令行批量刷写 |
-| TUI | mpsc channel | ratatui 界面 | 交互式操作 |
+| 模式 | 输出目标      | 进度显示         | 适用场景       |
+| ---- | ------------- | ---------------- | -------------- |
+| CLI  | stdout/stderr | indicatif 进度条 | 命令行批量刷写 |
+| TUI  | mpsc channel  | ratatui 界面     | 交互式操作     |
 
 ---
 
@@ -194,6 +194,7 @@ impl Logger {
 ```
 
 **设计要点：**
+
 - 使用 `Arc` 包装 `ProgressReporter`，支持跨线程共享
 - `Clone` trait 实现，允许多个组件持有同一个 Logger 实例
 
@@ -432,6 +433,7 @@ static TUI_LOG_SENDER: Lazy<Mutex<Option<mpsc::UnboundedSender<TuiLogMessage>>>>
 ```
 
 **优势：**
+
 - 延迟初始化，首次访问时才创建
 - 线程安全，无需手动同步
 - 比 `lazy_static!` 宏更现代化

@@ -34,11 +34,11 @@ use commands::FlashArgs;
 
 clap 提供三种 API 风格：
 
-| 风格 | 特点 | 适用场景 |
-|------|------|----------|
-| Derive | 声明式，通过属性宏定义 | 类型安全，推荐使用 |
-| Builder | 构造器模式，链式调用 | 动态配置，更灵活 |
-| YAML | 配置文件定义 | 多语言支持，较旧 |
+| 风格    | 特点                   | 适用场景           |
+| ------- | ---------------------- | ------------------ |
+| Derive  | 声明式，通过属性宏定义 | 类型安全，推荐使用 |
+| Builder | 构造器模式，链式调用   | 动态配置，更灵活   |
+| YAML    | 配置文件定义           | 多语言支持，较旧   |
 
 OpenixCLI 使用 **Derive 模式**，优势在于：
 
@@ -90,14 +90,14 @@ pub struct Cli {
 
 **关键属性解析：**
 
-| 属性 | 作用 |
-|------|------|
-| `#[derive(Parser)]` | 实现 `clap::Parser` trait |
-| `#[command(name = "...")]` | 设置命令名称 |
-| `#[command(about = "...")]` | 设置简短描述 |
-| `#[command(version)]` | 自动从 Cargo.toml 读取版本 |
-| `#[command(subcommand)]` | 声明子命令字段 |
-| `#[arg(global = true)]` | 参数对所有子命令生效 |
+| 属性                        | 作用                       |
+| --------------------------- | -------------------------- |
+| `#[derive(Parser)]`         | 实现 `clap::Parser` trait  |
+| `#[command(name = "...")]`  | 设置命令名称               |
+| `#[command(about = "...")]` | 设置简短描述               |
+| `#[command(version)]`       | 自动从 Cargo.toml 读取版本 |
+| `#[command(subcommand)]`    | 声明子命令字段             |
+| `#[arg(global = true)]`     | 参数对所有子命令生效       |
 
 ### Commands 子命令枚举
 
@@ -161,13 +161,13 @@ pub enum Commands {
 
 **参数属性详解：**
 
-| 属性 | 示例 | 作用 |
-|------|------|------|
-| `short` | `short = 'l'` | 短选项 `-l` |
-| `long` | `long` | 长选项 `--detailed` |
-| `help` | `help = "..."` | 帮助文档文本 |
-| `default_value` | `default_value = "true"` | 默认值 |
-| `short = 'P'` | 自定义短选项字符 | 避免与 `-p` (partitions) 冲突 |
+| 属性            | 示例                     | 作用                          |
+| --------------- | ------------------------ | ----------------------------- |
+| `short`         | `short = 'l'`            | 短选项 `-l`                   |
+| `long`          | `long`                   | 长选项 `--detailed`           |
+| `help`          | `help = "..."`           | 帮助文档文本                  |
+| `default_value` | `default_value = "true"` | 默认值                        |
+| `short = 'P'`   | 自定义短选项字符         | 避免与 `-p` (partitions) 冲突 |
 
 ### FlashArgs 参数结构
 
@@ -436,6 +436,7 @@ impl FromStr for FlashMode {
 ```
 
 **优势：**
+
 - 类型安全的字符串解析
 - 与 `str::parse()` 方法配合
 - 错误信息清晰完整

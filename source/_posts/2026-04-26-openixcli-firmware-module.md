@@ -87,19 +87,19 @@ IMAGEWTY 固件文件采用分段式结构：
 
 ### 固件组件一览
 
-| 组件名称 | Main Type | Sub Type | 功能说明 |
-|----------|-----------|----------|----------|
-| FES | FES | FES_1-0000000000 | Flash Eraser Script，初始化 DRAM |
-| U-Boot | 12345678 | UBOOT_0000000000 | U-Boot bootloader |
-| MBR | 12345678 | 1234567890___MBR | Master Boot Record 分区表 |
-| GPT | 12345678 | 1234567890___GPT | GUID Partition Table |
-| DTB | COMMON | DTB_CONFIG000000 | Device Tree Blob |
-| sys_config | COMMON | SYS_CONFIG100000 | 系统配置文本 |
-| sys_config_bin | COMMON | SYS_CONFIG_BIN00 | 系统配置二进制 |
-| sys_partition | COMMON | SYS_CONFIG000000 | 分区配置 |
-| board_config | COMMON | BOARD_CONFIG_BIN | 板级配置 |
-| boot0_card | 12345678 | 1234567890BOOT_0 | SD 卡 Boot0 |
-| bootpkg | BOOTPKG | BOOTPKG-00000000 | 启动包 |
+| 组件名称       | Main Type | Sub Type            | 功能说明                         |
+| -------------- | --------- | ------------------- | -------------------------------- |
+| FES            | FES       | FES_1-0000000000    | Flash Eraser Script，初始化 DRAM |
+| U-Boot         | 12345678  | UBOOT_0000000000    | U-Boot bootloader                |
+| MBR            | 12345678  | 1234567890\_\_\_MBR | Master Boot Record 分区表        |
+| GPT            | 12345678  | 1234567890\_\_\_GPT | GUID Partition Table             |
+| DTB            | COMMON    | DTB_CONFIG000000    | Device Tree Blob                 |
+| sys_config     | COMMON    | SYS_CONFIG100000    | 系统配置文本                     |
+| sys_config_bin | COMMON    | SYS_CONFIG_BIN00    | 系统配置二进制                   |
+| sys_partition  | COMMON    | SYS_CONFIG000000    | 分区配置                         |
+| board_config   | COMMON    | BOARD_CONFIG_BIN    | 板级配置                         |
+| boot0_card     | 12345678  | 1234567890BOOT_0    | SD 卡 Boot0                      |
+| bootpkg        | BOOTPKG   | BOOTPKG-00000000    | 启动包                           |
 
 ---
 
@@ -700,6 +700,7 @@ pub struct ImageHeader {
 ```
 
 **作用：**
+
 - `#[repr(C)]` - 使用 C 语言布局规则
 - `#[repr(packed)]` - 禁止对齐，字段紧密排列
 
@@ -754,6 +755,7 @@ static IMAGE_ENTRY_MAP: Lazy<HashMap<&'static str, &'static ImageDataEntry>> =
 ```
 
 **优势：**
+
 - 首次访问时初始化，避免启动开销
 - 线程安全
 - 替代 `lazy_static!` 宏
