@@ -11,6 +11,70 @@
   function applyTheme(mode) {
     root.classList.toggle('dark', mode === 'dark');
   }
+
+  function rerenderMermaidBlocks(scope) {
+    if (!window.mermaid) return;
+
+    var container = scope || doc;
+    var mermaidPres = container.querySelectorAll('pre.mermaid');
+    if (!mermaidPres.length) return;
+
+    var isDark = root.classList.contains('dark');
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose',
+      themeVariables: isDark
+        ? {
+            primaryColor: '#fbfb45',
+            primaryTextColor: '#fafafa',
+            primaryBorderColor: '#fbfb45',
+            lineColor: '#a1a1aa',
+            secondaryColor: '#27272a',
+            tertiaryColor: '#3f3f46',
+            background: '#18181b',
+            mainBkg: '#18181b',
+            nodeBorder: '#fbfb45',
+            clusterBkg: '#27272a',
+            titleColor: '#fafafa',
+            edgeLabelBackground: '#27272a',
+            fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
+          }
+        : {
+            primaryColor: '#fbfb45',
+            primaryTextColor: '#18181b',
+            primaryBorderColor: '#fbfb45',
+            lineColor: '#52525b',
+            secondaryColor: '#f4f4f5',
+            tertiaryColor: '#e4e4e7',
+            background: '#fff',
+            mainBkg: '#fff',
+            nodeBorder: '#18181b',
+            clusterBkg: '#f4f4f5',
+            titleColor: '#18181b',
+            edgeLabelBackground: '#f4f4f5',
+            fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
+          }
+    });
+
+    mermaidPres.forEach(function (el) {
+      var source = el.getAttribute('data-mermaid-source');
+      if (!source) {
+        source = el.textContent;
+        el.setAttribute('data-mermaid-source', source);
+      }
+
+      try {
+        el.innerHTML = source;
+        el.removeAttribute('data-processed');
+        mermaid.init(undefined, el);
+      } catch (err) {
+        console.warn('Mermaid re-render failed:', err);
+        el.textContent = source;
+      }
+    });
+  }
+
   try {
     var saved = localStorage.getItem('aic-theme');
     if (saved) applyTheme(saved);
@@ -24,7 +88,7 @@
     try {
       localStorage.setItem('aic-theme', next);
     } catch (_e) {}
-    // Theme change - mermaid diagrams styled via CSS, no re-render needed
+    rerenderMermaidBlocks(doc.getElementById('swup-content') || doc);
   }
 
   (function loadingCover() {
@@ -504,62 +568,7 @@
           return;
         }
 
-        var isDark = root.classList.contains('dark');
-        mermaid.initialize({
-          startOnLoad: false,
-          theme: isDark ? 'dark' : 'default',
-          securityLevel: 'loose',
-          themeVariables: isDark
-            ? {
-                primaryColor: '#fbfb45',
-                primaryTextColor: '#fafafa',
-                primaryBorderColor: '#fbfb45',
-                lineColor: '#a1a1aa',
-                secondaryColor: '#27272a',
-                tertiaryColor: '#3f3f46',
-                background: '#18181b',
-                mainBkg: '#18181b',
-                nodeBorder: '#fbfb45',
-                clusterBkg: '#27272a',
-                titleColor: '#fafafa',
-                edgeLabelBackground: '#27272a',
-                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
-              }
-            : {
-                primaryColor: '#fbfb45',
-                primaryTextColor: '#18181b',
-                primaryBorderColor: '#fbfb45',
-                lineColor: '#52525b',
-                secondaryColor: '#f4f4f5',
-                tertiaryColor: '#e4e4e7',
-                background: '#fff',
-                mainBkg: '#fff',
-                nodeBorder: '#18181b',
-                clusterBkg: '#f4f4f5',
-                titleColor: '#18181b',
-                edgeLabelBackground: '#f4f4f5',
-                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
-              }
-        });
-
-        mermaidPres.forEach(function (el, index) {
-          var source = el.getAttribute('data-mermaid-source');
-          if (!source) {
-            source = el.textContent;
-            el.setAttribute('data-mermaid-source', source);
-          }
-
-          try {
-            el.innerHTML = source;
-            el.removeAttribute('data-processed');
-            var oldSvg = el.querySelector('svg');
-            if (oldSvg && oldSvg.parentNode) oldSvg.parentNode.removeChild(oldSvg);
-            mermaid.init(undefined, el);
-          } catch (err) {
-            console.warn('Mermaid re-render failed:', err);
-            el.textContent = source;
-          }
-        });
+        rerenderMermaidBlocks(doc.getElementById('swup-content') || doc);
       }
 
       window.requestAnimationFrame(function () {
