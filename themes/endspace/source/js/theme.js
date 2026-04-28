@@ -483,11 +483,96 @@
       spinner.style.display = '';
       spinner.style.opacity = '1';
     });
+    function rerenderMermaidAfterSwup() {
+      if (!window.mermaid) return;
+
+      var attempts = 0;
+      var maxAttempts = 12;
+
+      function tryRender() {
+        var mermaidPres = doc.querySelectorAll('#swup-content pre.mermaid');
+        if (!mermaidPres.length) return;
+
+        var ready = true;
+        mermaidPres.forEach(function (el) {
+          if (el.getBoundingClientRect().width <= 0) ready = false;
+        });
+
+        if (!ready && attempts < maxAttempts) {
+          attempts++;
+          window.requestAnimationFrame(tryRender);
+          return;
+        }
+
+        var isDark = root.classList.contains('dark');
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: isDark ? 'dark' : 'default',
+          securityLevel: 'loose',
+          themeVariables: isDark
+            ? {
+                primaryColor: '#fbfb45',
+                primaryTextColor: '#fafafa',
+                primaryBorderColor: '#fbfb45',
+                lineColor: '#a1a1aa',
+                secondaryColor: '#27272a',
+                tertiaryColor: '#3f3f46',
+                background: '#18181b',
+                mainBkg: '#18181b',
+                nodeBorder: '#fbfb45',
+                clusterBkg: '#27272a',
+                titleColor: '#fafafa',
+                edgeLabelBackground: '#27272a',
+                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
+              }
+            : {
+                primaryColor: '#fbfb45',
+                primaryTextColor: '#18181b',
+                primaryBorderColor: '#fbfb45',
+                lineColor: '#52525b',
+                secondaryColor: '#f4f4f5',
+                tertiaryColor: '#e4e4e7',
+                background: '#fff',
+                mainBkg: '#fff',
+                nodeBorder: '#18181b',
+                clusterBkg: '#f4f4f5',
+                titleColor: '#18181b',
+                edgeLabelBackground: '#f4f4f5',
+                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
+              }
+        });
+
+        mermaidPres.forEach(function (el, index) {
+          var source = el.getAttribute('data-mermaid-source');
+          if (!source) {
+            source = el.textContent;
+            el.setAttribute('data-mermaid-source', source);
+          }
+
+          try {
+            el.innerHTML = source;
+            el.removeAttribute('data-processed');
+            var oldSvg = el.querySelector('svg');
+            if (oldSvg && oldSvg.parentNode) oldSvg.parentNode.removeChild(oldSvg);
+            mermaid.init(undefined, el);
+          } catch (err) {
+            console.warn('Mermaid re-render failed:', err);
+            el.textContent = source;
+          }
+        });
+      }
+
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(tryRender);
+      });
+    }
+
     swup.hooks.on('animation:in:end', function () {
       spinner.style.opacity = '0';
       setTimeout(function () {
         spinner.style.display = 'none';
       }, 300);
+      rerenderMermaidAfterSwup();
     });
 
     swup.hooks.on('page:view', function () {
@@ -677,63 +762,6 @@
             });
           });
         });
-      }
-
-      // Re-render mermaid diagrams on page change
-      if (window.mermaid) {
-        // Restore original source and clear old rendering before init
-        var mermaidPres = doc.querySelectorAll('pre.mermaid');
-        mermaidPres.forEach(function (el) {
-          // Get saved source
-          var source = el.getAttribute('data-mermaid-source');
-          if (source) {
-            // Clear old SVG and restore source
-            el.innerHTML = source;
-            el.removeAttribute('data-processed');
-          } else {
-            // Save source for first time
-            el.setAttribute('data-mermaid-source', el.textContent);
-          }
-        });
-        // Check current theme and initialize
-        var isDark = root.classList.contains('dark');
-        mermaid.initialize({
-          startOnLoad: false,
-          theme: isDark ? 'dark' : 'default',
-          securityLevel: 'loose',
-          themeVariables: isDark
-            ? {
-                primaryColor: '#fbfb45',
-                primaryTextColor: '#fafafa',
-                primaryBorderColor: '#fbfb45',
-                lineColor: '#a1a1aa',
-                secondaryColor: '#27272a',
-                tertiaryColor: '#3f3f46',
-                background: '#18181b',
-                mainBkg: '#18181b',
-                nodeBorder: '#fbfb45',
-                clusterBkg: '#27272a',
-                titleColor: '#fafafa',
-                edgeLabelBackground: '#27272a',
-                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
-              }
-            : {
-                primaryColor: '#fbfb45',
-                primaryTextColor: '#18181b',
-                primaryBorderColor: '#fbfb45',
-                lineColor: '#52525b',
-                secondaryColor: '#f4f4f5',
-                tertiaryColor: '#e4e4e7',
-                background: '#fff',
-                mainBkg: '#fff',
-                nodeBorder: '#18181b',
-                clusterBkg: '#f4f4f5',
-                titleColor: '#18181b',
-                edgeLabelBackground: '#f4f4f5',
-                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
-              }
-        });
-        mermaid.init(undefined, '.mermaid');
       }
     });
   })();
