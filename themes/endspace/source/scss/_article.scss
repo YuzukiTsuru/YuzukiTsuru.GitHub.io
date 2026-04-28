@@ -162,6 +162,85 @@
   }
 }
 
+#notion-article pre.mermaid svg {
+  .label,
+  text,
+  tspan,
+  span.nodeLabel,
+  foreignObject div,
+  foreignObject span,
+  .messageText,
+  .loopText,
+  .noteText,
+  .actor,
+  .classTitle,
+  .labelText {
+    fill: #18181b;
+    color: #18181b;
+  }
+
+  .node rect,
+  .node circle,
+  .node ellipse,
+  .node polygon,
+  .node path,
+  .actor,
+  .actor-man,
+  .classBox,
+  .labelBox,
+  .note,
+  .note rect,
+  .activation0,
+  .activation1,
+  .activation2,
+  .activation3,
+  .activation4,
+  .activation5,
+  .activation6,
+  .activation7 {
+    fill: #fff;
+    stroke: #18181b;
+  }
+
+  .edgePath .path,
+  .flowchart-link,
+  .marker,
+  .messageLine0,
+  .messageLine1,
+  .loopLine,
+  .sequenceNumber,
+  .relation,
+  .line {
+    stroke: #52525b;
+  }
+
+  .arrowheadPath,
+  .marker path {
+    fill: #52525b;
+    stroke: #52525b;
+  }
+
+  .cluster rect,
+  .cluster polygon {
+    fill: #f4f4f5;
+    stroke: #52525b;
+  }
+
+  .edgeLabel,
+  .labelBkg,
+  .box,
+  .label-container {
+    background: #f4f4f5;
+    fill: #f4f4f5;
+  }
+
+  .divider,
+  .classTitle line,
+  .separator {
+    stroke: #52525b;
+  }
+}
+
 .dark #notion-article pre.mermaid svg {
   .label,
   text,
