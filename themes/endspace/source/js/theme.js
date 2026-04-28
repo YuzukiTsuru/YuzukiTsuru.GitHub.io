@@ -63,15 +63,19 @@
         el.setAttribute('data-mermaid-source', source);
       }
 
-      try {
-        el.innerHTML = source;
-        el.removeAttribute('data-processed');
-        mermaid.init(undefined, el);
-      } catch (err) {
-        console.warn('Mermaid re-render failed:', err);
-        el.textContent = source;
-      }
+      el.innerHTML = source;
+      el.removeAttribute('data-processed');
     });
+
+    try {
+      mermaid.init(undefined, mermaidPres);
+    } catch (err) {
+      console.warn('Mermaid re-render failed:', err);
+      mermaidPres.forEach(function (el) {
+        var source = el.getAttribute('data-mermaid-source');
+        if (source) el.textContent = source;
+      });
+    }
   }
 
   try {
