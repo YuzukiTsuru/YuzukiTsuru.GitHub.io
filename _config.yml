@@ -108,3 +108,8 @@ feed:
 # Deployment
 deploy:
   type: ''
+
+# Mermaid diagrams
+mermaid:
+  enable: true
+  theme: default

@@ -97,3 +97,65 @@
 <script src="<%- url_for('/js/vendor/d3.min.js') %>"></script>
 <script src="<%- url_for('/js/vendor/function-plot.js') %>"></script>
 <% } %>
+
+<script src="<%- url_for('/js/vendor/mermaid.min.js') %>"></script>
+<script>
+  (function() {
+    var root = document.documentElement;
+    var isDark = root.classList.contains('dark');
+
+    // Save original mermaid code before rendering
+    function saveMermaidSources() {
+      var mermaidPres = document.querySelectorAll('pre.mermaid');
+      mermaidPres.forEach(function(el) {
+        if (!el.getAttribute('data-mermaid-source')) {
+          el.setAttribute('data-mermaid-source', el.textContent);
+        }
+      });
+    }
+
+    // Run before mermaid processes
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', saveMermaidSources);
+    } else {
+      saveMermaidSources();
+    }
+
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose',
+      themeVariables: isDark ? {
+        primaryColor: '#fbfb45',
+        primaryTextColor: '#fafafa',
+        primaryBorderColor: '#fbfb45',
+        lineColor: '#a1a1aa',
+        secondaryColor: '#27272a',
+        tertiaryColor: '#3f3f46',
+        background: '#18181b',
+        mainBkg: '#18181b',
+        nodeBorder: '#fbfb45',
+        clusterBkg: '#27272a',
+        titleColor: '#fafafa',
+        edgeLabelBackground: '#27272a',
+        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
+      } : {
+        primaryColor: '#fbfb45',
+        primaryTextColor: '#18181b',
+        primaryBorderColor: '#fbfb45',
+        lineColor: '#52525b',
+        secondaryColor: '#f4f4f5',
+        tertiaryColor: '#e4e4e7',
+        background: '#fff',
+        mainBkg: '#fff',
+        nodeBorder: '#18181b',
+        clusterBkg: '#f4f4f5',
+        titleColor: '#18181b',
+        edgeLabelBackground: '#f4f4f5',
+        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
+      }
+    });
+
+    window.__aicSaveMermaidSources = saveMermaidSources;
+  })();
+</script>

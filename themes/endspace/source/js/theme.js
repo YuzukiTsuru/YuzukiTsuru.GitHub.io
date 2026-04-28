@@ -24,6 +24,7 @@
     try {
       localStorage.setItem('aic-theme', next);
     } catch (_e) {}
+    // Theme change - mermaid diagrams styled via CSS, no re-render needed
   }
 
   (function loadingCover() {
@@ -469,7 +470,7 @@
       containers: ['#swup-main'],
       animateHistoryBrowsing: true,
       animationSelector: '[class*="transition-"]',
-      cache: true
+      cache: false
     });
 
     swup.hooks.on('animation:out:start', function () {
@@ -676,6 +677,63 @@
             });
           });
         });
+      }
+
+      // Re-render mermaid diagrams on page change
+      if (window.mermaid) {
+        // Restore original source and clear old rendering before init
+        var mermaidPres = doc.querySelectorAll('pre.mermaid');
+        mermaidPres.forEach(function (el) {
+          // Get saved source
+          var source = el.getAttribute('data-mermaid-source');
+          if (source) {
+            // Clear old SVG and restore source
+            el.innerHTML = source;
+            el.removeAttribute('data-processed');
+          } else {
+            // Save source for first time
+            el.setAttribute('data-mermaid-source', el.textContent);
+          }
+        });
+        // Check current theme and initialize
+        var isDark = root.classList.contains('dark');
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: isDark ? 'dark' : 'default',
+          securityLevel: 'loose',
+          themeVariables: isDark
+            ? {
+                primaryColor: '#fbfb45',
+                primaryTextColor: '#fafafa',
+                primaryBorderColor: '#fbfb45',
+                lineColor: '#a1a1aa',
+                secondaryColor: '#27272a',
+                tertiaryColor: '#3f3f46',
+                background: '#18181b',
+                mainBkg: '#18181b',
+                nodeBorder: '#fbfb45',
+                clusterBkg: '#27272a',
+                titleColor: '#fafafa',
+                edgeLabelBackground: '#27272a',
+                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
+              }
+            : {
+                primaryColor: '#fbfb45',
+                primaryTextColor: '#18181b',
+                primaryBorderColor: '#fbfb45',
+                lineColor: '#52525b',
+                secondaryColor: '#f4f4f5',
+                tertiaryColor: '#e4e4e7',
+                background: '#fff',
+                mainBkg: '#fff',
+                nodeBorder: '#18181b',
+                clusterBkg: '#f4f4f5',
+                titleColor: '#18181b',
+                edgeLabelBackground: '#f4f4f5',
+                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif'
+              }
+        });
+        mermaid.init(undefined, '.mermaid');
       }
     });
   })();
