@@ -150,6 +150,95 @@
     background: var(--endspace-bg-secondary);
     font-weight: 700;
   }
+
+  pre.mermaid {
+    overflow-x: auto;
+    padding: 0.5rem 0;
+
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.dark #notion-article pre.mermaid svg {
+  .label,
+  text,
+  tspan,
+  span.nodeLabel,
+  foreignObject div,
+  foreignObject span,
+  .messageText,
+  .loopText,
+  .noteText,
+  .actor,
+  .classTitle,
+  .labelText {
+    fill: #e4e4e7 !important;
+    color: #e4e4e7 !important;
+  }
+
+  .node rect,
+  .node circle,
+  .node ellipse,
+  .node polygon,
+  .node path,
+  .actor,
+  .actor-man,
+  .classBox,
+  .labelBox,
+  .note,
+  .note rect,
+  .activation0,
+  .activation1,
+  .activation2,
+  .activation3,
+  .activation4,
+  .activation5,
+  .activation6,
+  .activation7 {
+    fill: #27272a !important;
+    stroke: #fbfb45 !important;
+  }
+
+  .edgePath .path,
+  .flowchart-link,
+  .marker,
+  .messageLine0,
+  .messageLine1,
+  .loopLine,
+  .sequenceNumber,
+  .relation,
+  .line {
+    stroke: #a1a1aa !important;
+  }
+
+  .arrowheadPath,
+  .marker path {
+    fill: #a1a1aa !important;
+    stroke: #a1a1aa !important;
+  }
+
+  .cluster rect,
+  .cluster polygon {
+    fill: #18181b !important;
+    stroke: #52525b !important;
+  }
+
+  .edgeLabel,
+  .labelBkg,
+  .box,
+  .label-container {
+    background: #27272a !important;
+    fill: #27272a !important;
+  }
+
+  .divider,
+  .classTitle line,
+  .separator {
+    stroke: #52525b !important;
+  }
 }
 
 // Full-width table support

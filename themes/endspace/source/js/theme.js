@@ -7,7 +7,6 @@
 
   // Shared state for swup hooks
   var headings, tocLinks, lastActive, lastPct, pctEl;
-
   function applyTheme(mode) {
     root.classList.toggle('dark', mode === 'dark');
   }
@@ -18,8 +17,8 @@
     var container = scope || doc;
     var mermaidPres = container.querySelectorAll('pre.mermaid');
     if (!mermaidPres.length) return;
-
     var isDark = root.classList.contains('dark');
+
     mermaid.initialize({
       startOnLoad: false,
       theme: isDark ? 'dark' : 'default',
@@ -88,7 +87,6 @@
     try {
       localStorage.setItem('aic-theme', next);
     } catch (_e) {}
-    rerenderMermaidBlocks(doc.getElementById('swup-content') || doc);
   }
 
   (function loadingCover() {
