@@ -626,7 +626,3 @@ classDiagram
     FlashOptions --> Flasher
     Flasher --> Logger
 ```
-
----
-
----

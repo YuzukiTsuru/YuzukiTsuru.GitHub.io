@@ -912,7 +912,3 @@ classDiagram
     FlashStages --> StageType
     ProgressReporter --> GlobalProgress
 ```
-
----
-
----

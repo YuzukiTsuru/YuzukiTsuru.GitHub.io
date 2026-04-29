@@ -608,7 +608,3 @@ graph TD
     V -.->|global| FLASH
     V -.->|global| TUI
 ```
-
----
-
----

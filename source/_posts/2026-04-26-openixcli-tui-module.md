@@ -640,7 +640,7 @@ pub fn render(frame: &mut Frame, app: &mut App) {
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│                          OpenixCLI - Firmware Flasher                     │
+│                          OpenixCLI - Firmware Flasher                    │
 ├─────────────────────────────────────────┬────────────────────────────────┤
 │                                         │                                │
 │  ┌─────────────────────────────────┐    │  ┌────────────────────────────┐│
@@ -656,13 +656,13 @@ pub fn render(frame: &mut Frame, app: &mut App) {
 │                                         │  │                            ││
 │  ┌─────────────────────────────────┐    │  └────────────────────────────┘│
 │  │       Firmware Options          │    │                                │
-│  │  Path: firmware.fex             │    │  ┌────────────────────────────┐│
+│  │  Path: firmware.fex              │    │  ┌────────────────────────────┐│
 │  │  Size: 128 MB                   │    │  │        Log View            ││
-│  │  Files: 12                      │    │  │  [INFO] Loading firmware   ││
+│  │  Files: 12                      │    │  │  [INFO] Loading firmware    ││
 │  │  Mode: Full Erase               │    │  │  [INFO] Device connected   ││
 │  │  Partitions: boot, rootfs       │    │  │  [OKAY] DRAM initialized   ││
 │  │                                 │    │  │  [WARN] Partition skipped  ││
-│  │  [Flash] Press 'f'              │    │  │  [ERRO] Transfer failed   ││
+│  │  [Flash] Press 'f'              │    │  │  [ERRO] Transfer failed    ││
 │  └─────────────────────────────────┘    │  └────────────────────────────┘│
 │                                         │                                │
 ├─────────────────────────────────────────┴────────────────────────────────┤
@@ -829,7 +829,3 @@ pub struct LogEntry {
     pub message: String,
 }
 ```
-
----
-
----
