@@ -1,3 +1,10 @@
+---
+title: libefex Payload 技术：ARM 与 RISC-V 机器码注入
+tags: ['C', '嵌入式', 'libefex', 'Payload', 'ARM', 'RISC-V']
+date: 2026-04-30 00:00:00
+permalink: /posts/libefex-payloads/
+---
+
 # libefex 架构 Payload
 
 ## Payload 技术概述

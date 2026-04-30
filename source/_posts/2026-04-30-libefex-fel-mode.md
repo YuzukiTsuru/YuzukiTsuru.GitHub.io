@@ -1,3 +1,10 @@
+---
+title: libefex FEL 模式操作详解：内存读写与代码执行
+tags: ['C', '嵌入式', 'libefex', 'FEL模式', '全志芯片']
+date: 2026-04-30 00:00:00
+permalink: /posts/libefex-fel-mode/
+---
+
 # libefex FEL 模式操作
 
 ## FEL 模式简介

@@ -1,3 +1,10 @@
+---
+title: libefex 跨平台 USB 后端：libusb 与 WinUSB 实现
+tags: ['C', '嵌入式', 'libefex', 'libusb', 'WinUSB', '跨平台']
+date: 2026-04-30 00:00:00
+permalink: /posts/libefex-usb-backend/
+---
+
 # libefex 跨平台 USB 后端
 
 ## USB 后端概述

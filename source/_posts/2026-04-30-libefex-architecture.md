@@ -1,3 +1,10 @@
+---
+title: libefex 模块架构深度解析：分层设计与核心数据结构
+tags: ['C', '嵌入式', 'libefex', '全志芯片', 'USB']
+date: 2026-04-30 00:00:00
+permalink: /posts/libefex-architecture/
+---
+
 # libefex 模块架构
 
 ## 层级架构
