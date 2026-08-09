@@ -13,7 +13,7 @@
     var p = node.querySelector(parent);
     if (!p) return [];
     return Array.prototype.map.call(p.querySelectorAll(child), function (n) {
-      return n.textContent;
+      return n.textContent.trim();
     });
   }
   function stripTags(s) {
@@ -85,7 +85,7 @@
           .slice(0, 3)
           .map(function (t) {
             return (
-              '<span class="text-[10px] text-[var(--endspace-text-muted)] bg-[var(--endspace-bg-secondary)] px-1.5 py-0.5 rounded">#' +
+              '<span class="text-[10px] text-[var(--endspace-text-muted)] bg-[var(--endspace-bg-secondary)] px-1.5 py-0.5 rounded group-hover:bg-black group-hover:text-white transition-colors">#' +
               escapeHtml(t) +
               '</span>'
             );
