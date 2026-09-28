@@ -6,7 +6,7 @@ tags: [Allwinner, RISC-V, FreeRTOS, Debug]
 
 ## 背景
 
-一块 Allwinner F101 板子(核是 T-Head C907,RV32),跑 FreeRTOS。开发时不用 boot0/SPL 从 flash 启动,而是直接用 **xfel(FES)** 和 **GDB + CKLink** 把镜像怼进内存运行。
+一块 YuzukiNeko 板(SoC 是 Allwinner F101,核是 T-Head C907,RV32),跑 FreeRTOS。开发时不用 boot0/SPL 从 flash 启动,而是直接用 **xfel(FES)** 和 **GDB + CKLink** 把镜像怼进内存运行。
 
 现象:**上电即崩,串口一行输出都没有。**
 
@@ -16,6 +16,7 @@ tags: [Allwinner, RISC-V, FreeRTOS, Debug]
 
 | 项 | 版本 |
 |---|---|
+| 板子 | YuzukiNeko(`f101s3/yuzukineko`) |
 | SoC | Allwinner F101(`AWUSBFEX ID=0x00193700`) |
 | 核 | T-Head C907,RV32ACDFIMSUVX |
 | 工具链 | XTGccElfNewlib V3.2.0 |
