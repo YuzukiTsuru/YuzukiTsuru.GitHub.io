@@ -1,6 +1,6 @@
 ---
 title: Pacman gpg 刷新
-tags: ['manjaro', 'archlinux', 'linux', 'gpg']
+tags: [Linux, DevOps]
 date: 2020-10-07 00:00:00
 ---
 

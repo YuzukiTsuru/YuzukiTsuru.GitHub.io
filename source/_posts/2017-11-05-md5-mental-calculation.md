@@ -1,6 +1,6 @@
 ---
 title: MD5口算算法
-tags: ['日志', 'blog', '博文', 'pc', '电脑']
+tags: [Algorithm]
 date: 2017-11-05 00:00:00
 ---
 

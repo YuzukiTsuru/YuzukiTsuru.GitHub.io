@@ -1,6 +1,6 @@
 ---
 title: OpenixCLI Commands 模块深度解析：设备扫描与刷写命令
-tags: ['Rust', '嵌入式', 'OpenixCLI', '设备扫描', '固件刷写']
+tags: [Embedded, Firmware, Rust, OpenixCLI]
 date: 2026-04-26 00:00:00
 permalink: /posts/openixcli-commands-module/
 ---

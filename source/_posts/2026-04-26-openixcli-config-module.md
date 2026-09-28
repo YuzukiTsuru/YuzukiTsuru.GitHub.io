@@ -1,6 +1,6 @@
 ---
 title: OpenixCLI Config 模块深度解析：Boot 头、MBR 与配置解析
-tags: ['Rust', '嵌入式', 'OpenixCLI', 'MBR', '配置解析']
+tags: [Embedded, Bootloader, Rust, OpenixCLI]
 date: 2026-04-26 00:00:00
 permalink: /posts/openixcli-config-module/
 ---

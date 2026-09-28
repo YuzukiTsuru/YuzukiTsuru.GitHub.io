@@ -1,6 +1,6 @@
 ---
 title: 从零开始构建 RISC-V 架构下的 Debian 根文件镜像
-tags: [Linux, Debian, RISC-V]
+tags: [Linux, RISC-V]
 date: 2022-05-03 00:00:00
 ---
 

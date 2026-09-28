@@ -1,6 +1,6 @@
 ---
 title: HMM决策树聚类
-tags: ['HTS', 'HMM']
+tags: ['Speech Synthesis']
 mathjax: true
 date: 2019-03-09 00:00:00
 ---

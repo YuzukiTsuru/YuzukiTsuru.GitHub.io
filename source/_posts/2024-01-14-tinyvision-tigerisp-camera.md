@@ -1,6 +1,6 @@
 ---
 title: 'TinyVision 使用 TigerISP 调整摄像头 ISP'
-tags: ['Arm', 'Allwinner', '摄像头', 'ISP']
+tags: [Allwinner, Arm, Camera]
 date: 2024-01-14 00:00:00
 ---
 

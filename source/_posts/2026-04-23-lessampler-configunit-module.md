@@ -1,6 +1,6 @@
 ---
 title: 'lessampler: ConfigUnit 模块 - 配置系统的设计'
-tags: ['lessampler', 'UTAU']
+tags: [lessampler, UTAU]
 mathjax: true
 date: 2026-04-23 00:00:00
 ---

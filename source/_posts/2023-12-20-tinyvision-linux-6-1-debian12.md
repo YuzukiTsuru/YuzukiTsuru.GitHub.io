@@ -1,6 +1,6 @@
 ---
 title: 'TinyVision 手动构建 Linux 6.1 + Debian 12 镜像'
-tags: ['Arm', 'Allwinner', '主线内核']
+tags: [Linux, Allwinner, Arm]
 date: 2023-12-20 00:00:00
 ---
 

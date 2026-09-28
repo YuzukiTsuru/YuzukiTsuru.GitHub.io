@@ -1,6 +1,6 @@
 ---
 title: '傅里叶变换？能吃吗？（一）量化，记录声音'
-tags: ['Fourier', 'FT', 'Signal']
+tags: [DSP]
 mathjax: true
 plot: true
 date: 2020-05-31 00:00:00

@@ -1,6 +1,6 @@
 ---
 title: '高考生物笔记'
-tags: [NOTE, 生物]
+tags: [Biology]
 mathjax: true
 fullTable: true
 date: 2020-07-07 00:00:00

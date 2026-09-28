@@ -1,6 +1,6 @@
 ---
 title: OpenixCLI Process 模块深度解析：进度追踪与阶段管理
-tags: ['Rust', '嵌入式', 'OpenixCLI', '进度追踪', '多线程']
+tags: [Embedded, Rust, OpenixCLI]
 date: 2026-04-26 00:00:00
 permalink: /posts/openixcli-process-module/
 ---

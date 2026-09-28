@@ -2,7 +2,7 @@
 title: 'BuildRoot 与 RasperryPi'
 cover: /images/post/2020-02-02-buildroot-raspberry-pi/cover.jpg
 date: 2020-02-02 00:00:00
-tags: [BuildRoot, RaspberryPi, Kernel, 内核]
+tags: [Linux, SoC]
 ---
 
 > Buildroot是一款使用交叉编译来简化和自动化为嵌入式系统构建完整Linux系统的过程的工具。

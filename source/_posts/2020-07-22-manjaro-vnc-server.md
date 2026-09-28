@@ -1,6 +1,6 @@
 ---
 title: 'Manjaro VNC服务器搭建'
-tags: [Manjaro, VNC, Linux, 运维]
+tags: [Linux, DevOps]
 date: 2020-07-22 00:00:00
 ---
 

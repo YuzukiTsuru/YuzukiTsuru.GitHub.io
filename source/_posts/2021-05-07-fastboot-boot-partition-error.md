@@ -1,6 +1,6 @@
 ---
 title: "fastboot 刷写 boot 分区错误 error: Couldn’t parse partition size '0x'"
-tags: ['boot', 'android', 'android-flash']
+tags: [Android]
 date: 2021-05-07 00:00:00
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: CMAKE与宏区分开发版本与发行版本
-tags: ['CMAKE', 'C++']
+tags: [C++, CMake]
 date: 2020-01-27 00:00:00
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Raspbian GUI图形配置
-tags: ['日志', 'blog', '博文', 'Raspbian', 'GUI图形配置']
+tags: [Linux]
 date: 2018-02-14 00:00:00
 ---
 

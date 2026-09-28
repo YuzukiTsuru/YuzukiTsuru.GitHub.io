@@ -1,6 +1,6 @@
 ---
 title: 'TinyVision 移植 AIC8800D80 WIFI 蓝牙驱动'
-tags: ['Arm', 'Allwinner', '主线内核', 'WIFI 驱动']
+tags: [Linux, Allwinner, Arm, WiFi]
 date: 2024-01-12 00:00:00
 ---
 

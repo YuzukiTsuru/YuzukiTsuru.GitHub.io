@@ -1,6 +1,6 @@
 ---
 title: 'TinyPower 电压刷写'
-tags: ['TinyPower', 'PMU']
+tags: [Hardware, SoC]
 date: 2024-01-25 00:00:00
 ---
 

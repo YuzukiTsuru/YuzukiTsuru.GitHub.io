@@ -1,6 +1,6 @@
 ---
 title: Winodws平板电脑安装Ubuntu
-tags: ['日志', 'blog', '博文']
+tags: [Linux, Windows]
 date: 2018-04-29 00:00:00
 ---
 

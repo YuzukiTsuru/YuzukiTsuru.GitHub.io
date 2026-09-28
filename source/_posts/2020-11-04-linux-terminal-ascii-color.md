@@ -1,6 +1,6 @@
 ---
 title: Linux 终端模拟器ASCII操作码与颜色
-tags: ['OS', 'ASCII', 'Linux']
+tags: [Linux]
 fullTable: true
 date: 2020-11-04 00:00:00
 ---

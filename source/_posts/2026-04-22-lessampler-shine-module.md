@@ -1,6 +1,6 @@
 ---
 title: 'lessampler: Shine 模块 - 合成管道与 UTAU 集成'
-tags: ['lessampler', 'UTAU']
+tags: [lessampler, UTAU]
 mathjax: true
 date: 2026-04-22 00:00:00
 ---

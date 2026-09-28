@@ -1,6 +1,6 @@
 ---
 title: lessampler 开发日记 （一）
-tags: [C++, Vector, lessampler]
+tags: [C++, lessampler]
 date: 2022-07-16 00:00:00
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: OpenixCLI Flash 模块深度解析：FEL/FES 双模式刷写引擎
-tags: ['Rust', '嵌入式', 'OpenixCLI', 'FEL', 'FES', '刷写引擎']
+tags: [Embedded, Firmware, Rust, OpenixCLI]
 date: 2026-04-26 00:00:00
 permalink: /posts/openixcli-flash-module/
 ---

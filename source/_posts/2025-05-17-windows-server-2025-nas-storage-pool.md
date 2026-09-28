@@ -1,6 +1,6 @@
 ---
 title: 'Windows Server 2025 更换 NAS 存储池中的磁盘'
-tags: ['NAS', 'Windows Server']
+tags: [Windows, NAS]
 date: 2025-05-17 00:00:00
 ---
 

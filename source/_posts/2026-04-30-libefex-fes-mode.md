@@ -1,6 +1,6 @@
 ---
 title: libefex FES 模式操作详解：闪存访问与数据传输
-tags: ['C', '嵌入式', 'libefex', 'FES模式', '全志芯片']
+tags: [Embedded, Allwinner, Firmware, C, libefex]
 date: 2026-04-30 00:00:00
 permalink: /posts/libefex-fes-mode/
 ---

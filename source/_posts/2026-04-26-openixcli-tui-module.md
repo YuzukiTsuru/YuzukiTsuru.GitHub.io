@@ -1,6 +1,6 @@
 ---
 title: OpenixCLI TUI 模块深度解析：事件驱动终端界面
-tags: ['Rust', '嵌入式', 'OpenixCLI', 'TUI', 'ratatui', '事件驱动']
+tags: [Embedded, Rust, OpenixCLI, CLI]
 date: 2026-04-26 00:00:00
 permalink: /posts/openixcli-tui-module/
 ---

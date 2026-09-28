@@ -1,6 +1,6 @@
 ---
 title: 'V85x E907 小核开发与使用'
-tags: ['Tina LInux', 'E907', 'Allwinner']
+tags: [SoC, Allwinner, 'Tina Linux']
 date: 2023-02-15 00:00:00
 ---
 

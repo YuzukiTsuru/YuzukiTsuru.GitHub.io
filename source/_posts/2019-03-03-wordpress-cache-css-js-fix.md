@@ -1,6 +1,6 @@
 ---
 title: WordPress的沙雕功能：自动缓存CSS/JS文件解决方法
-tags: [WordPress, WP, PHP, 网络]
+tags: [Web]
 date: 2019-03-03 00:00:00
 ---
 

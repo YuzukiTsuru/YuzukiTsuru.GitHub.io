@@ -1,6 +1,6 @@
 ---
 title: 保存读取 std::vector 到 binary 文件内
-tags: [C++, Vector, File]
+tags: [C++]
 date: 2022-07-03 00:00:00
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 'Lichee RV 内存小了？改到2G来玩！'
-tags: ['PCB', 'EE', 'Linux', 'Sipeed']
+tags: [Linux, Hardware, SoC]
 date: 2022-01-09 00:00:00
 ---
 

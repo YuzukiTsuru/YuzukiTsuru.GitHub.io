@@ -1,6 +1,6 @@
 ---
 title: 'MN908947.3 covid-19 Complete Genome'
-tags: [COV, SARSCOV2, GEOME]
+tags: [Biology]
 date: 2020-02-13 00:00:00
 ---
 

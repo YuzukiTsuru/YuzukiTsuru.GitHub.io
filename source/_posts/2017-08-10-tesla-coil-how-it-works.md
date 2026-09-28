@@ -1,6 +1,6 @@
 ---
 title: 闪电制造？特斯拉线圈是如何工作的。
-tags: ['tesla', 'coil', 'TC', '特斯拉线圈']
+tags: [Hardware]
 date: 2017-08-10 00:00:00
 ---
 

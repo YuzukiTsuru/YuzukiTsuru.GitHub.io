@@ -1,6 +1,6 @@
 ---
 title: '使用 LicheeRV 86 Panel 与 Tina BSP 实现 RGB 与 SPI 双屏显示'
-tags: ['Tina', 'Linux', 'LicheeRV']
+tags: [Linux, SoC, 'Tina Linux']
 date: 2022-01-31 00:00:00
 ---
 

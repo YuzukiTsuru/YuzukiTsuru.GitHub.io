@@ -1,6 +1,6 @@
 ---
 title: 'lessampler: Utils 模块 - 工具类的设计哲学'
-tags: ['lessampler', 'UTAU']
+tags: [lessampler, UTAU]
 mathjax: true
 date: 2026-04-25 00:00:00
 ---

@@ -1,6 +1,6 @@
 ---
 title: 'TinyVision 使用 SyterKit 启动 Linux 6.7 主线内核'
-tags: ['Arm', 'Allwinner', '主线内核']
+tags: [Linux, Allwinner, Arm]
 date: 2023-12-16 00:00:00
 ---
 

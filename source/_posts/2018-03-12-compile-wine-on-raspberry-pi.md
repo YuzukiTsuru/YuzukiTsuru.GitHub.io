@@ -1,6 +1,6 @@
 ---
 title: 在树莓派上编译运行wine
-tags: ['日志', 'blog', '博文']
+tags: [Linux]
 date: 2018-03-12 00:00:00
 categories: [USE]
 ---

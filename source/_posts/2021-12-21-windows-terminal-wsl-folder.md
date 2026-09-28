@@ -1,6 +1,6 @@
 ---
 title: '新版本 Windows Terminal 设置 WSL 启动文件夹'
-tags: ['Windows Terminal', 'WSL']
+tags: [WSL, Windows]
 date: 2021-12-21 00:00:00
 ---
 

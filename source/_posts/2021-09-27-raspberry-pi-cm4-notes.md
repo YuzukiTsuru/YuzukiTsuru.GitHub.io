@@ -1,6 +1,6 @@
 ---
 title: '折腾一下树莓派CM4'
-tags: ['embed', 'RaspberryPi', 'Linux', 'CM4']
+tags: [Linux, Embedded, SoC]
 date: 2021-09-27 00:00:00
 ---
 

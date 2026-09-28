@@ -1,6 +1,6 @@
 ---
 title: '在Jekyll中使用MathJax3显示数学公式'
-tags: [Mathjax, latex, web, javascript]
+tags: [JavaScript, LaTeX, Math, Web]
 date: 2020-03-13 00:00:00
 ---
 

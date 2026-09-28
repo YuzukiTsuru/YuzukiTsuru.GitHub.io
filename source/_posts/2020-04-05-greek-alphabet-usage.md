@@ -1,6 +1,6 @@
 ---
 title: '希腊字母的读法，用法'
-tags: ['Greek alphabet', 'latex', 'Greek']
+tags: [LaTeX, Math]
 mathjax: true
 fullTable: true
 date: 2020-04-05 00:00:00

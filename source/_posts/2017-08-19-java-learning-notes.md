@@ -1,6 +1,6 @@
 ---
 title: Java学习笔记
-tags: ['日志', 'blog', '博文', 'pc', '电脑', '编程', '程序', '待更新']
+tags: [Programming]
 date: 2017-08-19 00:00:00
 ---
 

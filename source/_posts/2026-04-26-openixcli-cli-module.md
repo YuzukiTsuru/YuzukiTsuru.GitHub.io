@@ -1,6 +1,6 @@
 ---
 title: OpenixCLI CLI 模块深度解析：命令行接口设计
-tags: ['Rust', '嵌入式', 'OpenixCLI', 'CLI', 'clap']
+tags: [Embedded, Rust, OpenixCLI, CLI]
 date: 2026-04-26 00:00:00
 permalink: /posts/openixcli-cli-module/
 ---

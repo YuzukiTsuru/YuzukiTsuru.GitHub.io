@@ -1,6 +1,6 @@
 ---
 title: '将编译 OBJ 链接到库，并且对库中的符号进行修改'
-tags: ['Linux', 'GCC', '编译工具链', '嵌入式开发']
+tags: [Linux, Embedded, Toolchain]
 date: 2025-11-21 00:00:00 +0800
 ---
 

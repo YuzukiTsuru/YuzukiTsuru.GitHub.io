@@ -1,6 +1,6 @@
 ---
 title: 'Tina 增加新 package: nano编辑器'
-tags: ['Tina', 'Linux']
+tags: [Linux, 'Tina Linux']
 date: 2022-01-23 00:00:00
 ---
 

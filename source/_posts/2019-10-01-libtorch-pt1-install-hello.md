@@ -1,6 +1,6 @@
 ---
 title: '编辑 Libtorch，从入门到入坟（一）安装，HelloWorld'
-tags: ['博客', '教程', 'C++', 'Libtorch']
+tags: [C++]
 date: 2019-10-01 00:00:00
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: HTS的介绍与安装
-tags: ['HTS', 'HMM']
+tags: ['Speech Synthesis']
 date: 2019-04-05 00:00:00
 ---
 

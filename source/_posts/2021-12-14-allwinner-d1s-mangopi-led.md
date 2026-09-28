@@ -1,6 +1,6 @@
 ---
 title: 'Allwinner D1s MangoPi：没资料也要点灯！！'
-tags: ['Linux', 'embed', 'RISCV']
+tags: [Linux, Embedded, RISC-V]
 date: 2021-12-14 00:00:00
 ---
 

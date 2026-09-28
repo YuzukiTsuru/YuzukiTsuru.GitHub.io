@@ -1,6 +1,6 @@
 ---
 title: Emscripten（2）使用CMAKE构建Emscripten
-tags: ['CMAKE', 'C++', 'EMSCRIPTEN']
+tags: [C++, CMake, Toolchain]
 date: 2019-07-09 00:00:00
 ---
 

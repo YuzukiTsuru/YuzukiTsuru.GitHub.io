@@ -1,6 +1,6 @@
 ---
 title: Unit-selection Speech Synthesis
-tags: ['博客', '教程', '合成', '语音合成']
+tags: ['Speech Synthesis']
 mathjax: true
 date: 2019-09-30 00:00:00
 ---

@@ -1,6 +1,6 @@
 ---
 title: 'Type C 的 CC 到底该怎么C'
-tags: ['PCB', 'EE', 'USB']
+tags: [Hardware, USB]
 mathjax: true
 date: 2022-01-08 00:00:00
 ---

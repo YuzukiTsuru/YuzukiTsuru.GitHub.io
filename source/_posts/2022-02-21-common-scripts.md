@@ -1,6 +1,6 @@
 ---
 title: '一些常用的脚本'
-tags: ['WSL', 'Linux']
+tags: [Linux, WSL]
 date: 2022-02-21 00:00:00
 ---
 

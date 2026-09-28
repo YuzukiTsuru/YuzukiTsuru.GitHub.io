@@ -1,6 +1,6 @@
 ---
 title: '自行编译 HIFI5 DSP 使用的 GCC 编译器'
-tags: ['GCC', 'HIFI5', 'Compiler']
+tags: [SoC, Toolchain]
 date: 2023-03-09 00:00:00
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: RK3588 CoreMark，GLMark2 ES2 测试
-tags: [Linux, RockChip, ARM]
+tags: [Linux, SoC, Arm]
 date: 2022-05-20 00:00:00
 ---
 

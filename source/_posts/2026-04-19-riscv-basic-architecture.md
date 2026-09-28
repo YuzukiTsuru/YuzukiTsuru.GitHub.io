@@ -1,6 +1,6 @@
 ---
 title: 'RISC-V 基础体系架构'
-tags: ['RISC-V', 'ISA']
+tags: [RISC-V]
 date: 2026-04-19 00:00:00
 ---
 

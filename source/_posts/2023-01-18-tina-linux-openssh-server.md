@@ -1,6 +1,6 @@
 ---
 title: 'Tina LInux 启用 OpenSSH Server'
-tags: ['Tina LInux', 'SSH', 'Allwinner']
+tags: [DevOps, Allwinner, 'Tina Linux']
 date: 2023-01-18 00:00:00
 ---
 

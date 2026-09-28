@@ -1,6 +1,6 @@
 ---
 title: leetcode学习：旋转数组
-tags: ['算法', 'C++']
+tags: [C++, Algorithm]
 date: 2020-10-19 00:00:00
 ---
 

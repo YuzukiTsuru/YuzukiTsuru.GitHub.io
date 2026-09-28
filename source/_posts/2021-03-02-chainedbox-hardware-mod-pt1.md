@@ -1,6 +1,6 @@
 ---
 title: Chainedbox 我家云硬改系统制作修改（一）拆机与串口
-tags: ['NAS', 'Linux', 'Chainedbox']
+tags: [Linux, NAS]
 date: 2021-03-02 00:00:00
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 'TinyVision V851 使用 AWOL Tina Linux 支持 OpenCV 开启摄像头'
-tags: ['Arm', 'Allwinner', 'OpenCV', 'Camera']
+tags: [Allwinner, Arm, Camera, OpenCV]
 date: 2024-01-21 00:00:00
 ---
 

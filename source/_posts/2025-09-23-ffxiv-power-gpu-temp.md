@@ -1,6 +1,6 @@
 ---
 title: 'FFXIV 功耗优化与显卡温度曲线'
-tags: ['Game', 'Windows']
+tags: [Windows, Game]
 date: 2025-09-23 00:00:00
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Manjaro | ArchLinux 设置CPU调速
-tags: ['博客', '教程', 'Manjaro']
+tags: [Linux]
 date: 2019-10-30 00:00:00
 ---
 

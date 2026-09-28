@@ -1,6 +1,6 @@
 ---
 title: 「VOCALOID2 ライブラリインポート」について
-tags: ['日志', 'blog', '博文', 'pc', '电脑', 'vocaloid', '鏡音リンレン']
+tags: [UTAU]
 date: 2017-12-17 00:00:00
 ---
 

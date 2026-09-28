@@ -1,7 +1,7 @@
 ---
 title: OpenixCLI 刷机流程重构：把散落的拼图拼回去
 date: 2026-05-30 00:00:00
-tags: [Rust, OpenixCLI, 重构]
+tags: [Rust, OpenixCLI]
 ---
 
 ## 从一个 README 错误说起

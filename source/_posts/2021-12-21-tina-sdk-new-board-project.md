@@ -1,6 +1,6 @@
 ---
 title: 'Allwinner Tina SDK 新增板级项目'
-tags: ['Linux', 'Tina', 'Allwinner']
+tags: [Linux, Allwinner, 'Tina Linux']
 date: 2021-12-21 00:00:00
 ---
 

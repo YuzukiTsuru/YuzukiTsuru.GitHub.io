@@ -1,6 +1,6 @@
 ---
 title: OpenixCLI Firmware 模块深度解析：IMAGEWTY 固件格式解析
-tags: ['Rust', '嵌入式', 'OpenixCLI', '固件', 'Allwinner']
+tags: [Embedded, Allwinner, Firmware, Rust, OpenixCLI]
 date: 2026-04-26 00:00:00
 permalink: /posts/openixcli-firmware-module/
 ---

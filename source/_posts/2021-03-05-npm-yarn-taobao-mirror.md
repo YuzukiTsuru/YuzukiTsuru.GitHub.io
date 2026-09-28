@@ -1,6 +1,6 @@
 ---
 title: npm yarn 设置淘宝镜像源
-tags: ['npm', 'yarn', 'nodejs']
+tags: [JavaScript]
 date: 2021-03-05 00:00:00
 ---
 

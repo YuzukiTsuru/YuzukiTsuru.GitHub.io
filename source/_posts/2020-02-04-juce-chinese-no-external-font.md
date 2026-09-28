@@ -2,7 +2,7 @@
 title: 'JUCE类库使用中文且不增加自带字库'
 cover: /images/post/2020-02-04-juce-chinese-no-external-font/juce.jpg
 date: 2020-02-04 00:00:00
-tags: [JUCE, C++, IOS, macOS, Windows, Linux]
+tags: [Linux, Windows, macOS, C++, JUCE]
 ---
 
 在使用JUCE的时候，i18n字体是一个大问题，由于JUCE使用的 `CharPointer_ASCII()` 只能接受127位的字符，中文这样的大胖子就不可能了。

@@ -1,6 +1,6 @@
 ---
 title: Python 中使用PySerial串口通信向串口发送十六进制通信指令
-tags: ['算法', 'Python', 'Serial']
+tags: [USB, Python, Algorithm]
 date: 2020-10-25 00:00:00
 ---
 

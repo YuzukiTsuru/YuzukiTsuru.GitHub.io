@@ -1,6 +1,6 @@
 ---
 title: 'YuzukiXR806 使用 FreeRTOS 开发运行Hello Demo'
-tags: ['XR806', 'FreeRTOS']
+tags: [SoC, FreeRTOS]
 date: 2022-04-10 00:00:00
 ---
 

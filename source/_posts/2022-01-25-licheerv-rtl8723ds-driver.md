@@ -1,6 +1,6 @@
 ---
 title: 'D1 LicheeRV Dock 移植RTL8723DS驱动'
-tags: ['Tina', 'Linux']
+tags: [Linux, 'Tina Linux']
 date: 2022-01-25 00:00:00
 ---
 

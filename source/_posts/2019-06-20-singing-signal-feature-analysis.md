@@ -1,6 +1,6 @@
 ---
 title: 歌声信号特征分析与对比语音信号
-tags: ['歌声合成', '歌声分析', 'DSP', '音频分析']
+tags: [DSP, 'Speech Synthesis']
 mathjax: true
 date: 2019-06-20 00:00:00
 ---

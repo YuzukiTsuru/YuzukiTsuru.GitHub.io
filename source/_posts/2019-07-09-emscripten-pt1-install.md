@@ -1,6 +1,6 @@
 ---
 title: Emscripten（1）安装 & 运行第一个程序
-tags: ['CMAKE', 'C++', 'EMSCRIPTEN']
+tags: [C++, CMake, Toolchain]
 date: 2019-07-09 00:00:00
 ---
 

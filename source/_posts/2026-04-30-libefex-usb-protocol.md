@@ -1,6 +1,6 @@
 ---
 title: libefex USB 协议层详解：数据包结构与通信流程
-tags: ['C', '嵌入式', 'libefex', 'USB协议', '全志芯片']
+tags: [Embedded, Allwinner, USB, C, libefex]
 date: 2026-04-30 00:00:00
 permalink: /posts/libefex-usb-protocol/
 ---

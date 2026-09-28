@@ -1,6 +1,6 @@
 ---
 title: OpenixCLI Utils 模块深度解析：错误处理与日志系统
-tags: ['Rust', '嵌入式', 'OpenixCLI', '错误处理', '日志系统']
+tags: [Embedded, Rust, OpenixCLI]
 date: 2026-04-26 00:00:00
 permalink: /posts/openixcli-utils-module/
 ---

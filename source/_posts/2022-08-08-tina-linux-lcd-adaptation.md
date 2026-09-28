@@ -1,6 +1,6 @@
 ---
 title: 'Tina Linux 框架下的 LCD 屏幕适配'
-tags: ['Linux', 'Tina Linux', 'Allwinner']
+tags: [Linux, Allwinner, 'Tina Linux']
 date: 2022-08-08 00:00:00
 ---
 

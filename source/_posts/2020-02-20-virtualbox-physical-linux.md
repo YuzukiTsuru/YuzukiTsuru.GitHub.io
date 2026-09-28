@@ -1,6 +1,6 @@
 ---
 title: '在Windows上使用VirtualBox虚拟机启动物理硬盘上的Linux系统'
-tags: [VM, LINUX, GEOME]
+tags: [Linux, DevOps, Biology]
 date: 2020-02-20 00:00:00
 ---
 

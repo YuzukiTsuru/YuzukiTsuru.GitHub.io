@@ -1,6 +1,6 @@
 ---
 title: php的24点计算器
-tags: ['日志', 'blog', '博文']
+tags: [Web, Algorithm]
 date: 2018-06-19 00:00:00
 ---
 

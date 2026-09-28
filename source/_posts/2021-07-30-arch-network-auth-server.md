@@ -1,6 +1,6 @@
 ---
 title: 'Arch Linux 修改网络验证服务器与强制禁用网络验证'
-tags: ['Arch Linux', 'Manjaro', 'Linux']
+tags: [Linux]
 date: 2021-07-30 00:00:00
 ---
 

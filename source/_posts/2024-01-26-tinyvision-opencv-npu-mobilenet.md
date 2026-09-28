@@ -1,6 +1,6 @@
 ---
 title: 'TinyVision V851s 使用 OpenCV + NPU 实现 Mobilenet v2 目标分类识别'
-tags: ['TinyVision', 'NPU', 'OpenCV']
+tags: [SoC, OpenCV]
 date: 2024-01-26 00:00:00
 ---
 

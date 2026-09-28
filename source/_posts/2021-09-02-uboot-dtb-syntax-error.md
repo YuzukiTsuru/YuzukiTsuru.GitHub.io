@@ -1,6 +1,6 @@
 ---
 title: '编译U-Boot DTB 时报错 syntax error; FATAL ERROR: Unable to parse input tree'
-tags: ['embed', 'U-Boot', 'Linux']
+tags: [Linux, Embedded, Bootloader]
 date: 2021-09-02 00:00:00
 ---
 

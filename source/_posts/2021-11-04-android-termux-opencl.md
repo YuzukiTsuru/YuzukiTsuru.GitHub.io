@@ -1,6 +1,6 @@
 ---
 title: 'Android 平台使用 Termux 运行 OpenCL'
-tags: ['OpenCL', 'Android', 'Termux']
+tags: [Android, OpenCL]
 date: 2021-11-04 00:00:00
 ---
 

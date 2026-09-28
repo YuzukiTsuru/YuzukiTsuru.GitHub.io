@@ -1,6 +1,6 @@
 ---
 title: 'lessampler: FileIO 模块 - 音频模型的存储与加载'
-tags: ['lessampler', 'UTAU']
+tags: [lessampler, UTAU]
 mathjax: true
 date: 2026-04-24 00:00:00
 ---

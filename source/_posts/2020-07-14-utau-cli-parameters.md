@@ -1,6 +1,6 @@
 ---
 title: 'UTAU命令行参数'
-tags: [UTAU, C++, UTAUDEV]
+tags: [C++, UTAU]
 date: 2020-07-14 00:00:00
 ---
 

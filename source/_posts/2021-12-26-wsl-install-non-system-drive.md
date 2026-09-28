@@ -1,6 +1,6 @@
 ---
 title: 'Windows 安装WSL到非系统盘'
-tags: ['Linux', 'WSL', 'Windows']
+tags: [Linux, WSL, Windows]
 mathjax: true
 date: 2021-12-26 00:00:00
 ---

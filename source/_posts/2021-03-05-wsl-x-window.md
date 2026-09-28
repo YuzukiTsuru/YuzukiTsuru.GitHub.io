@@ -1,6 +1,6 @@
 ---
 title: WSL(1 | 2) 访问 X Window
-tags: ['wsl', 'xserver', 'linux']
+tags: [Linux, WSL, DevOps]
 date: 2021-03-05 00:00:00
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: electron v11后，已经使用 nodeIntegration 但是报错未定义require
-tags: ['JS', 'electron', 'javascript']
+tags: [JavaScript]
 date: 2021-05-29 00:00:00
 ---
 

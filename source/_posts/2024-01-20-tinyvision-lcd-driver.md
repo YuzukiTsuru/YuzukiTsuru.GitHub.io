@@ -1,6 +1,6 @@
 ---
 title: 'TinyVision LCD 模块驱动适配'
-tags: ['Arm', 'Allwinner', 'ST7789V', 'LCD']
+tags: [Allwinner, Arm, Display]
 date: 2024-01-20 00:00:00
 ---
 

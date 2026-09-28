@@ -1,7 +1,7 @@
 ---
 title: dt2c：把设备树交给 C 编译器
 date: 2026-08-09 00:00:00
-tags: [Rust, DTS, dt2c]
+tags: [Rust, DTS]
 ---
 
 # dt2c：把固定设备树交给 C 编译器

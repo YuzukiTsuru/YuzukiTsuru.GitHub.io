@@ -1,6 +1,6 @@
 ---
 title: 'TinyMaix 在 XR806 上移植适配'
-tags: ['Arm-Cortex m33', 'FreeRTOS', 'Allwinner']
+tags: [Allwinner, Arm, FreeRTOS]
 date: 2022-09-19 00:00:00
 ---
 

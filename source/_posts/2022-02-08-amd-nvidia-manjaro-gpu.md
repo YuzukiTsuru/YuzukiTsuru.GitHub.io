@@ -1,6 +1,6 @@
 ---
 title: 'AMD + Nvidia 在 Manjaro 上配置显卡使得可以在独显模式下使用？'
-tags: ['Linux', '硬件', 'Manjaro']
+tags: [Linux, Hardware]
 date: 2022-02-08 00:00:00
 ---
 

@@ -64,7 +64,11 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
+# slugize('C++') and slugize('C') both produce "C", so the two tags would
+# generate the same path (tags/C/) and one archive page would overwrite the
+# other. Give C++ its own slug so both archives exist.
 tag_map:
+  'C++': cpp
 
 # Metadata elements
 meta_generator: true
