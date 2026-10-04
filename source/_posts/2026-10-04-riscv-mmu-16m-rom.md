@@ -284,15 +284,15 @@ ROM 窗口是数据,所以可以用这个办法。
 ```mermaid
 stateDiagram-v2
     direction LR
-    [*] --> 线程运行: 新线程的初始 mstatus 带 MPRV
-    state "线程运行, MPRV=1 MPP=U, 数据访存翻译" as 线程运行
-    state "陷入, MPP=M, 数据访存不翻译" as 陷入
-    state "缺页处理中, MPP 被改成 U, 数据访存翻译" as 缺页处理
-    线程运行 --> 陷入: 中断或异常, 硬件写入 MPP=M
-    陷入 --> 线程运行: mret, 硬件写入 MPP=U
-    陷入 --> 缺页处理: 软件清除 MPP, 为了访问非 1:1 的 scratch 页
-    缺页处理 --> 陷入: 软件把 MPP 设回 M
-    陷入 --> 线程运行: 上下文切换, z_riscv_switch 清 MPP
+    state "线程运行<br/>MPRV 为 1 且 MPP 为 U<br/>数据访存翻译" as Thread
+    state "陷入<br/>MPP 为 M<br/>数据访存不翻译" as Trap
+    state "缺页处理中<br/>MPP 被改成 U<br/>数据访存翻译" as Fault
+    [*] --> Thread: 新线程的初始 mstatus 带 MPRV
+    Thread --> Trap: 中断或异常，硬件写入 MPP 为 M
+    Trap --> Thread: mret，硬件写入 MPP 为 U
+    Trap --> Fault: 软件清除 MPP，为了访问非直接映射的 scratch 页
+    Fault --> Trap: 软件把 MPP 设回 M
+    Trap --> Thread: 上下文切换，z_riscv_switch 清 MPP
 ```
 
 这有三个重要后果,**后面几乎所有的坑都来自这里**:

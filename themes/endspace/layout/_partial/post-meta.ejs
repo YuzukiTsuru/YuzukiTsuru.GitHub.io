@@ -54,11 +54,11 @@ post.length : (post.content ? String(post.content).replace(/<[^>]+>/g, '').lengt
         >
       </div>
       <% if (tagItems.length) { %>
-      <div class="flex items-center gap-2 ml-auto">
+      <div class="flex flex-wrap items-center gap-2 ml-auto">
         <% tagItems.forEach(function(t){ %>
         <a
           href="<%- url_for(t.path) %>"
-          class="px-2 py-1 bg-[var(--endspace-bg-secondary)] text-[var(--endspace-text-secondary)] text-xs rounded hover:bg-[var(--endspace-text-primary)] hover:text-white transition-colors"
+          class="whitespace-nowrap px-2 py-1 bg-[var(--endspace-bg-secondary)] text-[var(--endspace-text-secondary)] text-xs rounded hover:bg-[var(--endspace-text-primary)] hover:text-white transition-colors"
         >
           #<%= t.name.toUpperCase() %>
         </a>
