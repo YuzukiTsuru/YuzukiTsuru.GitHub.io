@@ -1,10 +1,10 @@
 ---
-title: 在没有 OpenSBI 的 RISC-V 板子上给 Zephyr 加上 MMU 和请求调页
+title: 在没有 SBI 的 RISC-V 板子上给 Zephyr 加上 MMU 和请求调页
 date: 2026-10-04 00:00:00
 tags: [Zephyr, MMU, RISC-V, Linker, Allwinner, F101]
 ---
 
-板子:YuzukiNeko (平头哥 C907,rv32imafdcv),16 MB PSRAM,没有 OpenSBI,内核跑在 M 态。
+板子:YuzukiNeko (平头哥 C907,rv32imafdcv),16 MB PSRAM,没有 SBI,内核跑在 M 态。
 
 想做的事:让 mGBA 模拟器直接把一个 16 MiB 的 GBA 游戏 ROM 当作"一块 16 MiB 的内存"来读,而这块板子一共只有 16 MB 内存。
 
@@ -156,7 +156,7 @@ pie showData title 16 MB PSRAM 的实际用法(分页配置)
 
 | 约束 | 后果 |
 |---|---|
-| **没有 OpenSBI。** 用 xfel 把程序送进 RAM 然后 `exec`,CPU 此时在 **M 态**(机器态)。 | 内核只能跑在 M 态,不能用常见的"S 态内核 + SBI"方案。"最难的一关"那一节专门讲这个。 |
+| **没有 SBI。** 用 xfel 把程序送进 RAM 然后 `exec`,CPU 此时在 **M 态**(机器态)。 | 内核只能跑在 M 态,不能用常见的"S 态内核 + SBI"方案。"最难的一关"那一节专门讲这个。 |
 | M 态下,**指令取指**永远不经过页表翻译。 | 代码不能换页,整个程序镜像要常驻内存。 |
 | 核内外设 **CLINT、PLIC** 只接受 M 态访问。 | 经过页表翻译的访问会被它们拒绝,要给它们专门的"不翻译"读写函数。 |
 | 驱动里大量把**缓冲区指针直接当总线地址**(SD 卡、DMA、显示)。 | 凡是给硬件用的内存必须是虚拟地址等于物理地址(1:1)。 |
@@ -229,7 +229,7 @@ flowchart TD
 
 ---
 
-## 最难的一关:没有 OpenSBI,M 态内核怎么用 MMU
+## 最难的一关:没有 SBI,M 态内核怎么用 MMU
 
 ### 问题
 
@@ -237,13 +237,13 @@ RISC-V 有三种特权级:
 
 | 特权级 | 名字 | 典型用途 |
 |---|---|---|
-| M | 机器态 | 最高权限,固件(OpenSBI)跑在这里 |
+| M | 机器态 | 最高权限,固件(SBI)跑在这里 |
 | S | 监督态 | 操作系统内核跑在这里 |
 | U | 用户态 | 应用程序 |
 
-Linux 等系统的标准布局是:OpenSBI 在 M 态,内核在 S 态,应用在 U 态。MMU(`satp`、页表)是**给 S 态和 U 态用的**。
+Linux 等系统的标准布局是:SBI 在 M 态,内核在 S 态,应用在 U 态。MMU(`satp`、页表)是**给 S 态和 U 态用的**。
 
-但这块板子没有 OpenSBI:xfel 把代码送进 RAM 然后跳过去,CPU 就停在 M 态。而 RISC-V 规范里有一条很关键的规定:
+但这块板子没有 SBI:xfel 把代码送进 RAM 然后跳过去,CPU 就停在 M 态。而 RISC-V 规范里有一条很关键的规定:
 
 > **M 态的取指和普通访存不经过页表翻译。**
 
